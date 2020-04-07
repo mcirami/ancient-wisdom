@@ -1,0 +1,292 @@
+.home_section {
+
+	.hero {
+		background-size: cover;
+		text-align: center;
+		padding: 13% 0;
+		
+		@include media($tablet){
+			padding: 16% 0 10%;
+			background-size: cover !important;
+			background-position: top !important;
+		}
+		
+		@include media($mobile){
+			padding: 55px 0;
+		}
+			
+		.ie10 {
+			top: -1px;
+		}
+		
+		h2 {
+			@include fefcsc2;
+			font-size: 45px;
+			text-transform: uppercase;
+			text-shadow: 1px 4px 2px rgba(0, 0, 0, 1);
+			color: $yellow;
+			
+			@include media($tablet){
+				font-size: 4.3vw;
+			}
+			
+			@include media($mobile){
+				font-size: 4.2vw;
+				margin-top: 40px;
+				line-height: 1.2;
+			}
+			
+			@include media($smallMobile){
+				font-size: 6.4vw;
+			}
+		}
+		
+		h3 {
+			font-size: 45px;
+			font-weight: lighter;
+			margin: 35px 0;
+			text-shadow: 1px 4px 2px rgba(0, 0, 0, 1);
+			
+			@include media($tablet){
+				font-size: 4.6vw;
+			}
+			
+			@include media($mobile){
+				font-size: 24px;
+				margin: 10px 0 20px;
+			}
+			
+			@include media($smallMobile){
+				font-size: 6.4vw;
+			}
+		}
+	}
+	
+	.intro_text {
+		background: $beige;
+		padding: 40px 0;
+
+		@include media($mobile) {
+			margin-bottom: 10px;
+			padding: 20px 0;
+		}
+
+		.content_wrap {
+			color: $black;
+			text-align: center;
+
+			h3 {
+				font-size: 24px;
+				margin: 5px 0;
+				line-height: 2;
+
+				@include media($tablet) {
+					font-size: 22px;
+				}
+
+				@include media($mobile) {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+	
+	.about_section {
+		background: $white;
+		padding: 60px 0 80px;
+		color: $black;
+		
+		@include media($mobile){
+			padding: 40px 0 20px;
+		}
+		
+		.column {
+			@include span-columns(6);
+			
+			@include media($mobile){
+				@include span-columns(4);
+				margin-bottom: 20px;
+			}
+			
+			&:last-child {
+				@include media($mobile){
+					margin-top: 40px;
+				}
+			}
+			
+			h2 {
+				margin-bottom: 30px;
+				font-size: 30px;
+				
+				@include media($tablet){
+					font-size: 26px;
+				}
+				
+				@include media($smallMobile){
+					font-size: 6vw;
+					margin-bottom: 20px;
+				}
+				
+				@include media($smallMobile){
+					font-size: 5.5vw;
+					margin-bottom: 10px;
+				}
+			}
+			
+			p {
+				line-height: 2;
+				
+				@include media($tablet){
+					font-size: 14px;
+				}
+				
+				@include media($mobile){
+					font-size: 12px;
+				}
+				
+				&.bold {
+					@include latobold;
+					margin-top: 20px;
+					
+					&.mobile {
+						display: none;
+						
+						@include media($mobile){
+							display: block;
+						}
+					}
+					
+					&.desktop {
+						@include media($mobile){
+							display: none;
+						}
+					}
+				}
+			}
+		}
+		
+		form {
+			width: 95%;
+			float: left;
+			padding-left: 10px;
+			
+			img {
+				width: auto;
+			}
+			
+			@include media($mobile){
+				width: 100%;
+			}
+			
+			&:before {
+				content: '';
+				width: 102%;
+				height: 111%;
+				background: rgba(0,0,0,.1);
+				top: -8px;
+				left: -2px;
+				position: absolute;
+				border-radius: 4px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				
+				@include media($tablet){
+					width: 100%;
+					left: -0.5%;
+					top: -9px;
+				}
+				
+				@include media($mobile){
+					left: 0;
+				}
+				
+				@include media($smallMobile){
+					top: -7px;
+				}
+			}
+		}
+		
+		.email {
+			width: 72%;
+			display: inline-block;
+			
+			@include media($tablet){
+				width: 69%;
+			}
+			
+			@include media($mobile){
+				width: 80%;
+			}
+			
+			@include media($smallMobile){
+				width: 66%;
+			}
+		}
+		
+		input[type="email"] {
+			height: 44px;
+			
+			@include media($tablet){
+				font-size: 16px;
+				padding: 15px;
+			}
+			
+			@include media($mobile){
+				height: 40px;
+				padding: 10px;
+			}
+			
+			@include media($smallMobile){
+				height: 35px;
+			}
+		}
+		
+		.submit {
+			width: 27%;
+			display: inline-block;
+			
+			@include media($tablet){
+				width: 28%;
+			}
+			
+			@include media($mobile){
+				width: 18%;
+			}
+			
+			@include media($smallMobile){
+				width: 31%;
+			}
+		}
+		
+		input[type="submit"] {
+			width: 100%;
+			@include latoreg;
+			font-size: 18px;
+			color: $white;
+			height: 45px;
+			margin-left: -5px;
+			top: 0;
+			
+			@include media($tablet){
+				font-size: 16px;
+			}
+			
+			@include media($mobile){
+				font-size: 14px;
+				height: 40px;
+				top: -1px;
+			}
+			
+			@include media($smallMobile){
+				font-size: 12px;
+				height: 35px;
+				top: -2px;
+			}
+		}
+	}
+}
+
+.mc4wp-response {
+	position: absolute !important;
+	width: 100% !important;
+}

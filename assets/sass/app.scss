@@ -1,0 +1,51 @@
+
+// Fonts
+//@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+@import './bootstrap/scss/bootstrap';
+@import "libs/bourbon/bourbon";
+@import "libs/neat/neat";
+@import "libs/normalize";
+
+// Variables
+@import "variables";
+// partials
+// @import "libs/animate"; // big lib add if needed
+@import "partials/grid";
+@import "partials/colors";
+@import "partials/extends";
+@import "partials/mixins";
+@import "partials/base";
+@import "partials/typography";
+@import "partials/layouts";
+//@import "partials/construction";
+
+// site elements add more as site grows in complexity
+@import "elements/standard";
+@import "elements/header";
+@import "elements/home";
+@import "elements/footer";
+
+//@import "elements/sidebar";
+/*@import "elements/premember";
+@import "elements/free-lessons";
+@import "elements/member-lessons";
+@import "elements/passions";
+@import "elements/contact-us";
+@import "elements/member";
+@import "elements/forum";
+@import "elements/forms";
+@import "elements/member-home";
+@import "elements/tml";
+@import "elements/mailbox";
+@import "elements/single-lesson";
+@import "elements/testimonials";
+@import "elements/video-submit";
+@import "elements/live-stream";*/
+
+// Import shame last. For quick fixes that will be worked into proper elements later.
+@import "elements/shame";
+
