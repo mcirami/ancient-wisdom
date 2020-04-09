@@ -42,7 +42,7 @@ get_header(); ?>
 
 			if($videosHeader) : ?>
 
-				<section class="intro_text row" id="videos">
+				<section class="intro_text row" id="free_lessons">
 					<article class="col-12">
 						<div class="container">
 							<?php /*$quoteBackground = get_field('quote_section_background_image'); */?>

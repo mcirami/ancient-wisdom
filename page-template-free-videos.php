@@ -12,6 +12,8 @@
 */
 get_header(); ?>
 
+	<?php get_template_part( 'content', 'page-header' ); ?>
+
 	<?php get_template_part( 'content', 'free-videos' ); ?>
 
 <?php get_footer(); ?>

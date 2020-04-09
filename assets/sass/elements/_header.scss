@@ -113,7 +113,7 @@ header {
 					
 					&.current_page_item {
 						a {
-							color: $yellow;
+							color: $blue;
 						}
 					}
 					
@@ -132,7 +132,7 @@ header {
                         }
 						
 						&:hover {
-							color: $yellow;
+							color: $darkBlue;
 						}
 						
 						@include media($tablet){
@@ -149,6 +149,10 @@ header {
 							-moz-border-radius: 30px;
 							color: $black;
 							background: $blue;
+
+							&:hover {
+								background: $darkBlue;
+							}
 						}
 					}
 				}
@@ -650,22 +654,35 @@ ul.member_menu {
 	}
 }
 
-.fancybox-skin {
-	padding: 0 !important;
-}
+.page_header {
+	color: $black;
+	padding-top: 100px;
 
-.fancybox-inner {
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	
-	@include media($mobile){
-		height: 300px !important;
+	.page_title {
+		font-size: 54px;
+		line-height: 1.4;
+		margin-bottom: 5px;
 	}
-}
 
-.fancybox-slide {
-    padding: 0 20px !important;
+	.blue_line {
+		height: 5px;
+		width:10%;
+		background: $blue;
+		display: block;
+		margin: 0 auto 40px;
+	}
+
+	.page_description {
+		font-size: 22px;
+		line-height: 1.6;
+		margin-bottom:40px;
+		padding: 0 10%;
+
+		span {
+			color: $blue;
+			@include latobold;
+		}
+	}
 }
 
 #email_join {

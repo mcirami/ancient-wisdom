@@ -88,7 +88,7 @@ function html5blank_nav()
 }
 
 // Load HTML5 Blank scripts (header.php)
-function html5blank_header_scripts()
+function my_enqueue_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
@@ -101,10 +101,20 @@ function html5blank_header_scripts()
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
 
-	    wp_register_script('app-js', get_template_directory_uri() . '/js/app.min.js', array('jquery'), '1.0.0'); // Custom scripts
+	    wp_register_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '4.4.0', true); // Custom scripts
+	    wp_enqueue_script('bootstrap-js'); // Enqueue it!
+
+	    wp_register_script('app-js', get_template_directory_uri() . '/js/app.min.js', array('jquery'), '1.0.0', true); // Custom scripts
 	    wp_enqueue_script('app-js'); // Enqueue it!
+
+	    wp_localize_script('app-js', 'my_script_vars', array(
+			    'pageTitle' =>  get_the_title(),
+			    'home' => get_home_url()
+		    )
+	    );
     }
 }
+add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts' );
 
 // Load HTML5 Blank conditional scripts
 function html5blank_conditional_scripts()
@@ -343,7 +353,7 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
+//add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet

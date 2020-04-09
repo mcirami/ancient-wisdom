@@ -1,171 +1,90 @@
-.testimonials {
-	
-	.top_section {
-		background: url('../images/testimonials-background.jpg') no-repeat;
-		background-size: cover;
-		background-position: center center;
-		text-align: center;
-		padding: 7% 0 13%;
-		
-		@include media($tablet){
-			padding: 7% 0 18%;
+.video_text_slider {
+	@include latobold;
+	background: url('../images/testimonials-video-bg.jpg') no-repeat;
+	background-size: cover;
+	padding: 60px 0;
+
+	p {
+		font-size: 22px;
+		line-height: 1.6;
+	}
+
+	h4 {
+		color:$blue;
+		font-size: 18px;
+		font-style: italic;
+	}
+
+	.carousel-indicators {
+		right: -80px;
+
+		li {
+			width: 10px;
+			height:10px;
+			background-color: transparent;
+			background-clip: padding-box;
+			border: 3px solid $blue;
+			border-radius: 50px;
+			-webkit-border-radius: 50px;
+			-moz-border-radius: 50px;
 		}
+	}
+}
+
+.text_slider {
+	color: $black;
+	padding: 60px 0;
+
+	.carousel-inner {
+		padding: 40px;
+	}
+
+	.carousel-control-next-icon {
+		background-image: url("../images/slider-right-arrow.png");
+		width: 30px;
+		height: 40px;
+	}
+
+	.carousel-control-prev-icon {
+		background-image: url("../images/slider-left-arrow.png");
+		width: 30px;
+		height: 40px;
+	}
+
+	.carousel-control-prev, .carousel-control-next {
+		width: 5%;
+	}
+
+	.sr-only, .sr-only-focusable:not(:focus) {
+		width: 25px !important;
+		height: 40px !important;
+	}
+
+	h4 {
+		font-style: italic;
+		font-size: 18px;
+		color:$blue;
+	}
+
+	.text_box {
+		padding: 50px 40px 100px 15px;
+		-webkit-box-shadow: 0 0 30px -8px rgba(173,173,173,1);
+		-moz-box-shadow: 0 0 30px -8px rgba(173,173,173,1);
+		box-shadow: 0 0 30px -8px rgba(173,173,173,1);
 
 		p {
-			font-family: 'robotolight', sans-serif;
 			font-size: 22px;
-			line-height: 2;
-			color: $black;
-			padding: 0 2%;
-			
-			@include media($mobile){
-				font-size: 18px;
-				line-height: 1.4;
-				padding: 0;
-			}
-		}
-	}
+			line-height: 1.6;
 
-	.testimonials_content {
-		padding: 40px 0 12%;
-		margin-top: -164px;
-		
-		@include media($mobile){
-			margin-top: -90px;
-		}
-	}
-
-	.row {
-		background: $white;
-		border-top: 1px solid #e1e1e1;
-		border-left: 1px solid #e1e1e1;
-		border-right: 1px solid #e1e1e1;
-		border-bottom: 4px solid #e1e1e1;
-		padding: 20px;
-		margin-bottom: 20px;
-		
-		@include media($mobile){
-			display: table;
-		}
-
-		.column_one {
-			width: 3.17215%;
-			float: left;
-			margin-right: 1.35765%;
-			padding-top: 6px;
-			
-			@include media($mobile){
-				width: 7.17215%;
-				margin-right: 2.35765%;
-				padding-top: 6px;
-				max-width: 34px;
-			}
-		}
-
-		.column_two {
-			width: 81.88078%;
-			float: left;
-			margin-right: 1.2%;
-			
-			@include media($mobile){
-				width: 89.88078%;
-				margin-right: 0;
-			}
-			
-			.quote_info {
-				@include media($mobile){
-					text-align: center;
-				}
-			}
-			
-			.text_wrap {
-				@include span-columns(12);
-				
-				@include media($mobile){
-					display: inline-block;
-					float: none;
-				}
-			}
-
-			p {
-				font-family: 'robotoregular', sans-serif;
-				color: $grayText;
-				line-height: 2;
-
-				span {
-					font-family: 'robotoregular', sans-serif;
-					padding: 0 5px;
-				}
-
-				&.name {
-					font-family: 'robotoitalic', sans-serif;
-					color: $black;
-					float: left;
-					line-height: 1;
-					
-					@include media($mobile){
-						float: none;
-						display: inline-block;
-					}
-				}
-
-				&.date {
-					font-family: 'robotoitalic', sans-serif;
-					float: left;
-					color: $red;
-					line-height: 1;
-					
-					@include media($mobile){
-						float: none;
-						display: inline-block;
-					}
-				}
-			}
-			
-			.image_wrap {
-				display: none;
-				
-				@include media($mobile){
-					display: inline-block;
-				}
-			}
-		}
-
-		.column_three {
-			width: 12.23176%;
-			float: left;
-			
-			@include media($mobile){
-				display: none;
-			}
-		}
-	}
-
-	.button_wrap {
-		@include span-columns(12);
-		text-align: center;
-		margin: 30px 0 50px;
-		
-		.button {
-			font-family: 'robotobold', sans-serif;
-			font-size: 30px;
-			padding: 7px 5%;
-			text-transform: uppercase;
-			color: $white;
-			text-shadow: 2px 1px 1px rgba(155,155,155,1);
-			
-			@include media($tablet){
-				padding: 14px 5%;
-				display: block;
-				line-height: 1;
-			}
-			
-			@include media($mobile){
-				font-size: 22px;
-			}
-			
-			@include media($smallMobile){
-				font-size: 5.5vw;
+			&:before {
+				content: '';
+				background: url("../images/icon-quotes.png") no-repeat;
+				position: absolute;
+				background-size: 100%;
+				top: -35px;
+				left: 2px;
+				width: 40px;
+				height: 32px;
 			}
 		}
 	}

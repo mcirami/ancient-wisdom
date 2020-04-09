@@ -1,16 +1,47 @@
 footer {
-	@include span-columns(12);
-	padding: 40px 0 20px;
+	padding: 60px 0;
 	background: url('../images/footer-bg.jpg') no-repeat;
 	background-size: cover;
-	
-	@include media($mobile){
-		background: url('../images/footer-background-mobile.jpg') no-repeat;
-		background-size: cover;
-		background-position: top;
+	color: $grayText;
+	line-height: 1.6;
+
+	h3 {
+		color: $white;
+		font-size: 20px;
+	}
+
+	a {
+		color: $grayText;
+
+		&:hover {
+			color: $darkBlue;
+		}
+	}
+
+	.social_media {
+		margin-top: 60px;
+	}
+
+	.quick_links {
+		padding-left: 6rem;
+
+		ul {
+			padding-left: 0;
+		}
+	}
+
+	.book {
+		border: 1px solid $grayText;
+		border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+
+		.button {
+			@include latobold;
+		}
 	}
 	
-	.content_wrap {
+	/*.content_wrap {
 		@include span-columns(12);
 		
 		.logo {
@@ -257,13 +288,10 @@ footer {
 				
 			}
 		}
-	}
+	}*/
 	
 	.copy {
-		@include span-columns(12);
-		text-align: center;
 		color: $grayText;
-		padding: 30px 0 0;
 		font-size: 14px;
 		
 		@include media($tablet){
@@ -273,46 +301,9 @@ footer {
 		p {
 			margin-bottom: 0;
 		}
-		
-		ul {
-			text-align: center;
-			
-			li {
-				display: inline-block;
-				padding: 5px;
-				
-				@include media($mobile){
-					line-height: 1;
-					padding: 5px;
-				}
-				
-				&:after {
-					content: '|';
-					position: absolute;
-					right: -4px;
-					top: 4px;
-					font-size: 15px;
-					color: $grayText;
-					
-					@include media($tablet){
-						font-size: 13px;
-					}
-					
-					@include media($mobile){
-						top: 5px;
-					}
-				}
-				
-				&:last-child {
-					&:after {
-						content: none;
-					}
-				}
-				
-				a {
-					color: $grayText;
-				}
-			}
+
+		a {
+			color: $grayText;
 		}
 	}
 

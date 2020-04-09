@@ -1,0 +1,44 @@
+.book_image {
+	padding-bottom: 80px;
+
+	.book_wrap {
+		background: url("../images/book-bg.jpg") no-repeat;
+		background-size: 100% 100%;
+
+		.book_bottom {
+			position: absolute;
+			bottom: -200px;
+			height: 200px;
+			width: 100% !important;
+			left: 50%;
+			margin-left: -150px;
+		}
+	}
+
+	img {
+		max-width: 300px;
+		margin: auto;
+	}
+}
+
+.two_column_section {
+	color: $black;
+	background: transparent;
+
+	p {
+		span {
+			@include latobold;
+		}
+	}
+}
+
+.button_group {
+
+	a {
+		display: block;
+
+		&.button {
+			padding: 16px 20px;
+		}
+	}
+}
