@@ -32,7 +32,7 @@
 			<header class="row fixed-top clear">
 
 				<div class="col-12 header_bottom <?php if(!is_front_page()){ echo "background"; } ?>">
-					<?php wp_reset_query(); ?>
+
 					<div class="container">
 						<?php if (is_user_logged_in()): ?>
 							<a href="/member-home"><h1 class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/logo.png" /></h1></a>
@@ -49,15 +49,15 @@
 
 							<nav role="navigation">
 
-								<?php if (is_user_logged_in()): ?>
+								<?php /*if (is_user_logged_in()): */?><!--
 
-									<?php wp_nav_menu( array( 'theme_location' => 'member-menu', 'container' => false, 'menu_class' => 'member_menu' ) ); // remember to assign a menu in the admin to remove the container div ?
+									--><?php /*wp_nav_menu( array( 'theme_location' => 'member-menu', 'container' => false, 'menu_class' => 'member_menu' ) ); // remember to assign a menu in the admin to remove the container div ?
 
-								else : ?>
+								else : */?>
 
 									<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => false, 'menu_class' => 'header_menu' ) ); // remember to assign a menu in the admin to remove the container div ?>
 
-								<?php endif; ?>
+								<?php /*endif; */?>
 
 							</nav>
 						</div>

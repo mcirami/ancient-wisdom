@@ -7,12 +7,7 @@
  *
  * @package boiler
  */
-/*
-Section Title
-Video Image
-Video Link
-Video Description
-*/
+
 get_header(); ?>
 
 	<div class="home_section row">

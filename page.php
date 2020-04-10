@@ -4,16 +4,22 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php the_title(); ?></h1>
+			<?php get_template_part( 'content', 'page-header' ); ?>
+
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 			<!-- article -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<?php the_content(); ?>
-
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
+				<div class="container">
+					<div class="row">
+						<div class="<?php if ( $post->post_name == "login") { echo "col-6 mx-auto"; } ?> login_form">
+							<?php the_content(); ?>
+						</div>
+					</div>
+				</div>
+<!--				--><?php /*comments_template( '', true ); // Remove if you don't want comments */?>
 
 				<br class="clear">
 
@@ -40,6 +46,6 @@
 		<!-- /section -->
 	</main>
 
-<?php get_sidebar(); ?>
+<?php /*get_sidebar(); */?>
 
 <?php get_footer(); ?>
