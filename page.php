@@ -14,7 +14,7 @@
 
 				<div class="container">
 					<div class="row">
-						<div class="<?php if ( $post->post_name == "login") { echo "col-6 mx-auto"; } ?> login_form">
+						<div class="<?php if ( $post->post_name == "login") { echo "col-6 mx-auto"; } ?> form_wrapper">
 							<?php the_content(); ?>
 						</div>
 					</div>

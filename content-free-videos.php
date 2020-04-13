@@ -77,7 +77,7 @@ if($twoColumnSection) : ?>
 			$link = "/part-three";
 			$text = "More Videos";
 		} else {
-			$link = home_url()."/plans/membership-levels";
+			$link = home_url()."/plans/membership-plans";
 			$text = "Join To View More";
 		}
 		?>

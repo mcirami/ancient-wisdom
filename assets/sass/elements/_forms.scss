@@ -1,3 +1,93 @@
+
+.form_wrapper {
+	margin-bottom: 60px;
+	background: $lightGray;
+	border-bottom: 10px solid $gray;
+	padding: 40px;
+}
+
+.mp_wrapper {
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+
+	img {
+		width: auto;
+	}
+}
+
+form {
+	color: $black;
+
+	label {
+		@include latobold;
+	}
+
+	input[type="text"], input[type="password"], select {
+		width: 100%;
+		height: 45px;
+		background: $white;
+		padding: 0 20px;
+		display: inline-block;
+		font-size: 18px;
+		border: none;
+		border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+
+		@include media($mobile){
+			font-size: 16px;
+			padding: 10px;
+			height: 35px;
+		}
+
+		@include media($smallMobile){
+			height: 30px;
+		}
+	}
+
+	input[type="submit"] {
+		@include latoreg;
+		font-size: 20px;
+		width: 100%;
+		color: $white;
+		height: 45px;
+		display: inline-block;
+		border: none;
+		background: $red;
+		border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		background: $green;
+		text-transform: uppercase;
+
+		&:hover {
+			background: $black;
+		}
+
+		@include media($mobile){
+			font-size: 14px;
+			height: 41px;
+			top: 0;
+		}
+
+		@include media($smallMobile){
+			font-size: 12px;
+			height: 35px;
+			top: -2px;
+		}
+	}
+}
+
+.mepr-login-actions a {
+	color: $darkBlue;
+
+	&:hover {
+		color: $blue;
+	}
+}
+
+/*
 .form_wrapper {
 	background: $lightGray;
 	-webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
@@ -1055,4 +1145,4 @@ form.pmpro_form #other_discount_code.input {
 
 #pmpro_payment_method span.gateway_paypalexpress {
 	margin-left: 0;
-}
+}*/

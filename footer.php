@@ -96,6 +96,5 @@
 		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 		ga('send', 'pageview');
 		</script>
-
 	</body>
 </html>

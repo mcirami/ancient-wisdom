@@ -31,6 +31,7 @@ if (function_exists('add_theme_support'))
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+	add_image_size( 'video-thumb', 640, 360, true );
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -92,24 +93,33 @@ function my_enqueue_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
+	    wp_enqueue_script( 'jquery' , array(), '' );
+
     	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
 
-        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1', true); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
 
-	    wp_register_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '4.4.0', true); // Custom scripts
+	    wp_register_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '4.4.0', true); // Bootstrap
 	    wp_enqueue_script('bootstrap-js'); // Enqueue it!
 
 	    wp_register_script('app-js', get_template_directory_uri() . '/js/app.min.js', array('jquery'), '1.0.0', true); // Custom scripts
 	    wp_enqueue_script('app-js'); // Enqueue it!
 
+	   /* wp_register_script( 'jquery_ui', get_template_directory_uri() . '/js/lib/jquery-ui.min.js', array('jquery'), '', true );
+	    wp_enqueue_script('jquery_ui');*/ // Enqueue it!
+
+	    wp_register_script('filterizr', get_template_directory_uri() . '/js/lib/jquery.filterizr.min.js', array('jquery'), '1.0.0', true); // Filterizr
+	    wp_enqueue_script('filterizr'); // Enqueue it!
+
 	    wp_localize_script('app-js', 'my_script_vars', array(
 			    'pageTitle' =>  get_the_title(),
-			    'home' => get_home_url()
+			    'home' => get_home_url(),
+			    'member' => is_user_logged_in()
 		    )
 	    );
     }

@@ -20,7 +20,8 @@
     }
 }
 
-.lessons_page {
+.member_lessons {
+    color: $black;
 
     .top_content {
         padding: 20px;
@@ -59,7 +60,7 @@
         }
     }
 
-    #video_player, .course_video_player {
+    /*#video_player, .course_video_player {
         background: $darkerGray;
         //max-height: 900px;
         //overflow-y: scroll;
@@ -169,12 +170,12 @@
                 padding-left: 2.5%;
             }
         }
-    }
+    }*/
 
     .video_list {
 
         .column {
-            width: 33.3%;
+            width: 33.1%;
             display: inline-block;
             //float: left;
             padding: 20px;
@@ -184,7 +185,7 @@
             }
 
             @include media($mobile) {
-                width: 50%;
+                width: 49.5%;
                 padding: 10px;
             }
 

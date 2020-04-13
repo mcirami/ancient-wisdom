@@ -7,6 +7,7 @@
     "axios": "^0.19.2",
     "bootstrap": "file:bootstrap",
     "bulma": "^0.7.2",
+    "filterizr": "^2.2.3",
     "laravel-mix": "^5.0.1",
     "parcel": "^1.11.0",
     "react": "^16.7.0",
