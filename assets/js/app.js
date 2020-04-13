@@ -72,6 +72,99 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	if ($(window).width() > 768) {
+
+		subMenuHover();
+
+	} else if ($(window).width() < 769) {
+
+		mobileSubMenu();
+	}
+
+	$(window).on('resize', function () {
+
+		if ($(window).width() > 768) {
+
+			$('.sub-menu').clearQueue();
+
+			subMenuHover();
+
+			if ($('.menu-item-has-children .sub-menu').hasClass('open')) {
+				$('.menu-item-has-children .sub-menu').slideUp(100);
+				$('.menu-item-has-children .sub-menu').removeClass('open');
+			}
+
+			if ($('.menu-item-has-children > a').hasClass('open')) {
+				$('.menu-item-has-children > a').removeClass('open');
+			}
+
+			if ($('.wrapper').hasClass('slide')) {
+				$('.mobile_menu_icon').removeClass('open');
+				$('.wrapper').removeClass('slide');
+			}
+
+			//$('.nav_wrap').unbind('slideDown');
+			$('.nav_wrap ul').removeClass('open');
+			$('.user_mobile_nav').removeClass('open');
+			$('.user_mobile_nav p span').removeClass('open');
+			$('.nav_wrap ul').css('display', 'block');
+			navIcon.html("+");
+
+
+		} else {
+			$('.menu-item-has-children').unbind('mouseenter');
+			$('.menu-item-has-children').unbind('mouseleave');
+
+			mobileSubMenu();
+
+		}
+	});
+
+	function subMenuHover() {
+		$('.menu-item-has-children').mouseenter(function () {
+				$(this).children('.sub-menu').slideDown(100);
+			}
+		);
+
+		$('.menu-item-has-children').mouseleave(function () {
+				$(this).children('.sub-menu').slideUp(100);
+			}
+		);
+	}
+
+	function mobileSubMenu() {
+		$('.menu-item-has-children > a').click(function (e) {
+
+			if (!$(this).hasClass('open')) {
+				e.preventDefault();
+				$(this).next('.sub-menu').not(":animated").slideDown(400);
+				$(this).addClass('open');
+				$(this).parent('li').addClass('open');
+
+			} else {
+				e.preventDefault();
+				$(this).next('.sub-menu').not(":animated").slideUp(400);
+				$(this).removeClass('open');
+				$(this).parent('li').removeClass('open');
+			}
+		});
+	}
+
+
+	$('.mobile_menu_icon').on('touchstart click', function (e) {
+		e.preventDefault();
+
+		$(this).toggleClass('open');
+		$('.wrapper').toggleClass('slide');
+		$('#global_header').toggleClass('slide');
+		if ($('.mobile_menu_icon').hasClass('open')) {
+			$('body, html').css('overflow-y', 'hidden');
+		} else {
+			$('body, html').css('overflow-y', 'auto');
+		}
+
+	});
+
 });
 /*
 

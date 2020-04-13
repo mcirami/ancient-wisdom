@@ -53,7 +53,7 @@
 								<h3 class="text-uppercase">Quick Links</h3>
 								<?php if (is_user_logged_in()): ?>
 
-									<?php wp_nav_menu( array( 'theme_location' => 'member-menu', 'container' => false, 'menu_class' => 'member_menu' ) ); // remember to assign a menu in the admin to remove the container div ?
+									<?php wp_nav_menu( array( 'theme_location' => 'footer-menu', 'container' => false, 'menu_class' => 'footer-menu' ) ); // remember to assign a menu in the admin to remove the container div ?
 
 								else : ?>
 

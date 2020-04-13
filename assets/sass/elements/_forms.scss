@@ -1,9 +1,13 @@
 
 .form_wrapper {
 	margin-bottom: 60px;
-	background: $lightGray;
-	border-bottom: 10px solid $gray;
 	padding: 40px;
+	-webkit-box-shadow: 0px 0px 40px -20px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 40px -20px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 40px -20px rgba(0,0,0,0.5);
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
 }
 
 .mp_wrapper {
@@ -11,8 +15,28 @@
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 
+	.mp-form-row {
+
+		.mp-form-label {
+			@include latolight;
+			margin-top: 20px;
+			margin-bottom: 8px;
+			font-size: 20px;
+		}
+
+		label {
+			color: $darkGray;
+		}
+	}
+
 	img {
 		width: auto;
+	}
+
+	form input[type=submit] {
+		padding-top: 28px;
+		padding-bottom: 50px;
+		border-bottom: 6px solid $black;
 	}
 }
 
@@ -54,7 +78,6 @@ form {
 		height: 45px;
 		display: inline-block;
 		border: none;
-		background: $red;
 		border-radius: 6px;
 		-webkit-border-radius: 6px;
 		-moz-border-radius: 6px;
@@ -84,6 +107,173 @@ form {
 
 	&:hover {
 		color: $blue;
+	}
+}
+
+.mepr-price-menu.classic  {
+	margin-bottom: 60px;
+	margin-top: 60px;
+
+	.mepr-price-box-title {
+		@include latobold;
+		font-size: 24px;
+		text-transform: uppercase;
+	}
+
+	.mepr-price-box-head {
+		color: $white;
+		padding-top: 20px;
+	}
+
+
+	.mepr-price-box {
+		padding-top: 0;
+
+		.mepr-price-box-price {
+			@include latolight;
+			font-size: 22px;
+		}
+	}
+
+	.mepr-price-box-heading {
+		@include latoreg;
+		font-size: 20px;
+	}
+
+	&.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list {
+		margin: 0;
+
+		.mepr-price-box-benefits-item {
+			@include latoreg;
+			border-bottom: none;
+			padding: 30px 20px;
+			color: $darkGray;
+			font-size: 18px;
+
+			&:nth-child(2n - 1) {
+				background: $lightGray;
+			}
+		}
+	}
+}
+
+.mepr-price-menu.classic.classic_dark {
+
+	.mepr-price-box {
+		border: none;
+	}
+
+	.mepr-price-box-benefits {
+		border-top: none;
+	}
+}
+
+.mepr-price-boxes {
+
+	.mepr-price-box {
+		-webkit-box-shadow: -4px 4px 21px -5px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: -4px 4px 21px -5px rgba(0, 0, 0, 0.3);
+		box-shadow: -4px 4px 21px -5px rgba(0, 0, 0, 0.3);
+	}
+
+	strike {
+		color:#a9fbfd;
+		margin-right: 20px;
+	}
+
+	a {
+		@include latoreg;
+		font-size: 16px;
+		padding: 10px 15px;
+		border-radius: 20px;
+		-webkit-border-radius: 20px;
+		-moz-border-radius: 20px;
+		text-align: center;
+		display: block;
+		width: 50%;
+		margin: 0 auto;
+		text-transform: uppercase;
+
+		@include media($tablet){
+			padding: 6px 12px;
+			font-size: 14px;
+		}
+
+		@include media($mobile){
+			padding: 7px 10px;
+			font-size: 12px;
+		}
+
+		@include media($smallMobile){
+			padding: 5px 8px;
+		}
+	}
+
+	#mepr-price-box-37 {
+
+		.mepr-price-box-head {
+			background-color: #19d0d4;
+		}
+
+		.mepr-price-box-heading {
+			color: #0e7a7c;
+		}
+
+		a {
+			color: $black;
+			background: #19d0d4;
+
+			&:hover {
+				background: #139c9f;
+			}
+		}
+	}
+
+	#mepr-price-box-38 {
+		.mepr-price-box-head {
+			background-color: #04788d;
+
+			strike {
+				color: #7fd6e6;
+			}
+		}
+
+		a {
+			color: $white;
+			background: #04788d;
+
+			&:hover {
+				background: #024754;
+			}
+		}
+	}
+
+	#mepr-price-box-39 {
+		border: 6px solid $red;
+		margin-top: -60px;
+
+		.mepr-price-box-price {
+			font-size: 28px;
+			padding: 10px 0;
+		}
+
+		.mepr-price-box-head {
+			background-color: $red;
+			padding: 30px 0 30px;
+		}
+
+		a {
+			color: $white;
+			background: $red;
+
+			&:hover {
+				background: #d01d1d;
+			}
+		}
+
+		.mepr-price-box-button {
+			margin: 30px 15px 10px;
+		}
 	}
 }
 
