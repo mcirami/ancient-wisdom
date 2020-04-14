@@ -47,8 +47,10 @@ jQuery(document).ready(function($) {
 	}, false);
 
 	if (my_script_vars.pageTitle !== "The School Of Ancient Wisdom" && !my_script_vars.member) {
-		let link = document.querySelector('.free_lesson_link');
-		link.firstChild.href = my_script_vars.home + "#free_lessons"
+		let links = document.querySelectorAll('.free_lesson_link');
+		links.forEach(link => {
+			link.firstChild.href = my_script_vars.home + "#free_lessons"
+		});
 	}
 
 	if (my_script_vars.pageTitle === 'Member Lessons') {

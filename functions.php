@@ -150,8 +150,9 @@ function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
-        'footer-menu' => __('Footer Menu', 'html5blank'), // Sidebar Navigation
-        'member-menu' => __('Member Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-menu' => __('Footer Menu', 'html5blank'), // Member Footer Navigation
+        'footer-menu-member' => __('Footer Menu Member', 'html5blank'), // Member Footer Navigation
+        'member-menu' => __('Member Menu', 'html5blank') // Member Menu Navigation
     ));
 }
 
@@ -421,23 +422,38 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
 function create_post_type_html5()
 {
-    register_taxonomy_for_object_type('category', 'videos'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'videos');
-    register_post_type('videos', // Register Custom Post Type
+
+	// Register Taxonomies for Category
+	register_taxonomy('category', 'lessons', array(
+		'name'              => _x( 'Lesson categories', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Lesson category', 'taxonomy singular name' ),
+		'search_items'      => __( 'Query lesson categories' ),
+	    'hierarchical' => true,
+		'has_archive' => true,
+	    'label' => 'Lesson Categories',  //Display name
+	    'query_var' => true,
+	    'show_in_rest' => true,
+	    'show_ui'   => true,
+	    'show_admin_column' => true,
+		'rewrite' => array( 'slug' => 'lessons' ),
+    ));
+
+    //register_taxonomy_for_object_type('post_tag', 'lessons');
+    register_post_type('lessons', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Videos', 'videos'), // Rename these to suit
-            'singular_name' => __('Video', 'videos'),
-            'add_new' => __('Add New Video', 'videos'),
-            'add_new_item' => __('Add New Video', 'videos'),
-            'edit' => __('Edit Video', 'videos'),
-            'edit_item' => __('Edit Video', 'videos'),
-            'new_item' => __('New Video', 'videos'),
-            'view' => __('View Video', 'videos'),
-            'view_item' => __('View Video', 'videos'),
-            'search_items' => __('Search Videos', 'videos'),
-            'not_found' => __('No Video found', 'videos'),
-            'not_found_in_trash' => __('No Video found in Trash', 'videos')
+            'name' => __('Lessons', 'lessons'), // Rename these to suit
+            'singular_name' => __('Lesson', 'lessons'),
+            'add_new' => __('Add New Lesson', 'lessons'),
+            'add_new_item' => __('Add New Lesson', 'lessons'),
+            'edit' => __('Edit Lesson', 'lessons'),
+            'edit_item' => __('Edit Lesson', 'lessons'),
+            'new_item' => __('New Lesson', 'lessons'),
+            'view' => __('View Lesson', 'lessons'),
+            'view_item' => __('View Lesson', 'lessons'),
+            'search_items' => __('Search lessons', 'lessons'),
+            'not_found' => __('No Lesson found', 'lessons'),
+            'not_found_in_trash' => __('No Lesson found in Trash', 'lessons')
         ),
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
@@ -451,11 +467,36 @@ function create_post_type_html5()
         ), // Go to Dashboard Custom HTML5 Blank post for supports
         'can_export' => true, // Allows export in Tools > Export
         'taxonomies' => array(
-            'post_tag',
+            //'post_tag',
             'category'
         ) // Add Category and Post Tags support
     ));
 }
+/*
+function wpa_lesson_post_link( $post_link, $id = 0 ){
+	$post = get_post($id);
+	if ( is_object( $post ) ){
+		$terms = wp_get_object_terms( $post->ID, 'lessons' );
+		if( $terms ){
+			return str_replace( '%category%' , $terms[0]->slug , $post_link );
+		}
+	}
+	return $post_link;
+}
+add_filter( 'post_type_link', 'wpa_lesson_post_link', 1, 3 );*/
+
+function query_post_type($query) {
+	if( is_category() ) {
+		$post_type = get_query_var('post_type');
+		if($post_type)
+			$post_type = $post_type;
+		else
+			$post_type = array('nav_menu_item', 'post', 'lessons'); // don't forget nav_menu_item to allow menus to work!
+		$query->set('post_type',$post_type);
+		return $query;
+	}
+}
+add_filter('pre_get_posts', 'query_post_type');
 
 /*------------------------------------*\
 	ShortCode Functions

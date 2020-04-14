@@ -22,7 +22,7 @@ if ($title == "Member Lessons") {
 	//$ourCurrentPage = get_query_var('pages');
 
 	$args = array(
-		'post_type' => 'videos',
+		'post_type' => 'lessons',
 		'order_by' => 'post_date',
 		'order' => 'DESC',
 		'posts_per_page' => -1
@@ -36,7 +36,7 @@ if ($title == "Member Lessons") {
 
 } else {
 	$args = array(
-		'post_type' => 'videos',
+		'post_type' => 'lessons',
 		'order_by' => 'post_date',
 		'order' => 'DESC',
 		'post__in' => $favorites,
