@@ -129,6 +129,10 @@ form {
 	.mepr-price-box {
 		padding-top: 0;
 
+		img {
+			width: auto;
+		}
+
 		.mepr-price-box-price {
 			@include latolight;
 			font-size: 22px;

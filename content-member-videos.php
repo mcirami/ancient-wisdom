@@ -58,44 +58,43 @@ foreach ($taxonomies as $taxonomy) {
 
 	<div class="vid_image_wrap">
 
-		<?php if ($type == 'youtube') : ?>
+		<?php /*if ($type == 'youtube') : */?><!--
 
-			<a id="<?php echo $hash; ?>" class="video_open" data-type="<?php echo "youtube";?>" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1" data-title="<?php echo the_title();?>" data-postid="<?php echo $id; ?>" href="#<?php echo $hash;?>">
+			<a id="<?php /*echo $hash; */?>" class="video_open" data-type="<?php /*echo "youtube";*/?>" data-video="<?php /*echo $videoLink; */?>/?rel=0&showinfo=0&autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>" href="#<?php /*echo $hash;*/?>">
 
-		<?php elseif ($type == 'vimeo') : ?>
+		<?php /*elseif ($type == 'vimeo') : */?>
 
-			<a id="<?php echo $hash; ?>" class="video_open" data-type="<?php echo "vimeo";?>" data-video="<?php echo $videoLink; ?>/?autoplay=1" data-title="<?php echo the_title();?>" data-postid="<?php echo $id; ?>" href="#<?php echo $hash;?>">
+			<a id="<?php /*echo $hash; */?>" class="video_open" data-type="<?php /*echo "vimeo";*/?>" data-video="<?php /*echo $videoLink; */?>/?autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>" href="#<?php /*echo $hash;*/?>">
 
-		<?php endif; ?>
+		--><?php /*endif; */?>
 
 					<?php
 					$attachment_id = get_field('video_image');
 					$size = "video-thumb";
 					$videoImage = wp_get_attachment_image_src( $attachment_id, $size );
-					print_r($videoImage);
 
 					if (!empty(get_the_post_thumbnail())) {
 						$postThumbnail = get_the_post_thumbnail();
 					}
 
-
 					if (!empty($videoImage)) :
 						?>
-						<img class="video_image" src="<?php echo $videoImage[0]; ?>" alt="video thumbnail">
+						<img src="<?php echo $videoImage[0]; ?>" alt="video thumbnail" id="<?php echo $hash; ?>" class="video_open" data-type="<?php /*echo "youtube";*/?>" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
 
 						<?php  //elseif ( !empty($video_thumbnail) ) : ?>
 
 						<!--<img class="get_video_thumbnail" src="<?php /*echo $video_thumbnail; */?>" alt="">-->
 
-					<?php elseif (!empty($postThumbnail)) :
+					<?php /*elseif (!empty($postThumbnail)) :
 
-						echo $postThumbnail;
+						echo $postThumbnail;*/
 
 					else : ?>
 
 					<?php if ($type == 'youtube') { ?>
 
-						<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="youtube video thumb" />
+						<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="video thumbnail" id="<?php echo $hash; ?>" class="video_open" data-type="<?php /*echo "youtube";*/?>" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
+						<!--<img src="https://img.youtube.com/vi/<?php /*echo $embedCode; */?>/mqdefault.jpg" alt="youtube video thumb" />-->
 
 					<?php } /*else { */?><!--
 
@@ -106,7 +105,7 @@ foreach ($taxonomies as $taxonomy) {
 
 					<?php endif; ?><!-- video thumbnail -->
 
-				</a>
+				<!--</a>-->
 
 			<div class="button_wrap full_width">
 				<?php the_favorites_button();?>

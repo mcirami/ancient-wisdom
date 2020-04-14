@@ -1,7 +1,6 @@
 <?php $twoColumnSection = get_field('two_column_section');
 
 if($twoColumnSection) : ?>
-
 	<section class="row free_videos">
 		<div class="col-12">
 
@@ -27,18 +26,52 @@ if($twoColumnSection) : ?>
 													++$columnCount
 												?>
 
-													<?php $post_object = get_sub_field('video');
-
+													<?php
+													$post_object = get_sub_field('video');
 													if ($post_object) :
 
 														// override $post
 														$post = $post_object;
 														setup_postdata( $post );
+
+														$videoLink = get_field('video_link');
+														if (strpos($videoLink, "youtube") !== false) {
+															if(strpos($videoLink,"v=")) {
+																$str = explode("v=", $videoLink);
+																$embedCode = preg_replace('/\s+/', '',$str[1]);
+															} else if (strpos($videoLink, "embed/")) {
+																$str = explode("embed/", $videoLink);
+																$embedCode = preg_replace('/\s+/', '',$str[1]);
+															} else if (strpos($videoLink, "youtu.be")) {
+																$str = explode(".be/", $videoLink);
+																$embedCode = preg_replace('/\s+/', '',$str[1]);
+															}
+															$type = "youtube";
+														} elseif (strpos($videoLink, "vimeo") !== false) {
+															$str       = explode( "video/", $videoLink );
+															$embedCode = preg_replace( '/\s+/', '', $str[1] );
+															$type      = "vimeo";
+														}
+
 														?>
 
 														<div class="video_box col-6 <?php if ($columnCount == 1) { echo 'pr-4'; } else { echo 'pl-4'; }?>">
-															<?php $image =  get_field('video_image'); ?>
-															<img class="video_open" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" data-video="<?php the_field('video_link'); ?>">
+															<?php
+																$attachment_id =  get_field('video_image');
+																$size = "video-thumb";
+																$videoImage = wp_get_attachment_image_src( $attachment_id, $size );
+
+																if (!empty($videoImage)) :
+															?>
+
+																	<img class="video_open" src="<?php echo $videoImage[0]; ?>" alt="<?php //echo esc_attr( $image['alt'] ); ?>" data-video="<?php echo $videoLink; ?>">
+
+																<?php elseif ($type == "youtube") : ?>
+
+																	<img class="video_open" src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="<?php //echo esc_attr( $image['alt'] ); ?>" data-video="<?php echo $videoLink; ?>">
+
+																<?php endif; ?>
+
 															<div class="desc p-4 <?php if ($count % 2 == 0) echo 'gray'; ?>">
 																<p><?php the_field('video_description'); ?></p>
 															</div>

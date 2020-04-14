@@ -192,19 +192,25 @@
                 padding: 10px;
             }
 
-            .vid_image_wrap .simplefavorite-button {
-                position: absolute !important;
-                right: 0;
-                bottom: 0;
+            .vid_image_wrap {
 
-                @include media($mobile) {
-                    position: relative !important;
-                    right: auto;
-                    bottom: auto;
-                    width: 100%;
+                img {
+                    cursor: pointer;
+                }
+
+                .simplefavorite-button {
+                    position: absolute !important;
+                    right: 0;
+                    bottom: 0;
+
+                    @include media($mobile) {
+                        position: relative !important;
+                        right: auto;
+                        bottom: auto;
+                        width: 100%;
+                    }
                 }
             }
-
 
             a {
                 display: block;

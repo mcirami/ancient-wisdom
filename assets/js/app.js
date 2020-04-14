@@ -1,5 +1,15 @@
 jQuery(document).ready(function($) {
 
+	$(window).on('scroll', function (event) {
+		if ($(window).scrollTop() > 40) {
+			$('.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').addClass('scroll');
+			$('.header_bottom').addClass('home_background');
+		} else {
+			$('.header_top,.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').removeClass('scroll');
+			$('.header_bottom').removeClass('home_background');
+		}
+	});
+
 	document.addEventListener('click', function(event){
 
 		if (event.target.classList.contains('video_open')) {
@@ -33,6 +43,7 @@ jQuery(document).ready(function($) {
 				});
 			}, 1000);
 		}
+
 	}, false);
 
 	if (my_script_vars.pageTitle !== "The School Of Ancient Wisdom" && !my_script_vars.member) {
@@ -40,13 +51,11 @@ jQuery(document).ready(function($) {
 		link.firstChild.href = my_script_vars.home + "#free_lessons"
 	}
 
-	//if (my_script_vars.pageTitle === 'Member Lessons') {
-
-
-	setTimeout(function() {
-		$('.filtr-container').filterizr();
-	},2000);
-	//}
+	if (my_script_vars.pageTitle === 'Member Lessons') {
+		setTimeout(function() {
+			$('.filtr-container').filterizr();
+		},2000);
+	}
 
 	$('.filter_list li').click(function () {
 		if (!$(this).hasClass('all')) {
@@ -108,7 +117,7 @@ jQuery(document).ready(function($) {
 			$('.user_mobile_nav').removeClass('open');
 			$('.user_mobile_nav p span').removeClass('open');
 			$('.nav_wrap ul').css('display', 'block');
-			navIcon.html("+");
+			//navIcon.html("+");
 
 
 		} else {

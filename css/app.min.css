@@ -13285,6 +13285,9 @@ footer .copy a {
     padding: 10px;
   }
 }
+.member_lessons .video_list .column .vid_image_wrap img {
+  cursor: pointer;
+}
 .member_lessons .video_list .column .vid_image_wrap .simplefavorite-button {
   position: absolute !important;
   right: 0;
@@ -14256,6 +14259,9 @@ form input[type=submit]:hover {
 }
 .mepr-price-menu.classic .mepr-price-box {
   padding-top: 0;
+}
+.mepr-price-menu.classic .mepr-price-box img {
+  width: auto;
 }
 .mepr-price-menu.classic .mepr-price-box .mepr-price-box-price {
   font-family: "lato-light", sans-serif;
