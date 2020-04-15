@@ -96,6 +96,10 @@ jQuery(document).ready(function($) {
 
 		if ($(window).width() > 768) {
 
+			$('.mobile_menu_icon').removeClass('open');
+			$('.menu').removeClass('open');
+			$('.header_bottom').removeClass('background');
+
 			$('.sub-menu').clearQueue();
 
 			subMenuHover();
@@ -162,18 +166,11 @@ jQuery(document).ready(function($) {
 	}
 
 
-	$('.mobile_menu_icon').on('touchstart click', function (e) {
+	$('.mobile_menu_icon').click(function(e){
 		e.preventDefault();
-
 		$(this).toggleClass('open');
-		$('.wrapper').toggleClass('slide');
-		$('#global_header').toggleClass('slide');
-		if ($('.mobile_menu_icon').hasClass('open')) {
-			$('body, html').css('overflow-y', 'hidden');
-		} else {
-			$('body, html').css('overflow-y', 'auto');
-		}
-
+		$('.menu').toggleClass('open');
+		$('.header_bottom').toggleClass('background');
 	});
 
 });

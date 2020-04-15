@@ -216,6 +216,7 @@
                     position: absolute !important;
                     right: 0;
                     bottom: 0;
+                    z-index: 1;
 
                     @include media($mobile) {
                         position: relative !important;
