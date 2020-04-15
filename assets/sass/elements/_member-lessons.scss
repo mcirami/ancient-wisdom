@@ -175,6 +175,22 @@
 
     .video_list {
 
+        .play_button_wrap {
+            top: 0;
+
+            .play_button {
+                width: 60px;
+
+                @include media($tablet) {
+                    width: 40px;
+                }
+
+                @include media($mobile) {
+                    width: 30px;
+                }
+            }
+        }
+
         .column {
             width: 33.1%;
             display: inline-block;

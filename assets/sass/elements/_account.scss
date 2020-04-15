@@ -1,0 +1,75 @@
+.account_page {
+    color: $black;
+    @include latoreg;
+
+    .mp_wrapper {
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+    }
+}
+.mp_wrapper table.mepr-account-table {
+    min-width: 900px;
+}
+
+#mepr-account-nav {
+    padding: 20px 20px 7px 0;
+    border-bottom: 1px solid $lightGray;
+
+    .mepr-nav-item {
+        background: $lightGray;
+        padding: 10px 20px;
+        border-top-left-radius: 10px;
+        -webkit-border-top-left-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        border-top-right-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        -moz-border-radius-topright: 10px;
+        margin-right: 5px;
+
+        &:hover {
+            background: $blue;
+        }
+
+        a {
+            @include latoreg;
+            color: $black;
+        }
+
+        &.mepr-active-nav-tab {
+            background: $blue;
+
+            a {
+                @include latobold;
+            }
+        }
+    }
+}
+
+.mepr-account-actions {
+
+    a {
+        @include latobold;
+        display: block;
+        width: 90%;
+        padding: 15px 20px;
+        color: $white;
+        border-radius: 20px;
+        background: $green;
+        text-align: center;
+        margin: 10px auto;
+
+        &:hover {
+            background: $black;
+        }
+    }
+}

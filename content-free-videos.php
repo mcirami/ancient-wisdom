@@ -64,18 +64,21 @@ if($twoColumnSection) : ?>
 																if (!empty($videoImage)) :
 															?>
 
-																	<img class="video_open" src="<?php echo $videoImage[0]; ?>" alt="<?php //echo esc_attr( $image['alt'] ); ?>" data-video="<?php echo $videoLink; ?>">
+																	<img src="<?php echo $videoImage[0]; ?>" alt="<?php //echo esc_attr( $image['alt'] ); ?>">
 
 																<?php elseif ($type == "youtube") : ?>
 
-																	<img class="video_open" src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="<?php //echo esc_attr( $image['alt'] ); ?>" data-video="<?php echo $videoLink; ?>">
+																	<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="<?php //echo esc_attr( $image['alt'] ); ?>">
 
 																<?php endif; ?>
 
 															<div class="desc p-4 <?php if ($count % 2 == 0) echo 'gray'; ?>">
 																<p><?php the_field('video_description'); ?></p>
 															</div>
-														</div>
+															<div class="play_button_wrap position-absolute w-100 h-100 d-flex justify-content-center align-content-center">
+																<img class="video_open play_button m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" data-video="<?php echo $videoLink; ?>"/>
+															</div>
+														</div><!-- video_box -->
 														<?php
 														wp_reset_postdata();
 													endif; ?>

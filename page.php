@@ -15,7 +15,8 @@
 				<div class="container">
 					<div class="row">
 						<?php $permalink = get_permalink(); ?>
-						<div class="<?php if ( $post->post_name == "login" || strpos($permalink, "register") !== false ) { echo "col-6 mx-auto form_wrapper"; } ?>">
+						<div class="<?php if ( strpos($permalink, "plans") == false && strpos($permalink, "account") == false ) echo "col-12 col-md-6 mx-auto form_wrapper";
+								elseif (strpos($permalink, "account") == true) echo "account_page col-12 mx-auto form_wrapper"; ?>">
 							<?php the_content(); ?>
 						</div>
 					</div>

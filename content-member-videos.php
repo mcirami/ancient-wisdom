@@ -79,7 +79,7 @@ foreach ($taxonomies as $taxonomy) {
 
 					if (!empty($videoImage)) :
 						?>
-						<img src="<?php echo $videoImage[0]; ?>" alt="video thumbnail" id="<?php echo $hash; ?>" class="video_open" data-type="<?php /*echo "youtube";*/?>" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
+						<img src="<?php echo $videoImage[0]; ?>" alt="video thumbnail" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
 
 						<?php  //elseif ( !empty($video_thumbnail) ) : ?>
 
@@ -93,7 +93,7 @@ foreach ($taxonomies as $taxonomy) {
 
 					<?php if ($type == 'youtube') { ?>
 
-						<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="video thumbnail" id="<?php echo $hash; ?>" class="video_open" data-type="<?php /*echo "youtube";*/?>" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
+						<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="video thumbnail" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
 						<!--<img src="https://img.youtube.com/vi/<?php /*echo $embedCode; */?>/mqdefault.jpg" alt="youtube video thumb" />-->
 
 					<?php } /*else { */?><!--
@@ -110,7 +110,10 @@ foreach ($taxonomies as $taxonomy) {
 			<div class="button_wrap full_width">
 				<?php the_favorites_button();?>
 			</div>
-	</div>
+		<div class="play_button_wrap position-absolute w-100 h-100 d-flex justify-content-center align-content-center">
+			<img class="video_open play_button m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1"/>
+		</div>
+	</div><!-- vid_image_wrap -->
 
 	<div class="lesson_content full_width">
 		<h4><?php the_field('video_description'); ?></h4>

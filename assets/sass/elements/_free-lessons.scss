@@ -1,5 +1,22 @@
 
 .free_videos {
+	padding-right: 0;
+
+	.play_button_wrap {
+		top: -40px;
+
+		.play_button {
+			width: auto;
+
+			@include media($tablet) {
+				width: 60px;
+			}
+
+			@include media($mobile) {
+				width: 50px;
+			}
+		}
+	}
 
 	.row.background {
 		background: url("../images/video-section-bg.jpg") no-repeat;

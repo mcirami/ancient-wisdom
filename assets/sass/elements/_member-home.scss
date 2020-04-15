@@ -226,16 +226,3 @@
 		}
 	}
 }
-
-.banner_wrap {
-	padding: 0 20%;
-    margin-bottom: 40px;
-
-    @include media($mobile) {
-        padding: 0 10%;
-    }
-
-    @include media($smallMobile) {
-        padding: 0 2%;
-    }
-}

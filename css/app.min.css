@@ -12659,6 +12659,25 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 100% !important;
 }
 
+.free_videos {
+  padding-right: 0;
+}
+.free_videos .play_button_wrap {
+  top: -40px;
+}
+.free_videos .play_button_wrap .play_button {
+  width: auto;
+}
+@media screen and (max-width: 1023px) {
+  .free_videos .play_button_wrap .play_button {
+    width: 60px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .free_videos .play_button_wrap .play_button {
+    width: 50px;
+  }
+}
 .free_videos .row.background {
   background: url("../images/video-section-bg.jpg") no-repeat;
   background-size: cover;
@@ -13266,6 +13285,22 @@ footer .copy a {
 }
 .member_lessons .top_content button[disabled=disabled]:hover {
   color: #f5f5f5;
+}
+.member_lessons .video_list .play_button_wrap {
+  top: 0;
+}
+.member_lessons .video_list .play_button_wrap .play_button {
+  width: 60px;
+}
+@media screen and (max-width: 1023px) {
+  .member_lessons .video_list .play_button_wrap .play_button {
+    width: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .member_lessons .video_list .play_button_wrap .play_button {
+    width: 30px;
+  }
 }
 .member_lessons .video_list .column {
   width: 33.1%;
@@ -15439,6 +15474,75 @@ form.pmpro_form #other_discount_code.input {
 #pmpro_payment_method span.gateway_paypalexpress {
 	margin-left: 0;
 }*/
+.account_page {
+  color: #000000;
+  font-family: "lato-reg", sans-serif;
+  font-weight: 400;
+}
+.account_page .mp_wrapper {
+  overflow-x: scroll;
+}
+.account_page .mp_wrapper::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.account_page .mp_wrapper::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.mp_wrapper table.mepr-account-table {
+  min-width: 900px;
+}
+
+#mepr-account-nav {
+  padding: 20px 20px 7px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+#mepr-account-nav .mepr-nav-item {
+  background: #f5f5f5;
+  padding: 10px 20px;
+  border-top-left-radius: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  border-top-right-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  margin-right: 5px;
+}
+#mepr-account-nav .mepr-nav-item:hover {
+  background: #5db9e2;
+}
+#mepr-account-nav .mepr-nav-item a {
+  font-family: "lato-reg", sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+#mepr-account-nav .mepr-nav-item.mepr-active-nav-tab {
+  background: #5db9e2;
+}
+#mepr-account-nav .mepr-nav-item.mepr-active-nav-tab a {
+  font-family: "lato-bold", sans-serif;
+  font-weight: 600;
+}
+
+.mepr-account-actions a {
+  font-family: "lato-bold", sans-serif;
+  font-weight: 600;
+  display: block;
+  width: 90%;
+  padding: 15px 20px;
+  color: #fff;
+  border-radius: 20px;
+  background: #013220;
+  text-align: center;
+  margin: 10px auto;
+}
+.mepr-account-actions a:hover {
+  background: #000000;
+}
+
 /*@import "elements/premember";
 @import "elements/contact-us";
 @import "elements/member";
