@@ -3,7 +3,9 @@
 	padding-right: 0;
 
 	.play_button_wrap {
-		top: -40px;
+		top: 0;
+		left:0;
+		cursor: pointer;
 
 		.play_button {
 			width: auto;
@@ -27,6 +29,10 @@
 		font-size: 36px;
 		line-height: 1;
 
+		@include media($mobile) {
+			font-size: 26px;
+		}
+
 		&.black {
 			color:$black;
 		}
@@ -34,6 +40,14 @@
 
 	.video_section {
 		padding: 60px 0;
+
+		@include media($tablet) {
+			padding: 40px 0;
+		}
+
+		@include media($mobile) {
+			padding: 20px 0;
+		}
 	}
 
 	.desc {
@@ -43,6 +57,12 @@
 
 		&.gray {
 			background: $lightGray;
+		}
+
+		p {
+			@include media($mobile) {
+				font-size: 14px;
+			}
 		}
 	}
 }

@@ -5,9 +5,27 @@ footer {
 	color: $grayText;
 	line-height: 1.6;
 
+	@include media($tablet) {
+		padding: 40px 0;
+	}
+
+	@include media($mobile) {
+		padding: 20px 0;
+	}
+
 	h3 {
 		color: $white;
 		font-size: 20px;
+
+		@include media($mobile) {
+			font-size: 18px;
+		}
+	}
+
+	p {
+		@include media($mobile) {
+			font-size: 12px;
+		}
 	}
 
 	a {
@@ -20,16 +38,35 @@ footer {
 
 	.social_media {
 		margin-top: 60px;
+
+		@include media($tablet) {
+			margin-top: 20px;
+		}
 	}
 
 	.quick_links {
 		padding-left: 6rem;
+
+		@include media($tablet) {
+			padding-left:0;
+		}
 
 		ul {
 			padding-left: 0;
 
 			li {
 				padding-bottom: 10px;
+
+				@include media($tablet) {
+					display: inline-block;
+					margin-right: 2%;
+				}
+
+				&:last-child {
+					@include media($tablet) {
+						margin-right: 0;
+					}
+				}
 			}
 		}
 	}

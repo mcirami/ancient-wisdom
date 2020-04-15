@@ -387,6 +387,10 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		color: $white;
 		font-size: 24px;
 
+		@include media($mobile) {
+			font-size: 18px;
+		}
+
 		&:hover {
 			color: $blue;
 		}
@@ -425,6 +429,12 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		border-radius: 50px;
 		cursor: pointer;
 
+		@include media($mobile) {
+			top: -45px;
+			padding: 5px 21px;
+			font-size: 14px;
+		}
+
 		&:hover {
 			background: $darkBlue;
 		}
@@ -442,6 +452,10 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		flex-direction: column;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
+
+		@include media($mobile) {
+			width: 85%;
+		}
 	}
 
 	.video_wrapper {

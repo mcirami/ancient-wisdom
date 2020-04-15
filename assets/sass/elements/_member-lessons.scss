@@ -177,6 +177,8 @@
 
         .play_button_wrap {
             top: 0;
+            left: 0;
+            cursor: pointer;
 
             .play_button {
                 width: 60px;
@@ -207,10 +209,6 @@
             }
 
             .vid_image_wrap {
-
-                img {
-                    cursor: pointer;
-                }
 
                 .simplefavorite-button {
                     position: absolute !important;

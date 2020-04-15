@@ -31,6 +31,7 @@ header {
 			-moz-transition: .5s ease-in-out;
 			-o-transition: .5s ease-in-out;
 			transition: .5s ease-in-out;
+			margin: .5em 0;
 
 			@include media($desktop) {
 				width: 280px;
@@ -45,7 +46,7 @@ header {
 			}
 			
 			&.scroll {
-				width: 170px;
+				width: 200px;
 				
 				@include media($mobile){
 					width: 150px;
@@ -110,6 +111,7 @@ header {
 			
 			ul {
 				float: left;
+				margin-bottom: 0;
 				
 				@include media($mobile){
 					@include span-columns(4);
@@ -156,7 +158,6 @@ header {
 
                         @include media($desktop) {
                             font-size: 16px;
-							padding: 15px 0;
                         }
 						
 						&:hover {
@@ -165,6 +166,10 @@ header {
 						
 						@include media($tablet){
 							font-size: 15px;
+						}
+
+						@include media($mobile) {
+							padding: 15px 0;
 						}
 					}
 
@@ -176,12 +181,16 @@ header {
 						}
 
 						a {
-							padding: 15px 40px 15px 40px;
+							padding: 15px 40px;
 							border-radius: 30px;
 							-webkit-border-radius: 30px;
 							-moz-border-radius: 30px;
 							color: $black;
 							background: $blue;
+
+							@include media($tablet) {
+								padding: 12px 24px;
+							}
 
 							@include media($mobile) {
 								width: 100%;
