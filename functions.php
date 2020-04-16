@@ -119,7 +119,8 @@ function my_enqueue_scripts()
 	    wp_localize_script('app-js', 'my_script_vars', array(
 			    'pageTitle' =>  get_the_title(),
 			    'home' => get_home_url(),
-			    'member' => is_user_logged_in()
+			    'member' => is_user_logged_in(),
+			    'frontPage' => is_front_page()
 		    )
 	    );
     }
@@ -334,22 +335,39 @@ function html5blankcomments($comment, $args, $depth)
 	<?php if ( 'div' != $args['style'] ) : ?>
 	<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 	<?php endif; ?>
-	<div class="comment-author vcard">
-	<?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['180'] ); ?>
-	<?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
+	<div class="row comment_header p-3 m-0">
+		<div class="comment-author vcard col-1">
+			<?php if ($args['avatar_size'] != 0) echo get_avatar( $comment ); ?>
+		</div>
+		<div class="comment-meta commentmetadata col">
+			<div class="row">
+				<div class="col-12">
+					<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
+						<?php
+						printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?>
+					</a>
+					<?php edit_comment_link(__('(Edit)'),'  ','' );
+					?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<?php printf(__('<cite class="fn font-weight-bolder">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
+				</div>
+			</div>
+		</div>
 	</div>
+
 <?php if ($comment->comment_approved == '0') : ?>
 	<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
 	<br />
 <?php endif; ?>
 
-	<div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-		<?php
-			printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
-		?>
+	<div class="row">
+		<div class="col-12 p-5">
+			<?php comment_text() ?>
+		</div>
 	</div>
-
-	<?php comment_text() ?>
 
 	<div class="reply">
 	<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
@@ -435,7 +453,7 @@ function create_post_type_html5()
 	    'show_in_rest' => true,
 	    'show_ui'   => true,
 	    'show_admin_column' => true,
-		'rewrite' => array( 'slug' => 'lessons' ),
+		'rewrite' => array( 'slug' => 'lessons/category' ),
     ));
 
     //register_taxonomy_for_object_type('post_tag', 'lessons');
@@ -458,6 +476,12 @@ function create_post_type_html5()
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'capability_type'    => 'post',
+        'menu_icon' => get_template_directory_uri() . '/images/videos-icon.png',
         'supports' => array(
             'title',
             'editor',

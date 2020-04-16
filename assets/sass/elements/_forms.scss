@@ -2,12 +2,18 @@
 .form_wrapper {
 	margin-bottom: 60px;
 	padding: 40px;
-	-webkit-box-shadow: 0px 0px 40px -20px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0px 0px 40px -20px rgba(0,0,0,0.5);
-	box-shadow: 0px 0px 40px -20px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 40px -20px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 0 40px -20px rgba(0,0,0,0.5);
+	box-shadow: 0 0 40px -20px rgba(0,0,0,0.5);
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
+
+	&.account_page {
+		-webkit-box-shadow: 0 48px 60px -40px rgba(0, 0, 0, 0.2);
+		-moz-box-shadow: 0 48px 60px -40px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 48px 60px -40px rgba(0, 0, 0, 0.2);
+	}
 }
 
 .mp_wrapper {

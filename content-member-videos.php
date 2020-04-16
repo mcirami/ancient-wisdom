@@ -56,6 +56,12 @@ foreach ($taxonomies as $taxonomy) {
 
 } ?>" >
 
+	<div class="row mb-4">
+		<div class="col-12">
+			<a class="video_title text-uppercase" href="<?php the_permalink();?>"><?php the_title(); ?></a>
+		</div>
+	</div>
+
 	<div class="vid_image_wrap">
 
 		<?php /*if ($type == 'youtube') : */?><!--
@@ -115,9 +121,18 @@ foreach ($taxonomies as $taxonomy) {
 		</div>
 	</div><!-- vid_image_wrap -->
 
-	<div class="lesson_content full_width">
-		<h4><?php the_field('video_description'); ?></h4>
-		<p>Date Added <?php echo get_the_date('n/j/Y'); ?></p>
+	<div class="lesson_content row">
+		<div class="col-12">
+			<h4><?php the_field('video_description'); ?></h4>
+			<p>Date Added <?php echo get_the_date('n/j/Y'); ?></p>
+		</div>
+
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-12">
+			<a class="button green" href="<?php the_permalink(); ?>">Leave a Comment</a>
+		</div>
 	</div>
 
 </div><!-- column -->

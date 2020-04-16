@@ -47,7 +47,7 @@ jQuery(document).ready(function($) {
 			}
 
 			let overlay = document.createElement("div");
-			overlay.classList.add('overlay');
+			overlay.classList.add('video_overlay');
 			overlay.innerHTML = "<div class='video_embed'><div class='video_wrapper'><iframe frameborder='0' allowfullscreen src='" +
 				embedLink +
 				"/?rel=0&showinfo=0'></iframe></div><span class='close_button'>CLOSE</span></div>";
@@ -57,14 +57,14 @@ jQuery(document).ready(function($) {
 			setTimeout(function() {
 				const element = document.querySelector('.close_button');
 				element.addEventListener('click', function() {
-					document.querySelector('.overlay').remove();
+					document.querySelector('.video_overlay').remove();
 				});
 			}, 1000);
 		}
 
 	}, false);
 
-	if (my_script_vars.pageTitle !== "The School Of Ancient Wisdom" && !my_script_vars.member) {
+	if (!my_script_vars.frontPage && !my_script_vars.member) {
 		let links = document.querySelectorAll('.free_lesson_link');
 		links.forEach(link => {
 			link.firstChild.href = my_script_vars.home + "#free_lessons"
@@ -187,7 +187,10 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 		$(this).toggleClass('open');
 		$('.menu').toggleClass('open');
-		$('.header_bottom').toggleClass('background');
+		if(my_script_vars.frontPage) {
+			$('.header_bottom').toggleClass('background');
+		}
+
 	});
 
 });

@@ -4,12 +4,12 @@
 		<!-- section -->
 		<section>
 
-			<!-- article -->
-			<article id="post-404">
+			<?php get_template_part( 'content', 'page-header' ); ?>
 
-				<h1><?php _e( 'Page not found', 'html5blank' ); ?></h1>
-				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
+			<!-- article -->
+			<article id="post-404" class="my-5 py-5">
+				<h2 class="text-center">
+					<a class="text-uppercase" href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
 				</h2>
 
 			</article>
@@ -19,6 +19,6 @@
 		<!-- /section -->
 	</main>
 
-<?php get_sidebar(); ?>
+<?php /*get_sidebar(); */?>
 
 <?php get_footer(); ?>

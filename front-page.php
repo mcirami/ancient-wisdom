@@ -37,8 +37,6 @@ get_header(); ?>
 									<div class="firefly"></div>
 									<div class="firefly"></div>
 									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
 								</div>
 							</article>
 						</div>
