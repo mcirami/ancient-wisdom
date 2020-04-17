@@ -38,12 +38,6 @@
 	img {
 		width: auto;
 	}
-
-	form input[type=submit] {
-		padding-top: 28px;
-		padding-bottom: 50px;
-		border-bottom: 6px solid $black;
-	}
 }
 
 form {
@@ -89,6 +83,10 @@ form {
 		-moz-border-radius: 6px;
 		background: $green;
 		text-transform: uppercase;
+		padding-top: 28px;
+		padding-bottom: 50px;
+		border-bottom: 6px solid $black;
+
 
 		&:hover {
 			background: $black;

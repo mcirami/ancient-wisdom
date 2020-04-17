@@ -5,6 +5,7 @@
     padding: 5px 10px;
     font-size: 13px;
     float: left;
+    z-index: 12;
 
     @include media($mobile) {
         font-size: 11px;
@@ -61,127 +62,46 @@
         }
     }
 
-    /*#video_player, .course_video_player {
-        background: $darkerGray;
-        //max-height: 900px;
-        //overflow-y: scroll;
-
-        .content_wrap {
-            @include media($mobile) {
-                padding: 0 25px;
-            }
-
-            .simplefavorite-button {
-                float: left;
-                margin-top: 10px;
-                z-index: 1;
-                position: absolute;
-
-                @include media($smallMobile) {
-                    position: relative;
-                }
-            }
-        }
-
-        .lesson_title {
-            text-align: center;
-            color: $white;
-            padding: 15px 0;
-            background: rgba(0,0,0,.2);
-
-            h3 {
-                margin: 0;
-
-                @include media($mobile) {
-                    font-size: 21px;
-                }
-            }
-        }
-
-        .replace_link {
-            padding: 10px 0;
-            text-align: center;
-            margin: 0;
-            color: $white;
-
-            @include media($smallMobile) {
-                text-align: right;
-            }
-
-            a {
-                font-family: 'robotobold', sans-serif;
-                font-size: 16px;
-                color: $red;
-
-                @include media($mobile) {
-                    font-size: 14px;
-                }
-            }
-        }
-
-        .links_wrap {
-            @include span-columns(12);
-            text-align: center;
-            padding-bottom: 10px;
-
-            a {
-                color: $white;
-                text-transform: uppercase;
-                text-decoration: underline;
-
-                @include media($mobile) {
-                    font-size: 14px;
-                }
-
-                &:hover {
-                    color: $yellow;
-                }
-
-                &:first-child {
-                    margin-right: 20px;
-                }
-
-                &.keyboard_link {
-                    margin-right: 0;
-                }
-            }
-        }
-
-        .video_iframe_wrap {
-            @include span-columns(7);
-            padding-left: 2.5%;
-            padding-bottom: 20px;
-
-            @include media($tablet) {
-                @include span-columns(8);
-                padding-right: 2.5%;
-                padding-bottom: 0;
-            }
-        }
-
-        .video_content_wrap {
-            @include span-columns(5);
-            padding-right: 2.5%;
-            max-height: 800px;
-            overflow-y: scroll;
-            margin-top: 15px;
-
-            @include media($tablet) {
-                @include span-columns(8);
-                padding-left: 2.5%;
-            }
-        }
-    }*/
-
     .video_list {
 
         .play_button_wrap {
             top: 0;
             left: 0;
             cursor: pointer;
+            z-index: 10;
 
-            .play_button {
+            &:hover {
+                background: rgba(0,0,0,.4);
+
+                .img_wrap {
+                    &:before {
+                        content: '';
+                        background: url('../images/icon-play-hover.png') no-repeat;
+                        background-size: 100% 100%;
+                        width: 60px;
+                        height: 60px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 10;
+
+                        @include media($tablet) {
+                            width: 40px;
+                            height: 40px;
+                        }
+
+                        @include media($mobile) {
+                            width: 30px;
+                            height: 30px;
+                        }
+
+                    }
+                }
+            }
+
+            .img_wrap {
                 width: 60px;
+                z-index: -1;
 
                 @include media($tablet) {
                     width: 40px;
@@ -189,6 +109,10 @@
 
                 @include media($mobile) {
                     width: 30px;
+                }
+
+                img {
+                    z-index: -1;
                 }
             }
         }
@@ -211,13 +135,10 @@
             .video_title {
                 @include latobold;
                 color: $blue;
-                font-size: 30px;
-                /*border-left: 3px solid $blue;
-                padding-left: 10px;*/
+                font-size: 22px;
 
                 &:hover {
                     color: $darkBlue;
-                    /*border-color: $darkBlue;*/
                 }
             }
 
@@ -227,7 +148,7 @@
                     position: absolute !important;
                     right: 0;
                     bottom: 0;
-                    z-index: 1;
+                    z-index: 12;
 
                     @include media($mobile) {
                         position: relative !important;

@@ -56,12 +56,6 @@ foreach ($taxonomies as $taxonomy) {
 
 } ?>" >
 
-	<div class="row mb-4">
-		<div class="col-12">
-			<a class="video_title text-uppercase" href="<?php the_permalink();?>"><?php the_title(); ?></a>
-		</div>
-	</div>
-
 	<div class="vid_image_wrap">
 
 		<?php /*if ($type == 'youtube') : */?><!--
@@ -116,13 +110,16 @@ foreach ($taxonomies as $taxonomy) {
 			<div class="button_wrap full_width">
 				<?php the_favorites_button();?>
 			</div>
-		<div class="play_button_wrap position-absolute w-100 h-100 d-flex justify-content-center align-content-center">
-			<img class="video_open play_button m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1"/>
+		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1">
+			<div class="img_wrap m-auto">
+				<img class="play_button" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" />
+			</div>
 		</div>
 	</div><!-- vid_image_wrap -->
 
 	<div class="lesson_content row">
 		<div class="col-12">
+			<a class="video_title text-capitalize pt-2" href="<?php the_permalink();?>"><?php the_title(); ?></a>
 			<h4><?php the_field('video_description'); ?></h4>
 			<p>Date Added <?php echo get_the_date('n/j/Y'); ?></p>
 		</div>

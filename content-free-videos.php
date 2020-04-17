@@ -17,7 +17,7 @@ if($twoColumnSection) : ?>
 									<div class="container">
 										<article class="content row">
 
-											<h2 class="text-center mb-4 mb-md-5 mt-0 <?php if ($count % 2 == 0) echo 'black'; ?>"><?php the_sub_field('section_title'); ?></h2>
+											<h2 class="animated fadeIn duration4 eds-on-scroll text-center mb-4 mb-md-5 mt-0 <?php if ($count % 2 == 0) echo 'black'; ?>"><?php the_sub_field('section_title'); ?></h2>
 
 											<?php if ( have_rows( 'video_column' ) ) :
 													$columnCount = 0;
@@ -55,9 +55,9 @@ if($twoColumnSection) : ?>
 
 														?>
 
-														<div class="video_box col-6 <?php if ($columnCount == 1) { echo 'pr-4'; } else { echo 'pl-4'; }?>">
-															<div class="row">
-																<div class="col-12">
+														<div class="animated fadeIn duration4 eds-on-scroll video_box col-6 <?php if ($columnCount == 1) { echo 'pr-4'; } else { echo 'pl-4'; }?>">
+															<div class="row <?php if ($columnCount == 1) { echo 'pr-2'; } else { echo 'pl-2'; } ?>">
+																<div class="col-12 p-0">
 
 																<?php
 																	$attachment_id =  get_field('video_image');
@@ -74,13 +74,15 @@ if($twoColumnSection) : ?>
 																		<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="<?php //echo esc_attr( $image['alt'] ); ?>">
 
 																	<?php endif; ?>
-																	<div class="play_button_wrap position-absolute w-100 h-100 d-flex justify-content-center align-content-center">
-																		<img class="video_open play_button m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" data-video="<?php echo $videoLink; ?>"/>
+																	<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; ?>">
+																		<div class="img_wrap m-auto">
+																			<img class="play_button m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
+																		</div>
 																	</div>
 																</div>
-															</div>
-															<div class="desc p-4 <?php if ($count % 2 == 0) echo 'gray'; ?>">
-																<p><?php the_field('video_description'); ?></p>
+																<div class="desc p-4 col-12 <?php if ($count % 2 == 0) echo 'gray'; ?>">
+																	<p><?php the_field('video_description'); ?></p>
+																</div>
 															</div>
 														</div><!-- video_box -->
 														<?php

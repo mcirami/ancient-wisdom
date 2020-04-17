@@ -22,8 +22,8 @@ get_header(); ?>
 						<div class="container">
 							<article class="row">
 								<div class="col-8 col-lg-7 ml-auto">
-									<h2><?php echo $headerSection['hero_title']; ?></h2>
-									<h3><?php echo $headerSection['hero_sub_title']; ?></h3>
+									<h2 class="animated fadeIn duration4"><?php echo $headerSection['hero_title']; ?></h2>
+									<h3 class="animated fadeIn duration4"><?php echo $headerSection['hero_sub_title']; ?></h3>
 									<div class="firefly"></div>
 									<div class="firefly"></div>
 									<div class="firefly"></div>
@@ -55,8 +55,8 @@ get_header(); ?>
 						<div class="container">
 							<?php /*$quoteBackground = get_field('quote_section_background_image'); */?>
 							<div class="content_wrap">
-								<h3><?php echo $videosHeader['video_section_heading']; ?></h3>
-								<p><?php echo $videosHeader['video_section_description']; ?></p>
+								<h3 class="animated fadeIn duration4 eds-on-scroll"><?php echo $videosHeader['video_section_heading']; ?></h3>
+								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $videosHeader['video_section_description']; ?></p>
 							</div>
 						</div>
 					</article>
@@ -74,13 +74,13 @@ get_header(); ?>
 					<div class="container">
 						<div class="row">
 							<article class="col-12 col-md-6 column text-center text-md-left">
-								<h2 class="mb-2"><?php echo $aboutSection['heading']; ?></h2>
-								<p><?php echo $aboutSection['description']; ?></p>
+								<h2 class="mb-2 animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['heading']; ?></h2>
+								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['description']; ?></p>
 								<!--<p class="bold desktop"><?php /*echo the_field('about_form_text_desktop'); */?></p>
 								<p class="bold mobile"><?php /*echo the_field('about_form_text_mobile'); */?></p>
 								--><?php /*echo the_field('email_form_shortcode'); */?>
 							</article>
-							<article class="col-12 col-md-6 column">
+							<article class="col-12 col-md-6 column animated fadeIn duration4 eds-on-scroll">
 								<?php echo $aboutSection['embedded_video']; ?>
 								<!--<div class="video_wrapper full_width">
 									<iframe src="<?php /*echo the_field('about_video_link'); */?>" frameborder="0" allowfullscreen></iframe>

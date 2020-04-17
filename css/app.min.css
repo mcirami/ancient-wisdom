@@ -12246,14 +12246,14 @@ header .header_bottom .menu ul.member_menu > li ul.sub-menu li .sub-menu a:hover
   }
 }
 .home_section .hero .firefly {
-  position: fixed;
-  left: 50%;
-  top: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 0.4vw;
   height: 0.4vw;
   margin: -0.2vw 0 0 9.8vw;
-  -webkit-animation: ease 200s alternate infinite;
-          animation: ease 200s alternate infinite;
+  -webkit-animation: ease 500s alternate infinite;
+          animation: ease 500s alternate infinite;
   pointer-events: none;
 }
 .home_section .hero .firefly:before, .home_section .hero .firefly:after {
@@ -14946,17 +14946,45 @@ header .header_bottom .menu ul.member_menu > li ul.sub-menu li .sub-menu a:hover
   top: 0;
   left: 0;
   cursor: pointer;
+  z-index: 2;
 }
-.free_videos .play_button_wrap .play_button {
-  width: auto;
+.free_videos .play_button_wrap:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.free_videos .play_button_wrap:hover .img_wrap:before {
+  content: "";
+  background: url("../images/icon-play-hover.png") no-repeat;
+  background-size: 100% 100%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 @media screen and (max-width: 991px) {
-  .free_videos .play_button_wrap .play_button {
+  .free_videos .play_button_wrap:hover .img_wrap:before {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .free_videos .play_button_wrap:hover .img_wrap:before {
+    width: 50px;
+    height: 50px;
+  }
+}
+.free_videos .play_button_wrap .img_wrap {
+  z-index: 1;
+  width: 70px;
+}
+@media screen and (max-width: 991px) {
+  .free_videos .play_button_wrap .img_wrap {
     width: 60px;
   }
 }
 @media screen and (max-width: 767px) {
-  .free_videos .play_button_wrap .play_button {
+  .free_videos .play_button_wrap .img_wrap {
     width: 50px;
   }
 }
@@ -15468,6 +15496,7 @@ footer .copy a {
   padding: 5px 10px;
   font-size: 13px;
   float: left;
+  z-index: 12;
 }
 @media screen and (max-width: 767px) {
   .simplefavorite-button {
@@ -15485,117 +15514,6 @@ footer .copy a {
 .member_lessons {
   color: #000000;
   margin-bottom: 200px;
-  /*#video_player, .course_video_player {
-      background: $darkerGray;
-      //max-height: 900px;
-      //overflow-y: scroll;
-
-      .content_wrap {
-          @include media($mobile) {
-              padding: 0 25px;
-          }
-
-          .simplefavorite-button {
-              float: left;
-              margin-top: 10px;
-              z-index: 1;
-              position: absolute;
-
-              @include media($smallMobile) {
-                  position: relative;
-              }
-          }
-      }
-
-      .lesson_title {
-          text-align: center;
-          color: $white;
-          padding: 15px 0;
-          background: rgba(0,0,0,.2);
-
-          h3 {
-              margin: 0;
-
-              @include media($mobile) {
-                  font-size: 21px;
-              }
-          }
-      }
-
-      .replace_link {
-          padding: 10px 0;
-          text-align: center;
-          margin: 0;
-          color: $white;
-
-          @include media($smallMobile) {
-              text-align: right;
-          }
-
-          a {
-              font-family: 'robotobold', sans-serif;
-              font-size: 16px;
-              color: $red;
-
-              @include media($mobile) {
-                  font-size: 14px;
-              }
-          }
-      }
-
-      .links_wrap {
-          @include span-columns(12);
-          text-align: center;
-          padding-bottom: 10px;
-
-          a {
-              color: $white;
-              text-transform: uppercase;
-              text-decoration: underline;
-
-              @include media($mobile) {
-                  font-size: 14px;
-              }
-
-              &:hover {
-                  color: $yellow;
-              }
-
-              &:first-child {
-                  margin-right: 20px;
-              }
-
-              &.keyboard_link {
-                  margin-right: 0;
-              }
-          }
-      }
-
-      .video_iframe_wrap {
-          @include span-columns(7);
-          padding-left: 2.5%;
-          padding-bottom: 20px;
-
-          @include media($tablet) {
-              @include span-columns(8);
-              padding-right: 2.5%;
-              padding-bottom: 0;
-          }
-      }
-
-      .video_content_wrap {
-          @include span-columns(5);
-          padding-right: 2.5%;
-          max-height: 800px;
-          overflow-y: scroll;
-          margin-top: 15px;
-
-          @include media($tablet) {
-              @include span-columns(8);
-              padding-left: 2.5%;
-          }
-      }
-  }*/
 }
 .member_lessons .top_content {
   padding: 20px;
@@ -15633,19 +15551,50 @@ footer .copy a {
   top: 0;
   left: 0;
   cursor: pointer;
+  z-index: 10;
 }
-.member_lessons .video_list .play_button_wrap .play_button {
+.member_lessons .video_list .play_button_wrap:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.member_lessons .video_list .play_button_wrap:hover .img_wrap:before {
+  content: "";
+  background: url("../images/icon-play-hover.png") no-repeat;
+  background-size: 100% 100%;
   width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 @media screen and (max-width: 991px) {
-  .member_lessons .video_list .play_button_wrap .play_button {
+  .member_lessons .video_list .play_button_wrap:hover .img_wrap:before {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .member_lessons .video_list .play_button_wrap:hover .img_wrap:before {
+    width: 30px;
+    height: 30px;
+  }
+}
+.member_lessons .video_list .play_button_wrap .img_wrap {
+  width: 60px;
+  z-index: -1;
+}
+@media screen and (max-width: 991px) {
+  .member_lessons .video_list .play_button_wrap .img_wrap {
     width: 40px;
   }
 }
 @media screen and (max-width: 767px) {
-  .member_lessons .video_list .play_button_wrap .play_button {
+  .member_lessons .video_list .play_button_wrap .img_wrap {
     width: 30px;
   }
+}
+.member_lessons .video_list .play_button_wrap .img_wrap img {
+  z-index: -1;
 }
 .member_lessons .video_list .column {
   width: 33.1%;
@@ -15667,19 +15616,16 @@ footer .copy a {
   font-family: "lato-bold", sans-serif;
   font-weight: 600;
   color: #5db9e2;
-  font-size: 30px;
-  /*border-left: 3px solid $blue;
-  padding-left: 10px;*/
+  font-size: 22px;
 }
 .member_lessons .video_list .column .video_title:hover {
   color: #2598cc;
-  /*border-color: $darkBlue;*/
 }
 .member_lessons .video_list .column .vid_image_wrap .simplefavorite-button {
   position: absolute !important;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 12;
 }
 @media screen and (max-width: 767px) {
   .member_lessons .video_list .column .vid_image_wrap .simplefavorite-button {
@@ -16063,11 +16009,6 @@ footer .copy a {
 .mp_wrapper img {
   width: auto;
 }
-.mp_wrapper form input[type=submit] {
-  padding-top: 28px;
-  padding-bottom: 50px;
-  border-bottom: 6px solid #000000;
-}
 
 form {
   color: #000000;
@@ -16114,6 +16055,9 @@ form input[type=submit] {
   -moz-border-radius: 6px;
   background: #013220;
   text-transform: uppercase;
+  padding-top: 28px;
+  padding-bottom: 50px;
+  border-bottom: 6px solid #000000;
 }
 form input[type=submit]:hover {
   background: #000000;
