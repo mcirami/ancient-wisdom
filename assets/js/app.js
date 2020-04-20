@@ -1,14 +1,27 @@
 jQuery(document).ready(function($) {
 
-	$(window).on('scroll', function (event) {
+	function headerClassesScroll() {
 		if ($(window).scrollTop() > 40) {
 			$('.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').addClass('scroll');
-			$('.header_bottom').addClass('home_background');
+			if (my_script_vars.frontPage) {
+				$('.header_bottom').addClass('home_background');
+				$('.sub-menu').removeClass('top');
+			}
 		} else {
 			$('.header_top,.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').removeClass('scroll');
-			$('.header_bottom').removeClass('home_background');
+			if (my_script_vars.frontPage) {
+				$('.header_bottom').removeClass('home_background');
+				$('.sub-menu').addClass('top');
+			}
 		}
+	}
+	$(window).on('scroll', function (event) {
+		headerClassesScroll()
 	});
+
+	if (my_script_vars.frontPage) {
+		headerClassesScroll();
+	}
 
 	/*(function(){
 
@@ -30,11 +43,16 @@ jQuery(document).ready(function($) {
 
 	document.addEventListener('click', function(event){
 
-		if (event.target.classList.contains('video_open')) {
+		if (event.target.classList.contains('video_open') || event.target.classList.contains('video_open_img')) {
 
 			event.preventDefault();
+			let videoLink;
 
-			let videoLink = event.target.getAttribute('data-video');
+			if (event.target.classList.contains('video_open_img')) {
+				videoLink = event.target.closest('.video_open').getAttribute('data-video');
+			} else {
+				videoLink = event.target.getAttribute('data-video');
+			}
 
 			if (videoLink.includes("embed") || videoLink.includes("vimeo")) {
 				embedLink = videoLink;
@@ -153,13 +171,16 @@ jQuery(document).ready(function($) {
 	});
 
 	function subMenuHover() {
-		$('.menu-item-has-children').mouseenter(function () {
+		let topHasChildren = $('.menu-item-has-children.top_submenu');
+		let bottomHasChildren = $('.menu-item-has-children');
+		bottomHasChildren.mouseenter(function () {
 				$(this).children('.sub-menu').slideDown(100);
 			}
 		);
 
-		$('.menu-item-has-children').mouseleave(function () {
+		topHasChildren.mouseleave(function () {
 				$(this).children('.sub-menu').slideUp(100);
+				bottomHasChildren.children('.sub-menu').slideUp(100);
 			}
 		);
 	}

@@ -34,6 +34,7 @@ if($twoColumnSection) : ?>
 														$post = $post_object;
 														setup_postdata( $post );
 
+														$type = "";
 														$videoLink = get_field('video_link');
 														if (strpos($videoLink, "youtube") !== false) {
 															if(strpos($videoLink,"v=")) {
@@ -48,7 +49,7 @@ if($twoColumnSection) : ?>
 															}
 															$type = "youtube";
 														} elseif (strpos($videoLink, "vimeo") !== false) {
-															$str       = explode( "video/", $videoLink );
+															$str       = explode( "vimeo.com/", $videoLink );
 															$embedCode = preg_replace( '/\s+/', '', $str[1] );
 															$type      = "vimeo";
 														}
@@ -76,7 +77,7 @@ if($twoColumnSection) : ?>
 																	<?php endif; ?>
 																	<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; ?>">
 																		<div class="img_wrap m-auto">
-																			<img class="play_button m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
+																			<img class="play_button m-auto video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
 																		</div>
 																	</div>
 																</div>
