@@ -480,3 +480,24 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 .main {
 	color: $black;
 }
+
+.donate {
+
+	h3 {
+		font-size: 24px;
+	}
+
+	form {
+		text-align: center;
+
+		img {
+			width: auto;
+		}
+
+		input[type='image'] {
+			width: 180px;
+			margin-top: 40px
+		}
+	}
+}
+

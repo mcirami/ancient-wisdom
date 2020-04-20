@@ -91,7 +91,7 @@ $videos = new WP_Query($args);
 								</ul>
 							</div>
 						</div><!-- filter_controls -->
-					<?php else : ?>
+					<?php elseif ($title == "Favorite Lessons") : ?>
 
 						<div class="top_content full_width">
 							<?php if ($favorites != null) :

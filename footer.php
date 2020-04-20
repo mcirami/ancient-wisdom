@@ -7,7 +7,7 @@
 								<div class="row">
 									<div class="col-12 pr-5">
 										<h3 class="text-uppercase">The School Of Ancient Wisdom</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam at est eveniet facere illo libero maxime modi nemo nihil numquam pariatur quas qui quis quos ratione, reprehenderit ut, veniam.</p>
+										<p><?php the_field('first_column_description', 'options');?></p>
 									</div>
 								</div>
 								<div class="row social_media">
@@ -66,7 +66,7 @@
 										</a>
 									</div>
 									<div class="col-6 text-center d-flex flex-column justify-content-center align-content-center">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, molestias numquam porro possimus praesentium repellendus voluptas. </p>
+										<p><?php the_field('book_description', 'options');?></p>
 										<a class="button orange text-uppercase" href="<?php home_url(); ?>/the-cycle-of-mind">Learn More</a>
 									</div>
 								</div>

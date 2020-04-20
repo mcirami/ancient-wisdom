@@ -135,6 +135,8 @@ jQuery(document).ready(function($) {
 		let headerBottom = $('.header_bottom');
 
 		if ($(window).width() > 768) {
+			let childSubmenu = $('.menu-item-has-children .sub-menu');
+			let childLink = $('.menu-item-has-children > a');
 
 			if(menuIcon.hasClass('open')) {
 				menuIcon.removeClass('open');
@@ -146,13 +148,13 @@ jQuery(document).ready(function($) {
 
 			subMenuHover();
 
-			if ($('.menu-item-has-children .sub-menu').hasClass('open')) {
-				$('.menu-item-has-children .sub-menu').slideUp(100);
-				$('.menu-item-has-children .sub-menu').removeClass('open');
+			if (childSubmenu.hasClass('open')) {
+				childSubmenu.slideUp(100);
+				childSubmenu.removeClass('open');
 			}
 
-			if ($('.menu-item-has-children > a').hasClass('open')) {
-				$('.menu-item-has-children > a').removeClass('open');
+			if (childLink.hasClass('open')) {
+				childLink.removeClass('open');
 			}
 
 /*			$('.user_mobile_nav').removeClass('open');
@@ -162,8 +164,9 @@ jQuery(document).ready(function($) {
 
 
 		} else {
-			$('.menu-item-has-children').unbind('mouseenter');
-			$('.menu-item-has-children').unbind('mouseleave');
+			let submenu = $('.menu-item-has-children');
+			submenu.unbind('mouseenter');
+			submenu.unbind('mouseleave');
 
 			mobileSubMenu();
 

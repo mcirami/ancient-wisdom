@@ -14,6 +14,15 @@ get_header(); ?>
 
 	<?php get_template_part( 'content', 'page-header' ); ?>
 
-	<?php get_template_part( 'content', 'free-videos' ); ?>
+	<?php if (get_the_title() == "Be Happy") : ?>
+
+		<?php get_template_part( 'content', 'free-videos-full' ); ?>
+
+	<?php else :?>
+
+		<?php get_template_part( 'content', 'free-videos' ); ?>
+
+	<?php endif; ?>
+
 
 <?php get_footer(); ?>

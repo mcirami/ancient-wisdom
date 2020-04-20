@@ -14,8 +14,28 @@
 
 				<div class="container">
 					<div class="row">
-						<?php $permalink = get_permalink(); ?>
-						<div class="<?php if ( strpos($permalink, "plans") == false && strpos($permalink, "account") == false && strpos($permalink, "affiliate-area") == false ) echo "col-12 col-md-6 mx-auto form_wrapper";
+						<?php $permalink = get_permalink();
+
+							if (strpos($permalink, "login") == true) : ?>
+								<div class="col-12 text-center mb-5 pb-5 login_text">
+									<h3 class="mb-5">Don't Have An Account Yet?</h3>
+									<a class="button blue text-uppercase" href="/plans/membership-plans/">Click Here To Register!</a>
+								</div>
+
+							<?php elseif (strpos($permalink, "donate") == true) : ?>
+
+								<div class="row">
+									<div class="col-12">
+										<h3 class="text-center"><?php the_field('description'); ?></h3>
+										<?php echo do_shortcode('[paypal-donation]'); ?>
+									</div>
+								</div>
+
+							<?php endif; ?>
+
+
+
+						<div class="<?php if ( strpos($permalink, "plans") == false && strpos($permalink, "account") == false && strpos($permalink, "affiliate-area") == false && strpos($permalink, "donate") == false) echo "col-12 col-md-6 mx-auto form_wrapper";
 								elseif (strpos($permalink, "account") == true || strpos($permalink, "affiliate-area") == true) echo "account_page col-12 form_wrapper"; ?>">
 							<?php the_content(); ?>
 						</div>

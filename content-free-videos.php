@@ -82,7 +82,7 @@ if($twoColumnSection) : ?>
 																	</div>
 																</div>
 																<div class="desc p-4 col-12 <?php if ($count % 2 == 0) echo 'gray'; ?>">
-																	<p><?php the_field('video_description'); ?></p>
+																	<p><?php the_field('video_description', false); ?></p>
 																</div>
 															</div>
 														</div><!-- video_box -->
@@ -115,16 +115,13 @@ if($twoColumnSection) : ?>
 		<?php
 		if(is_page('home')) {
 			$link = "/part-two";
-			$text = "More Videos";
 		} elseif(is_page('part-two')) {
 			$link = "/part-three";
-			$text = "More Videos";
 		} else {
 			$link = home_url()."/plans/membership-plans";
-			$text = "Join To View More";
 		}
 		?>
 
-		<a class="text-uppercase" href="<?php echo $link; ?>"><?php echo $text;?></a>
+		<a class="text-uppercase" href="<?php echo $link; ?>">More Videos</a>
 	</div>
 </div>
