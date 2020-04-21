@@ -56,7 +56,7 @@ if($twoColumnSection) : ?>
 
 														?>
 
-														<div class="animated fadeIn duration4 eds-on-scroll video_box col-6 <?php if ($columnCount == 1) { echo 'pr-4'; } else { echo 'pl-4'; }?>">
+														<div class="animated fadeIn duration4 eds-on-scroll video_box mb-5 mb-sm-0 col-12 col-sm-6 <?php if ($columnCount == 1) { echo 'pr-0 pr-sm-4'; } else { echo 'pl-0 pl-sm-4'; }?>">
 															<div class="row <?php if ($columnCount == 1) { echo 'pr-2'; } else { echo 'pl-2'; } ?>">
 																<div class="col-12 p-0">
 
@@ -109,19 +109,42 @@ if($twoColumnSection) : ?>
 
 <?php endif; ?>
 
-<div class="row more_videos py-4 py-md-5">
+<div class="row more_videos pb-4 pb-md-5 mb-4">
 	<div class="col-12 text-center">
+		<div class="container">
+			<?php
+			if(is_page('home')) {
+				$link = "/part-two";
+			} elseif(is_page('part-two')) {
+				$link = "/part-three";
+			} else {
+				$link = home_url()."/plans/membership-plans";
+			}
+			?>
 
-		<?php
-		if(is_page('home')) {
-			$link = "/part-two";
-		} elseif(is_page('part-two')) {
-			$link = "/part-three";
-		} else {
-			$link = home_url()."/plans/membership-plans";
-		}
-		?>
-
-		<a class="text-uppercase" href="<?php echo $link; ?>">More Videos</a>
+			<a class="text-uppercase float-right button blue" href="<?php echo $link; ?>">More Lessons</a>
+		</div>
 	</div>
 </div>
+
+<?php if(is_page('part-two') || is_page('part-three')) : ?>
+
+
+		<div class="row mb-5">
+			<div class="col-12">
+				<div class="container">
+					<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
+						<div class="row">
+							<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
+								<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+								<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
+								<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+							</div>
+						</div>
+						<?php echo do_shortcode('[mc4wp_form id="266"]'); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<?php endif; ?>

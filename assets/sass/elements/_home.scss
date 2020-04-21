@@ -1,22 +1,31 @@
 .home_section {
 
 	.hero {
-		background-size: cover;
-		padding: 16% 0 13%;
+		@keyframes zoom {
+			0%  { background-size: 100% auto; }
+			10% { background-size: 110% auto; }
+			20% { background-size: 120% auto; }
+			30% { background-size: 130% auto; }
+			40% { background-size: 140% auto; }
+			50% { background-size: 150% auto; }
+			60% { background-size: 160% auto; }
+			70% { background-size: 170% auto; }
+			80% { background-size: 180% auto; }
+			90% { background-size: 190% auto; }
+			100% { background-size: 200% auto; }
+		}
 
+		padding: 16% 0 13%;
+		animation: zoom 300s ease-in-out infinite;
 
 		@include media($tablet) {
 			padding: 16% 0;
-			background-size: cover !important;
 			background-position: top !important;
 		}
 
 		@include media($mobile) {
 			padding: 15% 0;
-		}
-
-		.ie10 {
-			top: -1px;
+			animation: none;
 		}
 
 		h2 {
@@ -61,7 +70,7 @@
 			}
 		}
 
-		.firefly {
+		/*.firefly {
 			position: absolute;
 			left: 0;
 			top: 0;
@@ -1409,7 +1418,7 @@
 				opacity: 1;
 				box-shadow: 0 0 2vw 0.4vw white;
 			}
-		}
+		}*/
 	}
 	.intro_text {
 		background: $beige;
@@ -1434,7 +1443,7 @@
 				line-height: 1.4;
 
 				@include media($tablet) {
-					font-size: 44px;
+					font-size: 40px;
 				}
 
 				@include media($mobile) {
@@ -1448,6 +1457,7 @@
 				padding: 0 10%;
 
 				@include media($tablet) {
+					font-size: 18px;
 					padding: 0 5%;
 				}
 
@@ -1457,10 +1467,14 @@
 				}
 			}
 		}
+
+		.form_wrapper {
+			margin-top: 40px;
+		}
 	}
 	
 	.about_section {
-		background: $white;
+		background: $beige;
 		padding: 60px 0;
 		color: $black;
 
@@ -1518,125 +1532,6 @@
 						}
 					}
 				}
-			}
-		}
-		
-		form {
-			width: 95%;
-			float: left;
-			padding-left: 10px;
-			
-			img {
-				width: auto;
-			}
-			
-			@include media($mobile){
-				width: 100%;
-			}
-			
-			&:before {
-				content: '';
-				width: 102%;
-				height: 111%;
-				background: rgba(0,0,0,.1);
-				top: -8px;
-				left: -2px;
-				position: absolute;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-				
-				@include media($tablet){
-					width: 100%;
-					left: -0.5%;
-					top: -9px;
-				}
-				
-				@include media($mobile){
-					left: 0;
-				}
-				
-				@include media($smallMobile){
-					top: -7px;
-				}
-			}
-		}
-		
-		.email {
-			width: 72%;
-			display: inline-block;
-			
-			@include media($tablet){
-				width: 69%;
-			}
-			
-			@include media($mobile){
-				width: 80%;
-			}
-			
-			@include media($smallMobile){
-				width: 66%;
-			}
-		}
-		
-		input[type="email"] {
-			height: 44px;
-			
-			@include media($tablet){
-				font-size: 16px;
-				padding: 15px;
-			}
-			
-			@include media($mobile){
-				height: 40px;
-				padding: 10px;
-			}
-			
-			@include media($smallMobile){
-				height: 35px;
-			}
-		}
-		
-		.submit {
-			width: 27%;
-			display: inline-block;
-			
-			@include media($tablet){
-				width: 28%;
-			}
-			
-			@include media($mobile){
-				width: 18%;
-			}
-			
-			@include media($smallMobile){
-				width: 31%;
-			}
-		}
-		
-		input[type="submit"] {
-			width: 100%;
-			@include latoreg;
-			font-size: 18px;
-			color: $white;
-			height: 45px;
-			margin-left: -5px;
-			top: 0;
-			
-			@include media($tablet){
-				font-size: 16px;
-			}
-			
-			@include media($mobile){
-				font-size: 14px;
-				height: 40px;
-				top: -1px;
-			}
-			
-			@include media($smallMobile){
-				font-size: 12px;
-				height: 35px;
-				top: -2px;
 			}
 		}
 	}

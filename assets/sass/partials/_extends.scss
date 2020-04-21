@@ -1,6 +1,5 @@
 // all base component placeholders 
 
-/*
 %clearfix {
 	&:after {
 		content: "";
@@ -12,4 +11,4 @@
 %post {
 	@include outer-container;
 	@include clearfix;
-}*/
+}

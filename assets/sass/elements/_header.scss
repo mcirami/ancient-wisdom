@@ -175,7 +175,7 @@ header {
 						}
 
 						a {
-							padding: 15px 40px;
+							padding: 14px 22px;
 							border-radius: 30px;
 							-webkit-border-radius: 30px;
 							-moz-border-radius: 30px;
@@ -183,7 +183,7 @@ header {
 							background: $blue;
 
 							@include media($tablet) {
-								padding: 12px 24px;
+								padding: 12px 20px;
 							}
 
 							@include media($mobile) {

@@ -97,3 +97,24 @@
 		}
 	}
 }
+
+.more_videos {
+
+	.button {
+		padding: 15px 60px 15px 30px;
+		border-radius: 30px;
+		-webkit-border-radius: 30px;
+		-moz-border-radius: 30px;
+
+		&:after {
+			content: '';
+			background: url("../images/icon-arrow.png") no-repeat;
+			background-size: 100%;
+			right: 22px;
+			top: 21px;
+			position: absolute;
+			width: 28px;
+			height: 15px;
+		}
+	}
+}

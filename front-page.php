@@ -58,6 +58,16 @@ get_header(); ?>
 								<h3 class="animated fadeIn duration4 eds-on-scroll"><?php echo $videosHeader['video_section_heading']; ?></h3>
 								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $videosHeader['video_section_description']; ?></p>
 							</div>
+							<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
+								<div class="row">
+									<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
+										<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+										<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
+										<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+									</div>
+								</div>
+								<?php echo do_shortcode('[mc4wp_form id="266"]'); ?>
+							</div>
 						</div>
 					</article>
 				</section><!-- motto -->
@@ -76,15 +86,12 @@ get_header(); ?>
 							<article class="col-12 col-md-6 column text-center text-md-left">
 								<h2 class="mb-2 animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['heading']; ?></h2>
 								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['description']; ?></p>
-								<!--<p class="bold desktop"><?php /*echo the_field('about_form_text_desktop'); */?></p>
-								<p class="bold mobile"><?php /*echo the_field('about_form_text_mobile'); */?></p>
-								--><?php /*echo the_field('email_form_shortcode'); */?>
+								<div class="form_wrapper mailchimp">
+									<?php echo do_shortcode('[mc4wp_form id="266"]'); ?>
+								</div>
 							</article>
 							<article class="col-12 col-md-6 column animated fadeIn duration4 eds-on-scroll">
 								<?php echo $aboutSection['embedded_video']; ?>
-								<!--<div class="video_wrapper full_width">
-									<iframe src="<?php /*echo the_field('about_video_link'); */?>" frameborder="0" allowfullscreen></iframe>
-								</div>-->
 							</article>
 						</div>
 					</div>
