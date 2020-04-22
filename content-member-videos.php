@@ -1,24 +1,23 @@
 <?php
 
-	$type = null;
 	$videoLink = get_field('video_link');
 	$id = $post->ID;
 
-	if (strpos($videoLink, "youtube") !== false) {
-		if(strpos($videoLink,"v=")) {
-			$str = explode("v=", $videoLink);
-			$embedCode = preg_replace('/\s+/', '',$str[1]);
-		} else if (strpos($videoLink, "embed/")) {
-			$str = explode("embed/", $videoLink);
-			$embedCode = preg_replace('/\s+/', '',$str[1]);
-		} else if (strpos($videoLink, "youtu.be")) {
-			$str = explode(".be/", $videoLink);
-			$embedCode = preg_replace('/\s+/', '',$str[1]);
-		}
+	if(strpos($videoLink,"v=")) {
+		$str = explode("v=", $videoLink);
+		$embedCode = preg_replace('/\s+/', '',$str[1]);
 		$type = "youtube";
-	} elseif (strpos($videoLink, "vimeo") !== false) {
+	} else if (strpos($videoLink, "embed/")) {
+		$str = explode("embed/", $videoLink);
+		$embedCode = preg_replace('/\s+/', '',$str[1]);
+		$type = "youtube";
+	} else if (strpos($videoLink, "youtu.be")) {
+		$str = explode(".be/", $videoLink);
+		$embedCode = preg_replace('/\s+/', '',$str[1]);
+		$type = "youtube";
+	} else if (strpos($videoLink, "vimeo") !== false) {
 		$str       = explode( "video/", $videoLink );
-		$embedCode = preg_replace( '/\s+/', '', $str[1] );
+		$embedCode = preg_replace( '/\s+/', '', $str[1]);
 		$type      = "vimeo";
 	}
 
@@ -32,15 +31,6 @@
 		$taxonomies[$index] = intval($category->term_id);
 		$index++;
 	}
-
-	/*$levels = get_the_terms($post->ID, 'level');
-
-	if (is_array($levels) || is_object($levels)) {
-		foreach ($levels as $level) {
-			$taxonomies[$index] = intval($level->term_id);
-			$index++;
-		}
-	}*/
 
 	$totalCount = count($taxonomies);
 	$hash = $post->post_name;
@@ -58,59 +48,33 @@ foreach ($taxonomies as $taxonomy) {
 
 	<div class="vid_image_wrap">
 
-		<?php /*if ($type == 'youtube') : */?><!--
+		<?php
+		$attachment_id = get_field('video_image');
+		$size = "video-thumb";
+		$videoImage = wp_get_attachment_image_src( $attachment_id, $size );
 
-			<a id="<?php /*echo $hash; */?>" class="video_open" data-type="<?php /*echo "youtube";*/?>" data-video="<?php /*echo $videoLink; */?>/?rel=0&showinfo=0&autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>" href="#<?php /*echo $hash;*/?>">
+		/*if (!empty(get_the_post_thumbnail())) {
+			$postThumbnail = get_the_post_thumbnail();
+		}*/
 
-		<?php /*elseif ($type == 'vimeo') : */?>
+		if (!empty($videoImage)) : ?>
 
-			<a id="<?php /*echo $hash; */?>" class="video_open" data-type="<?php /*echo "vimeo";*/?>" data-video="<?php /*echo $videoLink; */?>/?autoplay=1" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>" href="#<?php /*echo $hash;*/?>">
+			<img src="<?php echo $videoImage[0]; ?>" alt="video image placeholder" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
 
-		--><?php /*endif; */?>
+		<? elseif ($type == 'youtube')  : ?>
 
-					<?php
-					$attachment_id = get_field('video_image');
-					$size = "video-thumb";
-					$videoImage = wp_get_attachment_image_src( $attachment_id, $size );
+				<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="youtube video thumbnail" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
 
-					if (!empty(get_the_post_thumbnail())) {
-						$postThumbnail = get_the_post_thumbnail();
-					}
+		<?php else : ?>
 
-					if (!empty($videoImage)) :
-						?>
-						<img src="<?php echo $videoImage[0]; ?>" alt="video thumbnail" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
+			<img src="<?php echo bloginfo('template_url'); ?>/images/video-placeholder.jpg" alt="video image placeholder"/>
 
-						<?php  //elseif ( !empty($video_thumbnail) ) : ?>
+		<?php endif; ?><!-- video thumbnail -->
 
-						<!--<img class="get_video_thumbnail" src="<?php /*echo $video_thumbnail; */?>" alt="">-->
-
-					<?php /*elseif (!empty($postThumbnail)) :
-
-						echo $postThumbnail;*/
-
-					else : ?>
-
-					<?php if ($type == 'youtube') { ?>
-
-						<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="video thumbnail" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
-						<!--<img src="https://img.youtube.com/vi/<?php /*echo $embedCode; */?>/mqdefault.jpg" alt="youtube video thumb" />-->
-
-					<?php } /*else { */?><!--
-
-						<img src="<?php /*echo bloginfo('template_url'); */?>/images/lessons-screenshot.jpg" />
-
-					--><?php /*} */?>
-
-
-					<?php endif; ?><!-- video thumbnail -->
-
-				<!--</a>-->
-
-			<div class="button_wrap full_width">
-				<?php the_favorites_button();?>
-			</div>
-		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1">
+		<div class="button_wrap full_width">
+			<?php the_favorites_button();?>
+		</div>
+		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; if ($type == "vimeo") echo '/?autoplay=1'; else echo '/?rel=0&showinfo=0&autoplay=1'; ?>">
 			<div class="img_wrap m-auto">
 				<img class="play_button video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" />
 			</div>

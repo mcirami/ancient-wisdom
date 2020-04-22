@@ -15194,6 +15194,27 @@ form input[type=submit]:hover {
   padding: 10px;
 }
 
+.thank-you .form_wrapper {
+  margin-bottom: 100px;
+}
+.thank-you h3, .thank-you .h3 {
+  font-family: "lato-bold", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.thank-you h2, .thank-you .h2 {
+  font-family: "lato-reg", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.thank-you h4, .thank-you .h4 {
+  font-family: "lato-reg", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
 #commentform .form-submit {
   float: left;
   display: block;

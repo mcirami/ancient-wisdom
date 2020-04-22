@@ -22,26 +22,25 @@
 								$post = $post_object;
 								setup_postdata( $post );
 
-								$type = "";
 								$videoLink = get_field('video_link');
-								if (strpos($videoLink, "youtube") !== false) {
-									if(strpos($videoLink,"v=")) {
-										$str = explode("v=", $videoLink);
-										$embedCode = preg_replace('/\s+/', '',$str[1]);
-									} else if (strpos($videoLink, "embed/")) {
-										$str = explode("embed/", $videoLink);
-										$embedCode = preg_replace('/\s+/', '',$str[1]);
-									} else if (strpos($videoLink, "youtu.be")) {
-										$str = explode(".be/", $videoLink);
-										$embedCode = preg_replace('/\s+/', '',$str[1]);
-									}
+
+								if(strpos($videoLink,"v=")) {
+									$str = explode("v=", $videoLink);
+									$embedCode = preg_replace('/\s+/', '',$str[1]);
+									$type = "youtube";
+								} else if (strpos($videoLink, "embed/")) {
+									$str = explode("embed/", $videoLink);
+									$embedCode = preg_replace('/\s+/', '',$str[1]);
+									$type = "youtube";
+								} else if (strpos($videoLink, "youtu.be")) {
+									$str = explode(".be/", $videoLink);
+									$embedCode = preg_replace('/\s+/', '',$str[1]);
 									$type = "youtube";
 								} elseif (strpos($videoLink, "vimeo") !== false) {
 									$str       = explode( "vimeo.com/", $videoLink );
 									$embedCode = preg_replace( '/\s+/', '', $str[1] );
 									$type      = "vimeo";
 								}
-
 								?>
 
 								<div class="animated fadeIn duration4 eds-on-scroll video_box col-6 <?php if ($count % 2 !== 0) { echo 'pr-4'; } else { echo 'pl-4'; }?>">
@@ -53,17 +52,20 @@
 											$size = "video-thumb";
 											$videoImage = wp_get_attachment_image_src( $attachment_id, $size );
 
-											if (!empty($videoImage)) :
-												?>
+											if (!empty($videoImage)) : ?>
 
-												<img src="<?php echo $videoImage[0]; ?>" alt="<?php //echo esc_attr( $image['alt'] ); ?>">
+												<img src="<?php echo $videoImage[0]; ?>" alt="video image placeholder">
 
 											<?php elseif ($type == "youtube") : ?>
 
-												<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="<?php //echo esc_attr( $image['alt'] ); ?>">
+												<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="youtube video thumbnail">
+
+											<?php else :?>
+
+												<img src="<?php echo bloginfo('template_url'); ?>/images/video-placeholder.jpg" alt="video image placeholder"/>
 
 											<?php endif; ?>
-											<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; ?>">
+											<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; if ($type == "vimeo") echo '/?autoplay=1'; else echo '/?rel=0&showinfo=0&autoplay=1'; ?>">
 												<div class="img_wrap m-auto">
 													<img class="play_button m-auto video_open_img video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
 												</div>

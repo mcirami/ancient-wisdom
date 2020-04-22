@@ -33,17 +33,12 @@
 
 							<?php endif; ?>
 
-
-
-						<div class="<?php if ( strpos($permalink, "plans") == false && strpos($permalink, "account") == false && strpos($permalink, "affiliate-area") == false && strpos($permalink, "donate") == false) echo "col-12 col-md-6 mx-auto form_wrapper";
-								elseif (strpos($permalink, "account") == true || strpos($permalink, "affiliate-area") == true) echo "account_page col-12 form_wrapper"; ?>">
+						<div class="<?php if(strpos($permalink, 'account') == true || strpos($permalink, 'affiliate-area') == true || strpos($permalink, 'thank-you') == true) echo 'account_page col-12 form_wrapper';
+								else echo 'col-12 col-md-6 mx-auto form_wrapper'; ?>" >
 							<?php the_content(); ?>
 						</div>
 					</div>
 				</div>
-<!--				--><?php /*comments_template( '', true ); // Remove if you don't want comments */?>
-
-				<br class="clear">
 
 				<?php edit_post_link(); ?>
 

@@ -36,14 +36,19 @@ if (strpos($videoLink, "youtube") !== false) {
 				if ($type == "youtube") :
 			?>
 
-					<iframe src="https://www.youtube.com/embed/<?php echo $embedCode; ?>" frameborder="0"></iframe>
+					<iframe src="https://www.youtube.com/embed/<?php echo $embedCode; ?>/?rel=0&showinfo=0&autoplay=1" frameborder="0"></iframe>
 
 				<?php else : ?>
 
-					<iframe src="<?php echo $videoLink; ?>" frameborder="0"></iframe>
+					<iframe src="<?php echo $videoLink; ?>/?autoplay=1" frameborder="0"></iframe>
 
 				<?php endif; ?>
+		</div>
 
+		<div class="row mb-5 pt-5">
+			<div class="col-12">
+				<p><?php the_field('video_description');?></p>
+			</div>
 		</div>
 	</div>
 </div>

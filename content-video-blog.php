@@ -31,7 +31,7 @@ $videoLink = get_field('video_link');
 			</a>
 		<?php else:  ?>
 			<a href="<?php the_permalink(); ?>">
-				<img class="default" src="<?php echo bloginfo('template_url'); ?>/images/no-video-placeholder.jpg" />
+				<img class="default" src="<?php echo bloginfo('template_url'); ?>/images/video-placeholder.jpg" />
 			</a>
 		<?php endif; ?>
 

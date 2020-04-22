@@ -247,6 +247,10 @@ jQuery(document).ready(function($) {
 		})
 	}
 
+	let paragraph = document.querySelectorAll('.video_description');
+
+	console.log(paragraph);
+
 });
 /*
 
