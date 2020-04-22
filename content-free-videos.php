@@ -122,7 +122,7 @@ if($twoColumnSection) : ?>
 			}
 			?>
 
-			<a class="text-uppercase float-right button blue" href="<?php echo $link; ?>">More Lessons</a>
+			<a class="text-uppercase float-right button blue arrow" href="<?php echo $link; ?>">More Lessons</a>
 		</div>
 	</div>
 </div>
@@ -141,11 +141,12 @@ if($twoColumnSection) : ?>
 								<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
 							</div>
 						</div>
-						<?php if(strpos(home_url(), 'localhost') !== false ) : ?>
-							<?php echo do_shortcode('[mc4wp_form id="266"]'); ?>
-						<?php else: ?>
-							<?php echo do_shortcode('[mc4wp_form id="302"]'); ?>
-						<?php endif; ?>
+						<?php
+						if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
+							echo do_shortcode('[mc4wp_form id="266"]');
+						else:
+							echo do_shortcode('[mc4wp_form id="302"]');
+						endif; ?>
 
 					</div>
 				</div>

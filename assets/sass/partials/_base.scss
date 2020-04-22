@@ -163,6 +163,9 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		border-radius: 6px;
 		-webkit-border-radius: 6px;
 		-moz-border-radius: 6px;
+		padding-top: 28px;
+		padding-bottom: 50px;
+		border-bottom: 6px solid #000000;
 	}
 		
 	&.blue {
@@ -172,6 +175,44 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		&:hover {
 			background: $darkBlue;
 		}
+
+		&.arrow {
+			padding: 15px 60px 15px 30px;
+			border-radius: 30px;
+			-webkit-border-radius: 30px;
+			-moz-border-radius: 30px;
+
+			&:after {
+				content: '';
+				background: url("../images/icon-arrow.png") no-repeat;
+				background-size: 100%;
+				right: 22px;
+				top: 21px;
+				position: absolute;
+				width: 28px;
+				height: 15px;
+			}
+
+			&.back_link {
+				padding: 15px 30px 15px 60px;
+
+				&:after {
+					content: none;
+				}
+
+				&:before {
+					content: '';
+					background: url("../images/icon-arrow-back.png") no-repeat;
+					background-size: 100%;
+					left: 22px;
+					top: 21px;
+					position: absolute;
+					width: 28px;
+					height: 15px;
+				}
+
+			}
+		}
 	}
 	
 	&.orange {
@@ -180,6 +221,15 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		
 		&:hover {
 			background: $green;
+		}
+	}
+
+	&.red {
+		background: $red;
+		color: $white;
+
+		&:hover {
+			background: $black;
 		}
 	}
 

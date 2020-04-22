@@ -217,6 +217,36 @@ jQuery(document).ready(function($) {
 
 	});
 
+	var postVideoBtn = document.getElementById("post_video_btn");
+	var cancelPost = $('.cancel_post');
+
+	if (postVideoBtn) {
+
+		$('#post_video_btn').click(function (e) {
+			e.preventDefault();
+			var headerHeight = $('#global_header').height();
+
+			$('#post_submit_form').addClass('show');
+			$('html,body').animate({scrollTop: $(this).offset().top - headerHeight}, 1000);
+
+			$('#post_video_btn').css('opacity', '0');
+
+		});
+	}
+
+	if (cancelPost) {
+
+		cancelPost.click(function (e) {
+			e.preventDefault();
+			$('#post_submit_form').removeClass('show');
+			$("html, body").animate({scrollTop: 100}, "slow");
+
+			setTimeout(function () {
+				$('#post_video_btn').css('opacity', '1');
+			}, 800);
+		})
+	}
+
 });
 /*
 

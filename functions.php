@@ -387,7 +387,6 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -438,26 +437,9 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 \*------------------------------------*/
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
+function create_lessons_post_type()
 {
-
-	// Register Taxonomies for Category
-	register_taxonomy('category', 'lessons', array(
-		'name'              => _x( 'Lesson categories', 'taxonomy general name' ),
-		'singular_name'     => _x( 'Lesson category', 'taxonomy singular name' ),
-		'search_items'      => __( 'Query lesson categories' ),
-	    'hierarchical' => true,
-		'has_archive' => true,
-	    'label' => 'Lesson Categories',  //Display name
-	    'query_var' => true,
-	    'show_in_rest' => true,
-	    'show_ui'   => true,
-	    'show_admin_column' => true,
-		'rewrite' => array( 'slug' => 'lessons/category' ),
-    ));
-
-    //register_taxonomy_for_object_type('post_tag', 'lessons');
-    register_post_type('lessons', // Register Custom Post Type
+    register_post_type('lessons', // Register Custom Post Type Lessons
         array(
         'labels' => array(
             'name' => __('Lessons', 'lessons'), // Rename these to suit
@@ -496,6 +478,68 @@ function create_post_type_html5()
         ) // Add Category and Post Tags support
     ));
 }
+add_action('init', 'create_lessons_post_type');
+
+
+function lessons_cat_taxonomy() {
+	// Register Taxonomies for Category
+	register_taxonomy('category', 'lessons', array(
+		'name'              => _x( 'Lesson categories', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Lesson category', 'taxonomy singular name' ),
+		'search_items'      => __( 'Query lesson categories' ),
+		'hierarchical' => true,
+		'has_archive' => true,
+		'label' => 'Lesson Categories',  //Display name
+		'query_var' => true,
+		'show_in_rest' => true,
+		'show_ui'   => true,
+		'show_admin_column' => true,
+		'rewrite' => array( 'slug' => 'lessons/category' ),
+	));
+}
+add_action( 'init', 'lessons_cat_taxonomy');
+
+function create_video_post_type() {
+
+	register_post_type( 'member-videos', // Register Custom Post Type Member Content
+		array(
+			'labels'             => array(
+				'name'               => __( 'Member Content', 'member-videos' ), // Rename these to suit
+				'singular_name'      => __( 'Member Content', 'member-videos' ),
+				'add_new'            => __( 'Add New Video', 'member-videos' ),
+				'add_new_item'       => __( 'Add New Video', 'member-videos' ),
+				'edit'               => __( 'Edit Video', 'member-videos' ),
+				'edit_item'          => __( 'Edit Video', 'member-videos' ),
+				'new_item'           => __( 'New Video', 'member-videos' ),
+				'view'               => __( 'View Video', 'member-videos' ),
+				'view_item'          => __( 'View Video', 'member-videos' ),
+				'search_items'       => __( 'Search Videos', 'member-videos' ),
+				'not_found'          => __( 'No Video found', 'member-videos' ),
+				'not_found_in_trash' => __( 'No Video found in Trash', 'member-videos' )
+			),
+			'public'             => true,
+			'hierarchical'       => false, // Allows your posts to behave like Hierarchy Pages
+			'has_archive'        => false,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'capability_type'    => 'post',
+			'menu_icon'          => get_template_directory_uri() . '/images/videos-icon.png',
+			'supports'           => array(
+				'title',
+				'editor',
+				'thumbnail',
+				'comments',
+				'author'
+			), // Go to Dashboard Custom HTML5 Blank post for supports
+			'rewrite'            => array( 'slug' => 'member-content' ),
+			'can_export'         => true, // Allows export in Tools > Export
+			'show_in_rest'       => true
+		) );
+}
+
+add_action( 'init', 'create_video_post_type' );
 /*
 function wpa_lesson_post_link( $post_link, $id = 0 ){
 	$post = get_post($id);
@@ -522,6 +566,71 @@ function query_post_type($query) {
 }
 add_filter('pre_get_posts', 'query_post_type');
 
+
+function my_save_post( $post_id )
+{
+
+	// bail early if not a models post
+	if (get_post_type($post_id) !== 'member-videos') {
+		return;
+	}
+
+	// bail early if editing in admin
+	if (is_admin()) {
+		return;
+	}
+
+	/*$url = site_url();
+
+	if (strpos($url,'test') !== false || strpos($url,'staging') !== false ) {
+		$mailTo = "matteo@mscwebservices.net";
+	} else {
+		$mailTo = 'mcirami@gmail.com';
+	}
+
+	$link = get_permalink($post_id);
+
+	$to = $mailTo;
+	$headers = array('Content-Type: text/html; charset=UTF-8');
+	$subject = 'A new Member Content Video was submitted';
+	$body = 'A new video was submitted to the Member Content section! <br><br>To view it click here:<br>' . $link;
+
+	wp_mail( $to, $subject, $body, $headers );
+*/
+	//httpPost('http//', ' ');
+}
+
+add_action('acf/save_post', 'my_save_post', 1);
+
+function httpPost($url, $params) {
+
+	$fields_string = array();
+
+	foreach($params as $key => $value) {
+		$fields_string .= $key . '=' . urlencode($value) . '&';
+	}
+
+	rtrim($fields_string, '&');
+
+	//open connection
+	$ch = curl_init();
+
+	//set the url, number of POST vars, POST data
+	curl_setopt($ch,CURLOPT_URL, $url);
+	//curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+	//curl_setopt($ch,CURLOPT_HEADER, false);
+	curl_setopt($ch,CURLOPT_POST, count($fields_string));
+	curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+	//execute post
+	$result = curl_exec($ch);
+
+	//close connection
+	curl_close($ch);
+}
+
+
+
 /*------------------------------------*\
 	ShortCode Functions
 \*------------------------------------*/
@@ -540,7 +649,9 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 
 
 if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page('Plans Page');
 	acf_add_options_page('Footer');
+
 }
 
 ?>

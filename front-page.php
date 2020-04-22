@@ -66,11 +66,12 @@ get_header(); ?>
 										<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
 									</div>
 								</div>
-								<?php if(strpos(home_url(), 'localhost') !== false ) : ?>
-									<?php echo do_shortcode('[mc4wp_form id="266"]'); ?>
-								<?php else: ?>
-									<?php echo do_shortcode('[mc4wp_form id="302"]'); ?>
-								<?php endif; ?>
+								<?php
+								if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
+									echo do_shortcode('[mc4wp_form id="266"]');
+								else:
+									echo do_shortcode('[mc4wp_form id="302"]');
+								endif; ?>
 							</div>
 						</div>
 					</article>
@@ -91,11 +92,12 @@ get_header(); ?>
 								<h2 class="mb-2 animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['heading']; ?></h2>
 								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['description']; ?></p>
 								<div class="form_wrapper mailchimp">
-									<?php if(strpos(home_url(), 'localhost') !== false ) : ?>
-										<?php echo do_shortcode('[mc4wp_form id="266"]'); ?>
-									<?php else: ?>
-										<?php echo do_shortcode('[mc4wp_form id="302"]'); ?>
-									<?php endif; ?>
+									<?php
+									 if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
+										 echo do_shortcode('[mc4wp_form id="266"]');
+									 else:
+										echo do_shortcode('[mc4wp_form id="302"]');
+									 endif; ?>
 								</div>
 							</article>
 							<article class="col-12 col-md-6 column animated fadeIn duration4 eds-on-scroll">

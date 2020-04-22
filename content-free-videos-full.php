@@ -65,7 +65,7 @@
 											<?php endif; ?>
 											<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; ?>">
 												<div class="img_wrap m-auto">
-													<img class="play_button m-auto video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
+													<img class="play_button m-auto video_open_img video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
 												</div>
 											</div>
 										</div>
@@ -91,7 +91,7 @@
 <div class="row more_videos pb-4 pb-md-5 mb-4">
 	<div class="col-12 text-center">
 		<div class="container">
-			<a class="text-uppercase float-right button blue" href="<?php echo home_url().'/plans/membership-plans' ?>">More Lessons</a>
+			<a class="text-uppercase float-right button blue arrow" href="<?php echo home_url().'/plans/membership-plans' ?>">More Lessons</a>
 		</div>
 	</div>
 </div>
@@ -107,11 +107,12 @@
 							<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
 						</div>
 					</div>
-					<?php if(strpos(home_url(), 'localhost') !== false ) : ?>
-						<?php echo do_shortcode('[mc4wp_form id="266"]'); ?>
-					<?php else: ?>
-						<?php echo do_shortcode('[mc4wp_form id="302"]'); ?>
-					<?php endif; ?>
+					<?php
+					if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
+						echo do_shortcode('[mc4wp_form id="266"]');
+					else:
+						echo do_shortcode('[mc4wp_form id="302"]');
+					endif; ?>
 
 				</div>
 			</div>

@@ -1,3 +1,12 @@
+
+<div class="row text-center mb-5 pb-5">
+	<div class="col-12">
+		<div class="container">
+			<p><?php the_field('top_description', 'options'); ?></p>
+		</div>
+	</div>
+</div>
+
 <?php if(!defined('ABSPATH')) {die('You are not allowed to call this page directly.');} ?>
 
 <?php
@@ -22,4 +31,13 @@
     }
   ?>
   </div>
+</div>
+
+
+<div class="row text-center my-5 py-5">
+	<div class="col-12">
+		<div class="container">
+			<p><?php the_field('bottom_description', 'options'); ?></p>
+		</div>
+	</div>
 </div>

@@ -112,7 +112,7 @@ foreach ($taxonomies as $taxonomy) {
 			</div>
 		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1">
 			<div class="img_wrap m-auto">
-				<img class="play_button" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" />
+				<img class="play_button video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" />
 			</div>
 		</div>
 	</div><!-- vid_image_wrap -->
@@ -120,8 +120,8 @@ foreach ($taxonomies as $taxonomy) {
 	<div class="lesson_content row">
 		<div class="col-12">
 			<a class="video_title text-capitalize pt-2" href="<?php the_permalink();?>"><?php the_title(); ?></a>
-			<h4><?php the_field('video_description'); ?></h4>
 			<p>Date Added <?php echo get_the_date('n/j/Y'); ?></p>
+			<h4><?php the_field('video_description'); ?></h4>
 		</div>
 
 	</div>

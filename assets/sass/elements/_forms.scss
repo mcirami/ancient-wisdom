@@ -112,6 +112,34 @@ form {
 		width: 100%;
 		color: #737373;
 	}
+
+	.acf-field {
+		margin-top: 20px;
+
+		p {
+			@include latoreg;
+			color: #737373;
+		}
+
+		.acf-label {
+			label {
+				display: none;
+			}
+		}
+
+		&.acf-field--post-title label {
+			display: block;
+		}
+	}
+
+	.acf-fields {
+		margin-bottom: 30px;
+
+		> .acf-field {
+			border-top: none;
+		}
+	}
+
 	input[type="email"] {
 		height: 44px;
 
@@ -130,7 +158,7 @@ form {
 		}
 	}
 
-	input[type="text"], input[type="password"], input[type="submit"], input[type="email"], select {
+	input[type="text"], input[type="password"], input[type="submit"], input[type="email"], select, textarea {
 		width: 100%;
 		height: 45px;
 		background: $white;
@@ -151,6 +179,11 @@ form {
 		@include media($smallMobile){
 			height: 30px;
 		}
+	}
+
+	textarea {
+		height: auto;
+		padding: 20px;
 	}
 
 	input[type="submit"] {
@@ -199,7 +232,7 @@ form {
 
 .mepr-price-menu.classic  {
 	margin-bottom: 60px;
-	margin-top: 60px;
+	margin-top: 80px;
 
 	.mepr-price-box-title {
 		@include latobold;
