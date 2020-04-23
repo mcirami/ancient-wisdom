@@ -17,32 +17,41 @@ get_header(); ?>
 			if($headerSection) : ?>
 
 			<section class="col-12">
-				<div class="row hero" style="background:url(<?php if(!empty($headerSection['hero_image'])){echo $headerSection['hero_image']['url'];} ?>) no-repeat;background-size: cover;background-position: center 44%;">
-					<div class="col-12 ml-auto">
-						<div class="container">
-							<article class="row">
-								<div class="col-8 col-lg-7 ml-auto">
-									<h2 class="animated fadeIn duration4"><?php echo $headerSection['hero_title']; ?></h2>
-									<h3 class="animated fadeIn duration4"><?php echo $headerSection['hero_sub_title']; ?></h3>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-									<div class="firefly"></div>
-								</div>
-							</article>
-						</div>
+
+					<div class="outer_hero">
+						<div class="hero_background"></div>
 					</div>
-				</div>
-			</section><!-- hero -->
+
+					<div class="row position-absolute hero">
+						<div class="col-12">
+							<div class="container">
+								<div class="row">
+									<div class="col-9 col-lg-7 ml-auto">
+										<h2 class="animated fadeIn duration4"><?php echo $headerSection['hero_title']; ?></h2>
+										<h3 class="animated fadeIn duration4"><?php echo $headerSection['hero_sub_title']; ?></h3>
+										<!--<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>
+										<div class="firefly"></div>-->
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div><!-- hero -->
+
+			</section>
+
+
 
 			<?php endif; ?>
 

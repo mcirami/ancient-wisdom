@@ -1,4 +1,4 @@
-<section class="row page_header text-center pb-5">
+<section class="row page_header text-center pb-3 pb-md-5">
 	<article class="col-12">
 		<div class="container">
 			<h2 class="page_title">
@@ -13,7 +13,13 @@
 					<br>
 					<div class="blue_line"></div>
 			</h2>
-			<p class="page_description"><?php the_field('page_description'); ?></p>
+			<?php $description = get_field('page_description');
+				if ($description) :
+			?>
+				<p class="page_description"><?php echo $description; ?></p>
+
+				<?php endif; ?>
+
 		</div>
 	</article>
 </section>

@@ -16,7 +16,7 @@
 		$embedCode = preg_replace('/\s+/', '',$str[1]);
 		$type = "youtube";
 	} else if (strpos($videoLink, "vimeo") !== false) {
-		$str       = explode( "video/", $videoLink );
+		$str       = explode( "vimeo.com/", $videoLink );
 		$embedCode = preg_replace( '/\s+/', '', $str[1]);
 		$type      = "vimeo";
 	}

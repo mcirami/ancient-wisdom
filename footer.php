@@ -58,14 +58,14 @@
 
 								<?php endif; ?>
 							</div><!-- col -->
-							<div class="col-8 col-md-6 mx-auto col-lg-5 mb-4 mb-lg-0">
+							<div class="col-11 col-md-6 mx-auto col-lg-5 mb-4 mb-lg-0">
 								<div class="row book p-4">
-									<div class="col-6">
+									<div class="col-5 col-md-6 mx-auto">
 										<a href="<?php home_url(); ?>/the-cycle-of-mind">
 											<img src="<?php echo bloginfo( 'template_url' ); ?>/images/book-cover.jpg"/>
 										</a>
 									</div>
-									<div class="col-6 text-center d-flex flex-column justify-content-center align-content-center">
+									<div class="col-6 mx-auto text-center d-flex flex-column justify-content-center align-content-center">
 										<p><?php the_field('book_description', 'options');?></p>
 										<a class="button orange text-uppercase" href="<?php home_url(); ?>/the-cycle-of-mind">Learn More</a>
 									</div>

@@ -705,10 +705,18 @@ header {
 	color: $black;
 	padding-top: 120px;
 
+	@include media($mobile) {
+		padding-top: 85px;
+	}
+
 	.page_title {
 		font-size: 54px;
 		line-height: 1.4;
 		margin-bottom: 5px;
+
+		@include media($mobile) {
+			font-size: 44px;
+		}
 	}
 
 	.blue_line {

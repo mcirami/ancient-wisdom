@@ -16,27 +16,34 @@
 					<div class="row">
 						<?php $permalink = get_permalink();
 
-							if (strpos($permalink, "login") == true) : ?>
-								<div class="col-12 text-center mb-5 pb-5 login_text">
-									<h3 class="mb-5">Don't Have An Account Yet?</h3>
-									<a class="button blue text-uppercase" href="/plans/membership-plans/">Click Here To Register!</a>
+							if (strpos($permalink, "donate") == true) : ?>
+
+
+								<div class="col-12 mb-5 pb-5">
+									<h3 class="text-center"><?php the_field('description'); ?></h3>
+									<?php echo do_shortcode('[paypal-donation]'); ?>
 								</div>
 
-							<?php elseif (strpos($permalink, "donate") == true) : ?>
 
-								<div class="row">
-									<div class="col-12">
-										<h3 class="text-center"><?php the_field('description'); ?></h3>
-										<?php echo do_shortcode('[paypal-donation]'); ?>
+						<?php else : ?>
+
+							<div class="<?php
+									if(strpos($permalink, 'account') == true || strpos($permalink, 'affiliate-area') == true || strpos($permalink, 'thank-you') == true) echo 'account_page col-12 form_wrapper';
+									elseif (strpos($permalink, 'plans') == true) echo 'col-12';
+									else echo 'col-12 col-md-6 mx-auto form_wrapper'; ?>" >
+
+								<?php the_content(); ?>
+
+								<?php if (strpos($permalink, "login") == true) : ?>
+									<div class="login_text position-absolute">
+										<p class="mb-0">Don't Have An Account Yet?</p>
+										<a href="<?php echo home_url(); ?>/plans/membership-plans/">Click Here To Register!</a>
 									</div>
-								</div>
+								<?php endif; ?>
+
+							</div>
 
 							<?php endif; ?>
-
-						<div class="<?php if(strpos($permalink, 'account') == true || strpos($permalink, 'affiliate-area') == true || strpos($permalink, 'thank-you') == true) echo 'account_page col-12 form_wrapper';
-								else echo 'col-12 col-md-6 mx-auto form_wrapper'; ?>" >
-							<?php the_content(); ?>
-						</div>
 					</div>
 				</div>
 
