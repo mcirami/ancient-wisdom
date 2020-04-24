@@ -1,7 +1,7 @@
 <?php $twoColumnSection = get_field('two_column_section');
 
 if($twoColumnSection) : ?>
-	<section class="row free_videos">
+	<section class="row free_videos" id="free_lessons_section">
 		<div class="col-12">
 
 			<?php if ( have_rows( 'two_column_section' ) ) : ?>

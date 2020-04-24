@@ -48,7 +48,16 @@ get_header(); ?>
 						</div>
 
 					</div><!-- hero -->
-
+				<div class="row">
+					<div class="col-12 text-center">
+						<div class="link_wrap">
+							<p>Go To Free Lessons</p>
+							<a class="rounded-circle" href="#free_lessons_section">
+								<img src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-arrow-down.png"/>
+							</a>
+						</div>
+					</div>
+				</div>
 			</section>
 
 
@@ -62,25 +71,9 @@ get_header(); ?>
 				<section class="intro_text row" id="free_lessons">
 					<article class="col-12">
 						<div class="container">
-							<?php /*$quoteBackground = get_field('quote_section_background_image'); */?>
 							<div class="content_wrap">
 								<h3 class="animated fadeIn duration4 eds-on-scroll"><?php echo $videosHeader['video_section_heading']; ?></h3>
 								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $videosHeader['video_section_description']; ?></p>
-							</div>
-							<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
-								<div class="row">
-									<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
-										<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-										<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
-										<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-									</div>
-								</div>
-								<?php
-								if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
-									echo do_shortcode('[mc4wp_form id="266"]');
-								else:
-									echo do_shortcode('[mc4wp_form id="302"]');
-								endif; ?>
 							</div>
 						</div>
 					</article>
@@ -100,18 +93,29 @@ get_header(); ?>
 							<article class="col-12 col-md-6 column text-center text-md-left">
 								<h2 class="mb-2 animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['heading']; ?></h2>
 								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['description']; ?></p>
-								<div class="form_wrapper mailchimp">
-									<?php
-									 if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
-										 echo do_shortcode('[mc4wp_form id="266"]');
-									 else:
-										echo do_shortcode('[mc4wp_form id="302"]');
-									 endif; ?>
-								</div>
 							</article>
 							<article class="col-12 col-md-6 column animated fadeIn duration4 eds-on-scroll">
 								<?php echo $aboutSection['embedded_video']; ?>
 							</article>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
+									<div class="row">
+										<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
+											<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+											<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
+											<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+										</div>
+									</div>
+									<?php
+									if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
+										echo do_shortcode('[mc4wp_form id="266"]');
+									else:
+										echo do_shortcode('[mc4wp_form id="302"]');
+									endif; ?>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
