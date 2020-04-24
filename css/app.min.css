@@ -12663,6 +12663,87 @@ header .header_bottom .menu nav {
 header .header_bottom .menu ul {
   float: left;
   margin-bottom: 0;
+  /*&.member_menu > li, &.header_menu > li {
+  	padding: 15px 0 35px 0;
+  	position: relative;
+
+  	@include media($mobile){
+  		padding: 20px 0;
+  	}
+
+  	&:last-child {
+  		padding: 0;
+  		margin-top: 5px;
+
+  		@include media($mobile) {
+  			padding: 10px 20px 20px;
+  		}
+
+  		a {
+  			background: $orange;
+  			padding: 10px 22px;
+  			border-radius: 20px;
+  			-webkit-border-radius: 20px;
+  			-moz-border-radius: 20px;
+
+  			&:hover {
+  				background: $green;
+  			}
+  		}
+  	}
+
+  	!*&:first-child {
+  		a {
+  			padding-left: 0;
+
+  			@include media($mobile) {
+  				padding-left: 10px;
+  			}
+  		}
+  	}*!
+
+  	&.open {
+  		padding-bottom: 0;
+  		background: $black;
+  	}
+
+  	&.current-menu-parent {
+
+  		> a {
+  			color: $blue;
+  		}
+
+  		ul li.current_page_item a:hover {
+  			color: $white;
+  		}
+
+  	}
+
+  	a {
+  		padding: 0 18px;
+
+  		@include media($desktop) {
+  			padding: 0 10px;
+  		}
+
+  		@include media($tablet){
+  			padding: 0 8px;
+  		}
+  	}
+
+
+  }// li
+
+  &.header_menu > li:last-child{
+  	a {
+  		background: $blue;
+
+  		&:hover {
+  			background: $darkBlue;
+  		}
+
+  	}
+  }*/
 }
 @media screen and (max-width: 767px) {
   header .header_bottom .menu ul {
@@ -12688,23 +12769,31 @@ header .header_bottom .menu ul li {
 }
 @media screen and (max-width: 767px) {
   header .header_bottom .menu ul li {
+    width: 100%;
+    float: left;
     text-align: left;
-    float: none;
-    padding: 0 20px;
+    padding: 0;
     border-bottom: 1px solid;
     border-color: rgba(255, 255, 255, 0.4);
   }
 }
 header .header_bottom .menu ul li.current_page_item a {
-  color: #5db9e2;
+  color: #2598cc;
+}
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul li.menu-item-has-children > a:after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+  }
+}
+header .header_bottom .menu ul li.menu-item-has-children > a.open:after {
+  content: "-";
+  font-size: 42px;
 }
 header .header_bottom .menu ul li:first-child {
   padding-left: 0;
-}
-@media screen and (max-width: 767px) {
-  header .header_bottom .menu ul li:first-child {
-    padding-left: 20px;
-  }
 }
 header .header_bottom .menu ul li a {
   font-family: "lato-reg", sans-serif;
@@ -12719,9 +12808,6 @@ header .header_bottom .menu ul li a {
     font-size: 16px;
   }
 }
-header .header_bottom .menu ul li a:hover {
-  color: #2598cc;
-}
 @media screen and (max-width: 991px) {
   header .header_bottom .menu ul li a {
     font-size: 15px;
@@ -12729,7 +12815,15 @@ header .header_bottom .menu ul li a:hover {
 }
 @media screen and (max-width: 767px) {
   header .header_bottom .menu ul li a {
-    padding: 15px 0;
+    padding: 15px;
+  }
+}
+header .header_bottom .menu ul li a:hover {
+  color: #2598cc;
+}
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul li a:hover {
+    color: #fff;
   }
 }
 header .header_bottom .menu ul li.button_link {
@@ -12763,16 +12857,43 @@ header .header_bottom .menu ul li.button_link a {
 header .header_bottom .menu ul li.button_link a:hover {
   background: #2598cc;
 }
-header .header_bottom .menu ul.sub-menu li:hover a {
-  color: #000000;
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul li.button_link a:hover {
+    background: #5db9e2;
+  }
 }
-header .header_bottom .menu ul.sub-menu li:hover .sub-menu li a {
+header .header_bottom .menu ul.member_menu .button_link a {
+  background-color: #f78d02;
   color: #fff;
 }
-header .header_bottom .menu ul.sub-menu li:hover .sub-menu li a:hover {
+header .header_bottom .menu ul.member_menu .button_link a:hover {
+  background-color: #013220;
+}
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul.member_menu .button_link a:hover {
+    background: #f78d02;
+  }
+}
+header .header_bottom .menu ul.sub-menu li a:hover {
   color: #000000;
 }
-header .header_bottom .menu ul.sub-menu li:hover .sub-menu li a:hover:before {
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul.sub-menu li a:hover {
+    color: #fff;
+  }
+}
+header .header_bottom .menu ul.sub-menu li a:hover .sub-menu li a {
+  color: #fff;
+}
+header .header_bottom .menu ul.sub-menu li a:hover .sub-menu li a:hover {
+  color: #000000;
+}
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul.sub-menu li a:hover .sub-menu li a:hover {
+    color: #fff;
+  }
+}
+header .header_bottom .menu ul.sub-menu li a:hover .sub-menu li a:hover:before {
   content: "";
   background: url("../images/right-arrow.png") no-repeat;
   position: absolute;
@@ -12800,7 +12921,10 @@ header .header_bottom .menu ul ul.sub-menu {
 @media screen and (max-width: 767px) {
   header .header_bottom .menu ul ul.sub-menu {
     position: relative;
-    margin-top: 15px;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px inset #827d7d;
+    padding-top: 10px;
   }
 }
 header .header_bottom .menu ul ul.sub-menu.top {
@@ -12814,11 +12938,6 @@ header .header_bottom .menu ul ul.sub-menu li {
   width: 100% !important;
 }
 @media screen and (max-width: 767px) {
-  header .header_bottom .menu ul ul.sub-menu li {
-    padding: 0 0 0 10px !important;
-  }
-}
-@media screen and (max-width: 767px) {
   header .header_bottom .menu ul ul.sub-menu li:first-child {
     border-top: 1px inset #827d7d;
   }
@@ -12828,30 +12947,39 @@ header .header_bottom .menu ul ul.sub-menu li {
     border-bottom: none;
   }
 }
-header .header_bottom .menu ul ul.sub-menu li:after {
-  content: "" !important;
-}
-header .header_bottom .menu ul ul.sub-menu li:hover {
-  background: #5db9e2;
-}
-header .header_bottom .menu ul ul.sub-menu li:hover a {
+header .header_bottom .menu ul ul.sub-menu li a:hover {
   color: #000000;
 }
-header .header_bottom .menu ul ul.sub-menu li:hover a:before {
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul ul.sub-menu li a:hover {
+    color: #fff;
+  }
+}
+header .header_bottom .menu ul ul.sub-menu li a:hover:before {
   background: url("../images/right-arrow.png") no-repeat;
   background-size: 100%;
 }
-header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children:hover a {
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul ul.sub-menu li a:hover:before {
+    content: none;
+  }
+}
+header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children a:hover {
   color: #fff;
 }
-header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children:hover a:before {
+header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children a:hover:before {
   background: url("../images/right-arrow-gray.png") no-repeat;
   background-size: 100%;
 }
-header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children:hover > a {
+header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children > a {
   color: #000000;
 }
-header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children:hover > a:before {
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children > a {
+    color: #fff;
+  }
+}
+header .header_bottom .menu ul ul.sub-menu li.menu-item-has-children > a:before {
   background: url("../images/right-arrow.png") no-repeat;
   background-size: 100%;
 }
@@ -12859,6 +12987,11 @@ header .header_bottom .menu ul ul.sub-menu li a {
   display: block;
   padding: 15px 5px 20px 45px;
   text-transform: none;
+}
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul ul.sub-menu li a {
+    padding-left: 50px;
+  }
 }
 header .header_bottom .menu ul ul.sub-menu li a:before {
   content: "";
@@ -12873,7 +13006,8 @@ header .header_bottom .menu ul ul.sub-menu li a:before {
 @media screen and (max-width: 767px) {
   header .header_bottom .menu ul ul.sub-menu li a:before {
     background-size: 100%;
-    top: 23px;
+    top: 21px;
+    left: 35px;
   }
 }
 header .header_bottom .menu ul ul.sub-menu li a:hover {
@@ -12889,16 +13023,21 @@ header .header_bottom .menu ul ul.sub-menu li a:hover:before {
   top: 21px;
   background-size: 100%;
 }
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul ul.sub-menu li a:hover:before {
+    background: url("../images/right-arrow-gray.png") no-repeat;
+  }
+}
 header .header_bottom .menu ul ul.sub-menu li.current_page_item a {
   background: #5db9e2;
-  color: #000000 !important;
+  color: #000000;
 }
 header .header_bottom .menu ul ul.sub-menu li.current_page_item a:hover {
-  color: #000000 !important;
+  color: #000000;
 }
 @media screen and (max-width: 767px) {
   header .header_bottom .menu ul ul.sub-menu li.current_page_item a:hover {
-    color: #fff;
+    color: #5db9e2;
   }
 }
 header .header_bottom .menu ul ul.sub-menu li.current_page_item a:before {
@@ -12928,78 +13067,19 @@ header .header_bottom .menu ul ul.sub-menu li .sub-menu a:before {
 header .header_bottom .menu ul ul.sub-menu li .sub-menu a:hover {
   color: #000000;
 }
+@media screen and (max-width: 767px) {
+  header .header_bottom .menu ul ul.sub-menu li .sub-menu a:hover {
+    color: #fff;
+  }
+}
 header .header_bottom .menu ul ul.sub-menu li .sub-menu a:hover:before {
   background: url("../images/right-arrow.png") no-repeat;
   background-size: 100%;
 }
-header .header_bottom .menu ul.member_menu > li {
-  padding: 15px 0 35px 0;
-  position: relative;
-  /*&:first-child {
-  	a {
-  		padding-left: 0;
-
-  		@include media($mobile) {
-  			padding-left: 10px;
-  		}
-  	}
-  }*/
-}
 @media screen and (max-width: 767px) {
-  header .header_bottom .menu ul.member_menu > li {
-    padding: 20px 0;
+  header .header_bottom .menu ul ul.sub-menu li .sub-menu a:hover:before {
+    background: url("../images/right-arrow-gray.png") no-repeat;
   }
-}
-header .header_bottom .menu ul.member_menu > li:last-child {
-  padding: 0;
-  margin-top: 5px;
-}
-header .header_bottom .menu ul.member_menu > li:last-child a {
-  background: #f78d02;
-  padding: 10px 22px;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-}
-header .header_bottom .menu ul.member_menu > li:last-child a:hover {
-  background: #013220;
-  color: #fff !important;
-}
-header .header_bottom .menu ul.member_menu > li.open {
-  padding-bottom: 0;
-  background: #000000;
-}
-header .header_bottom .menu ul.member_menu > li.current-menu-parent > a {
-  color: #5db9e2;
-}
-header .header_bottom .menu ul.member_menu > li.current-menu-parent ul li.current_page_item a:hover {
-  color: #fff;
-}
-header .header_bottom .menu ul.member_menu > li a {
-  padding: 0 18px;
-}
-@media screen and (max-width: 1199px) {
-  header .header_bottom .menu ul.member_menu > li a {
-    padding: 0 10px;
-  }
-}
-@media screen and (max-width: 991px) {
-  header .header_bottom .menu ul.member_menu > li a {
-    padding: 0 8px;
-  }
-}
-@media screen and (max-width: 767px) {
-  header .header_bottom .menu ul.member_menu > li.menu-item-has-children > a:after {
-    content: "+";
-    position: absolute;
-    right: 20px;
-    font-size: 20px;
-  }
-}
-header .header_bottom .menu ul.member_menu > li.menu-item-has-children > a.open:after {
-  content: "-";
-  font-size: 42px;
-  bottom: 4px;
 }
 
 .sub_header {
@@ -13232,187 +13312,6 @@ header .header_bottom .menu ul.member_menu > li.menu-item-has-children > a.open:
   font-weight: 600;
 }
 
-/*
-
-#email_join {
-	width:40%;
-	display: none;
-	text-align: center;
-	background: $blue;
-	padding: 20px 5px 150px;
-	color: $black;
-	max-width: 900px;
-    min-width: 700px;
-
-    @include media($tablet) {
-        min-width: 650px;
-    }
-
-	@include media($mobile){
-		padding: 8px 5px 20%;
-        width: 100%;
-        min-width: unset;
-	}
-
-	a {
-		display: inline-block;
-	}
-
-	.logo {
-		width: 100%;
-		float: left;
-		text-align: center;
-
-		img {
-			width: auto;
-			margin: 0 auto;
-
-			@include media($mobile){
-				width: 250px;
-			}
-		}
-	}
-
-	h2 {
-		@include span-columns(12);
-		font-size: 34px;
-		text-transform: uppercase;
-		line-height: 1;
-
-		@include media($mobile){
-			font-size: 20px;
-		}
-
-		@include media($smallMobile){
-			font-size: 4.8vw;
-		}
-	}
-
-	p {
-		@include span-columns(12);
-		margin-bottom: 20px;
-
-		@include media($mobile){
-			font-size: 10px;
-			margin-bottom: 15px;
-		}
-
-		@include media($smallMobile){
-			font-size: 9px;
-		}
-	}
-
-	#mc_embed_signup {
-		@include span-columns(12);
-		background: $blue;
-
-		form {
-			margin: 0 auto;
-			width: 90%;
-
-			@include media($mobile){
-				width: 100%;
-			}
-
-			&:before {
-				content: '';
-				width: 101%;
-				height: 138%;
-				background: rgba(150,150,150,.4);
-				bottom: -11px;
-				left: -3px;
-				position: absolute;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-
-				 @include media($mobile){
-				 	width: 98%;
-				 	bottom: -8px;
-				 	left: 6px;
-				 }
-
-				 @include media($smallMobile){
-				 	width: 99%;
-				 	left: 2px;
-				 }
-			}
-		}
-
-		#subscribe-result {
-			margin-top: 2%;
-			font-size: 18px;
-
-			@include media($mobile){
-				font-size: 14px;
-			}
-		}
-
-		input[type="email"] {
-			width: 77%;
-			background-color: $white;
-			height: 55px;
-			padding: 0 20px;
-			display: inline-block;
-			font-size: 18px;
-			border: none;
-			border-top-left-radius: 4px;
-			border-bottom-left-radius: 4px;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-			-webkit-border-top-left-radius: 4px;
-			-webkit-border-top-right-radius: 0;
-			-webkit-border-bottom-left-radius: 4px;
-			-webkit-border-bottom-right-radius: 0;
-			-moz-border-radius-bottomleft: 4px;
-			-moz-border-radius-bottomright: 0;
-			-moz-border-radius-topleft: 4px;
-			-moz-border-radius-topright: 0;
-
-			@include media($mobile){
-				font-size: 16px;
-				padding: 10px;
-				height: 41px;
-				width: 64%;
-			}
-		}
-
-		input[type="submit"] {
-			@include latoreg;
-			font-size: 20px;
-			width: 20%;
-			color: $white;
-			height: 55px;
-			top: 1px;
-			display: inline-block;
-			margin-left: -4px;
-			border: none;
-			background: $red;
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-			border-top-right-radius: 4px;
-			border-bottom-right-radius: 4px;
-			-webkit-border-top-left-radius: 0;
-			-webkit-border-top-right-radius: 4px;
-			-webkit-border-bottom-left-radius: 0;
-			-webkit-border-bottom-right-radius: 4px;
-			-moz-border-radius-bottomleft: 0;
-			-moz-border-radius-bottomright: 4px;
-			-moz-border-radius-topleft: 0;
-			-moz-border-radius-topright: 4px;
-
-			&:hover {
-				background: #c30b21;
-			}
-
-			@include media($mobile){
-				font-size: 14px;
-				height: 41px;
-				width: 29%;
-			}
-		}
-	}
-}*/
 .home_section .outer_hero {
   overflow: hidden;
 }
