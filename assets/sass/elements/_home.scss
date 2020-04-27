@@ -1,4 +1,5 @@
 .home_section {
+	padding-top: 50px;
 
 	.outer_hero {
 		overflow: hidden;
@@ -11,12 +12,12 @@
 		padding: 18% 0 16%;
 		height: 100%;
 		width: 100%;
-		animation: zoom 100s ease-in-out infinite;
-		-webkit-animation: zoom 100s ease-in-out infinite;
-		animation-fill-mode: forwards;
+		animation: zoom 75s ease-in-out infinite;
+		-webkit-animation: zoom 75s ease-in-out infinite;
+		/*animation-fill-mode: forwards;
 		-moz-animation-fill-mode: forwards;
 		-o-animation-fill-mode: forwards;
-		-webkit-animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;*/
 		transition: all .5s ease-in-out;
 		-moz-transition: all .5s ease-in-out;
 		-o-transition: all .5s ease-in-out;
@@ -91,60 +92,6 @@
 		}
 	}
 
-	.link_wrap {
-		position: absolute;
-		bottom: -40px;
-		left: 50%;
-		text-align: center;
-		margin-left: -82px;
-		z-index: 1;
-
-		@include media($tablet) {
-			margin-left: -65px;
-		}
-
-		@include media($mobile) {
-			bottom: -30px;
-			margin-left: -54px;
-		}
-
-		img {
-			width: 30px;
-
-			@include media($mobile) {
-				width: 16px;
-			}
-		}
-
-		p {
-			@include latobold;
-			font-size: 18px;
-			text-transform: uppercase;
-
-			@include media($tablet) {
-				font-size: 16px;
-			}
-
-			@include media($mobile) {
-				font-size: 12px;
-				margin-bottom: 0;
-			}
-		}
-
-		a {
-			background: $blue;
-			padding: 18px;
-			display: inline-block;
-
-			@include media($mobile) {
-				padding: 14px;
-			}
-
-			&:hover {
-				background: $darkBlue;
-			}
-		}
-	}
 	.intro_text {
 		background: $beige;
 		padding: 60px 0;

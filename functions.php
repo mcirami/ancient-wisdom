@@ -113,8 +113,8 @@ function my_enqueue_scripts()
 	   /* wp_register_script( 'jquery_ui', get_template_directory_uri() . '/js/lib/jquery-ui.min.js', array('jquery'), '', true );
 	    wp_enqueue_script('jquery_ui');*/ // Enqueue it!
 
-	    wp_register_script('filterizr', get_template_directory_uri() . '/js/lib/jquery.filterizr.min.js', array('jquery'), '1.0.0', true); // Filterizr
-	    wp_enqueue_script('filterizr'); // Enqueue it!
+	    //wp_register_script('filterizr', get_template_directory_uri() . '/js/lib/jquery.filterizr.min.js', array('jquery'), '1.0.0', true); // Filterizr
+	    //wp_enqueue_script('filterizr'); // Enqueue it!
 
 	    wp_localize_script('app-js', 'my_script_vars', array(
 			    'pageTitle' =>  get_the_title(),
@@ -652,6 +652,13 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page('Plans Page');
 	acf_add_options_page('Footer');
 
+}
+
+remove_all_filters( 'wp_title' );
+add_filter('wp_title', 'filter_pagetitle', 99,1);
+function filter_pagetitle($title) {
+	$title = get_bloginfo('name');
+	return $title;
 }
 
 ?>

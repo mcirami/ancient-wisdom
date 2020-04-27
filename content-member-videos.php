@@ -85,14 +85,13 @@ foreach ($taxonomies as $taxonomy) {
 		<div class="col-12">
 			<a class="video_title text-capitalize pt-2" href="<?php the_permalink();?>"><?php the_title(); ?></a>
 			<p>Date Added <?php echo get_the_date('n/j/Y'); ?></p>
-			<h4><?php the_field('video_description'); ?></h4>
 		</div>
 
 	</div>
 
 	<div class="row mt-3">
 		<div class="col-12">
-			<a class="button green" href="<?php the_permalink(); ?>">Leave a Comment</a>
+			<a class="button green" href="<?php the_permalink(); ?>">Read More / Leave a Comment</a>
 		</div>
 	</div>
 

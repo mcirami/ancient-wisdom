@@ -12,8 +12,21 @@ if($twoColumnSection) : ?>
 						<?php while ( have_rows( 'video_section' ) ) : the_row();
 							++$count;
 							?>
-							<div class="row video_section <?php if($count % 2 !== 0) { echo 'background'; }?>">
+							<div class="row video_section <?php if($count % 2 !== 0) { echo 'background'; }?>" id="<?php
+
+								echo $sectionTitle = strtolower(preg_replace("/\s+/", "_", get_sub_field('section_title')));
+							?>">
 								<div class="col-12">
+									<?php if ($count > 1) : ?>
+										<div class="row link_wrap video_sections">
+											<div class="col-12 text-center">
+												<p>Next Section</p>
+												<a class="rounded-circle" href="#<?php echo $sectionTitle; ?>">
+													<img src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-arrow-down.png"/>
+												</a>
+											</div>
+										</div>
+									<?php endif; ?>
 									<div class="container">
 										<article class="content row">
 
@@ -108,53 +121,52 @@ if($twoColumnSection) : ?>
 
 				<?php endwhile; ?>
 			<?php endif; ?>
+
 		</div>
 	</section><!-- videos -->
 
 <?php endif; ?>
 
-<div class="row more_videos pb-4 pb-md-5 mb-4">
-	<div class="col-12 text-center">
-		<div class="container">
-			<?php
-			if(is_page('home')) {
-				$link = "/part-two";
-			} elseif(is_page('part-two')) {
-				$link = "/part-three";
-			} else {
-				$link = home_url()."/plans/membership-plans";
-			}
-			?>
+<?php if(is_page('section-two') || is_page('section-three')) : ?>
+	<div class="row more_videos pb-4 pb-md-5 mb-4">
+		<div class="col-12 text-center">
+			<div class="container">
+				<?php
+				if(is_page('home')) {
+					$link = "/section-two";
+				} elseif(is_page('section-two')) {
+					$link = "/section-three";
+				} else {
+					$link = "/plans/membership-plans";
+				}
+				?>
 
-			<a class="text-uppercase float-right button blue arrow" href="<?php echo $link; ?>">More Lessons</a>
+				<a class="text-uppercase float-right button blue arrow" href="<?php echo home_url() . $link; ?>">More Lessons</a>
+			</div>
 		</div>
 	</div>
-</div>
 
-<?php if(is_page('part-two') || is_page('part-three')) : ?>
-
-
-		<div class="row mb-5">
-			<div class="col-12">
-				<div class="container">
-					<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
-						<div class="row">
-							<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
-								<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-								<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
-								<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-							</div>
+	<div class="row mb-5">
+		<div class="col-12">
+			<div class="container">
+				<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
+					<div class="row">
+						<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
+							<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+							<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
+							<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
 						</div>
-						<?php
-						if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
-							echo do_shortcode('[mc4wp_form id="266"]');
-						else:
-							echo do_shortcode('[mc4wp_form id="302"]');
-						endif; ?>
-
 					</div>
+					<?php
+					if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
+						echo do_shortcode('[mc4wp_form id="266"]');
+					else:
+						echo do_shortcode('[mc4wp_form id="302"]');
+					endif; ?>
+
 				</div>
 			</div>
 		</div>
+	</div>
 
 <?php endif; ?>

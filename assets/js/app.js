@@ -3,16 +3,8 @@ jQuery(document).ready(function($) {
 	function headerClassesScroll() {
 		if ($(window).scrollTop() > 40) {
 			$('.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').addClass('scroll');
-			if (my_script_vars.frontPage) {
-				$('.header_bottom').addClass('home_background');
-				$('.sub-menu').removeClass('top');
-			}
 		} else {
 			$('.header_top,.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').removeClass('scroll');
-			if (my_script_vars.frontPage) {
-				$('.header_bottom').removeClass('home_background');
-				$('.sub-menu').addClass('top');
-			}
 		}
 	}
 	$(window).on('scroll', function (event) {
@@ -89,13 +81,13 @@ jQuery(document).ready(function($) {
 		});
 	}
 
-	if (my_script_vars.pageTitle === 'Member Lessons') {
+	/*if (my_script_vars.pageTitle === 'Member Lessons') {
 		setTimeout(function() {
 			$('.filtr-container').filterizr();
 		},2000);
-	}
+	}*/
 
-	$('.filter_list li').click(function () {
+	/*$('.filter_list li').click(function () {
 		if (!$(this).hasClass('all')) {
 			$(this).toggleClass('active');
 			$('.filter_list li.all').removeClass('active');
@@ -117,7 +109,7 @@ jQuery(document).ready(function($) {
 			$('.filter_list li').removeClass('active');
 			$(this).addClass('active');
 		}
-	});
+	});*/
 
 	if ($(window).width() > 768) {
 

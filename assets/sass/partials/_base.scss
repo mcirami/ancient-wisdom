@@ -53,34 +53,6 @@ body {
 	}
 }
 
-.wrapper {
-	@include span-columns(12);
-	position: relative;
-	background: #fff;
-	z-index: 20;
-	height: 100%;
-	width: 100%;
-	display: inline-block;
-	-webkit-transition: .5s ease-in-out;
-	-moz-transition: .5s ease-in-out;
-	-o-transition: .5s ease-in-out;
-	transition:  .5s ease-in-out;
-	
-	&.slide {
-	 	transform: translate3d( -250px, 0, 0 );
-		-webkit-transform: translate3d( -250px, 0, 0 );
-		
-		&:before {
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background: rgba(0,0.0,0,.4);
-			z-index: 999;
-		}
-	}
-}
-
 .full_width {
 	@include span-columns(12);
 }
@@ -164,7 +136,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		-webkit-border-radius: 6px;
 		-moz-border-radius: 6px;
 		padding-top: 28px;
-		padding-bottom: 50px;
+		padding-bottom: 30px;
 		border-bottom: 6px solid #000000;
 	}
 		
@@ -243,10 +215,10 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 	}
 }
 
-.page_content {
-	padding-top: 180px;
+.page_wrapper {
+	//padding-top: 50px;
 	
-	@include media($tablet){
+	/*@include media($tablet){
 		padding-top: 168px;
 	}
 	
@@ -256,19 +228,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 	
 	@include media($smallMobile){
 		padding-top: 146px;
-	}
-	
-	&.member {
-		padding-top: 98px;
-
-		@include media($tablet) {
-			padding-top: 90px;
-		}
-		
-		@include media($mobile){
-			padding-top: 76px;
-		}
-	}
+	}*/
 }
 
 .video_overlay {
@@ -373,3 +333,66 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 	}
 }
 
+
+.link_wrap {
+	position: absolute;
+	width: 100%;
+	bottom: -46px;
+	text-align: center;
+	z-index: 1;
+
+	@include media($tablet) {
+		margin-left: -65px;
+	}
+
+	@include media($mobile) {
+		bottom: -30px;
+		margin-left: -54px;
+	}
+
+	img {
+		width: 30px;
+
+		@include media($mobile) {
+			width: 16px;
+		}
+	}
+
+	p {
+		@include latobold;
+		font-size: 18px;
+		text-transform: uppercase;
+
+		@include media($tablet) {
+			font-size: 16px;
+		}
+
+		@include media($mobile) {
+			font-size: 12px;
+			margin-bottom: 0;
+		}
+	}
+
+	&.video_sections {
+		top: -125px;
+		height: 100px;
+
+		p {
+			color: $black;
+		}
+	}
+
+	a {
+		background: $blue;
+		padding: 18px;
+		display: inline-block;
+
+		@include media($mobile) {
+			padding: 14px;
+		}
+
+		&:hover {
+			background: $darkBlue;
+		}
+	}
+}

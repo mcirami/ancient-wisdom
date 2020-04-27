@@ -10,31 +10,6 @@
 
 		&:hover {
 			background: rgba(0,0,0,.4);
-
-			/*.img_wrap {
-				&:before {
-					content: '';
-					background: url('../images/icon-play-hover.png') no-repeat;
-					background-size: 100% 100%;
-					width: 70px;
-					height: 70px;
-					position: absolute;
-					top: 0;
-					left: 0;
-					z-index: 2;
-
-					@include media($tablet) {
-						width: 60px;
-						height: 60px;
-					}
-
-					@include media($mobile) {
-						width: 50px;
-						height: 50px;
-					}
-
-				}
-			}*/
 		}
 
 		.img_wrap {
@@ -70,10 +45,10 @@
 	}
 
 	.video_section {
-		padding: 60px 0;
+		padding: 60px 0 100px;
 
 		@include media($tablet) {
-			padding: 40px 0;
+			padding: 40px 0 80px;
 		}
 
 		@include media($mobile) {

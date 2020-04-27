@@ -48,14 +48,12 @@ get_header(); ?>
 						</div>
 
 					</div><!-- hero -->
-				<div class="row">
+				<div class="row link_wrap">
 					<div class="col-12 text-center">
-						<div class="link_wrap">
-							<p>Go To Free Lessons</p>
-							<a class="rounded-circle" href="#free_lessons_section">
-								<img src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-arrow-down.png"/>
-							</a>
-						</div>
+						<p>Go To Free Lessons</p>
+						<a class="rounded-circle" href="#free_lessons_section">
+							<img src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-arrow-down.png"/>
+						</a>
 					</div>
 				</div>
 			</section>
@@ -95,7 +93,8 @@ get_header(); ?>
 								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['description']; ?></p>
 							</article>
 							<article class="col-12 col-md-6 column animated fadeIn duration4 eds-on-scroll">
-								<?php echo $aboutSection['embedded_video']; ?>
+								<?php $image = $aboutSection['image']; ?>
+								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
 							</article>
 						</div>
 						<div class="row">
@@ -104,7 +103,7 @@ get_header(); ?>
 									<div class="row">
 										<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
 											<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-											<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
+											<h4>Keep In Touch With The School Of Ancient Wisdom</h4>
 											<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
 										</div>
 									</div>

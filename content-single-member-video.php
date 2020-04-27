@@ -37,7 +37,7 @@
 		<h3><?php the_title(); ?></h3>
 		<?php $author = get_the_author_meta('user_login'); ?>
 		<h4>Submitted by <a href="/membership-account/member-profile/?pu=<?php echo $author; ?>"><?php echo $author; ?></a></h4>
-		<p><?php the_field('description'); ?></p>
+		<p><?php the_field('video_description'); ?></p>
 	</div>
 
 

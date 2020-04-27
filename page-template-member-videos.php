@@ -19,8 +19,6 @@ global $post;
 
 if ($title == "Member Lessons") {
 
-	//$ourCurrentPage = get_query_var('pages');
-
 	$args = array(
 		'post_type' => 'lessons',
 		'order_by' => 'post_date',
@@ -60,7 +58,7 @@ $videos = new WP_Query($args);
 
 					<?php if ($title == "Member Lessons") : ?>
 
-						<div class="filter_controls full_width">
+						<!--<div class="filter_controls full_width">
 							<div class="search_box">
 								<input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
 							</div>
@@ -72,25 +70,25 @@ $videos = new WP_Query($args);
 								<ul class="filter_list full_width">
 									<li data-multifilter="all" class="active all">All</li>
 
-									<?php /*foreach ($levelTerms as $levelTerm) : */?><!--
+									<?php /*/*foreach ($levelTerms as $levelTerm) : */?>
 
-										<li data-multifilter="<?php /*echo $levelTerm->term_id;*/?>"><?php /*echo $levelTerm->name;*/?></li>
+										<li data-multifilter="<?php /*/*echo $levelTerm->term_id;*/?>"><?php //echo $levelTerm->name;*/*/?></li>
 
-									--><?php /*endforeach; */?>
+									--><?php /*/*endforeach; */?>
 
-									<?php foreach ($catTerms as $catTerm) :
+									<?php /*foreach ($catTerms as $catTerm) :
 
-										if($catTerm->slug !== "members-only" /*&& $catTerm->slug !== "free-lessons"*/) :
-											?>
-											<li data-multifilter="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li>
+										if($catTerm->slug !== "members-only" /*&& $catTerm->slug !== "free-lessons"*///) : ?>
+											<!--<li data-multifilter="<?php /*echo $catTerm->term_id;*/?>"><?php /*echo $catTerm->name;*/?></li>-->
 
-										<?php endif; ?>
+										<?php /*endif; */?>
 
-									<?php endforeach; ?>
+									<?php /*endforeach; */?>
 
-								</ul>
+								<!--</ul>
 							</div>
-						</div><!-- filter_controls -->
+						</div>--><!-- filter_controls -->
+						<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
 					<?php elseif ($title == "Favorite Lessons") : ?>
 
 						<div class="top_content full_width">
@@ -114,7 +112,6 @@ $videos = new WP_Query($args);
 									<div class="button_wrap full_width">
 										<a class="button red" href="/lessons">Go To Lesson page Now!</a>
 									</div>
-
 								</div>
 
 							<?php else : ?>

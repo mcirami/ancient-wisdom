@@ -101,5 +101,8 @@
 		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 		ga('send', 'pageview');
 		</script>
+
+			</div><!-- col-12 -->
+			</div><!-- page_wrapper -->
 	</body>
 </html>

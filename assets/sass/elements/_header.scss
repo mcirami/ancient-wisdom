@@ -3,20 +3,9 @@ header {
 	-moz-transition: .5s ease-in-out;
 	-o-transition: .5s ease-in-out;
 	transition: .5s ease-in-out;
+	background: $black;
 
-	&.clear {
-		background: rgba(0, 0, 0, 0.4);
-	}
-	
 	.header_bottom {
-		
-		&.background {
-			background: $black;
-		}
-		
-		&.home_background {
-			background: $black;
-		}
 		
 		.logo {
 			float: left;
@@ -127,7 +116,7 @@ header {
 						text-align: left;
 						padding: 0;
 						border-bottom: 1px solid;
-						border-color: rgba(255,255,255,.4);
+						border-color: rgba(255,255,255,.2);
 					}
 					
 					&.current_page_item {
@@ -139,6 +128,20 @@ header {
 					&.menu-item-has-children > a {
 
 						&:after {
+							content: '';
+							background: url('../images/right-arrow-gray.png') no-repeat;
+							background-size: 100%;
+							position: absolute;
+							right: -12px;
+							top: 4px;
+							width: 6px;
+							height: 16px;
+							transform: rotate(90deg);
+							-webkit-transform: rotate(90deg);
+							-moz-transform:rotate(90deg);
+							-ms-transform: rotate(90deg);
+							-o-transform: rotate(90deg);
+
 
 							@include media($mobile){
 								content: '+';
@@ -237,37 +240,6 @@ header {
 					}
 				}
 
-                &.sub-menu li a:hover {
-                    color: $black;
-
-					@include media($mobile) {
-						color: $white;
-					}
-                }
-
-                &.sub-menu li a:hover .sub-menu li a {
-                    color: $white;
-                }
-
-                &.sub-menu li a:hover .sub-menu li a:hover {
-                    color: $black;
-
-					@include media($mobile) {
-						color: $white;
-					}
-
-                    &:before {
-                        content: '';
-                        background: url('../images/right-arrow.png') no-repeat;
-                        position: absolute;
-                        width: 6px;
-                        height: 14px;
-                        left: 46px;
-                        top: 21px;
-                        background-size: 100%;
-                    }
-                }
-
 				ul.sub-menu {
 					display: none;
 					background: #000;
@@ -291,10 +263,6 @@ header {
 						padding-top: 10px;
 					}
 
-					&.top {
-						background: rgba(0, 0, 0, 0.4);
-					}
-
 					li {
 						float: left;
 						display: block;
@@ -312,52 +280,6 @@ header {
 							@include media($mobile){
 								border-bottom: none;
 
-							}
-						}
-
-						a:hover {
-							color: $black;
-
-							@include media($mobile) {
-								color: $white;
-							}
-
-							&:before {
-								background: url('../images/right-arrow.png') no-repeat;
-								background-size: 100%;
-
-								@include media($mobile) {
-									content:none;
-								}
-							}
-						}
-
-
-						&.menu-item-has-children {
-
-							a:hover {
-
-
-								color: $white;
-
-								&:before {
-									background: url('../images/right-arrow-gray.png') no-repeat;
-									background-size: 100%;
-								}
-							}
-
-
-							> a {
-								color: $black;
-
-								@include media($mobile) {
-									color: $white;
-								}
-
-								&:before {
-									background: url('../images/right-arrow.png') no-repeat;
-									background-size: 100%;
-								}
 							}
 						}
 
@@ -389,19 +311,24 @@ header {
 
 							&:hover {
 								color: $black;
+								background: $darkBlue;
+
+								@include media($mobile) {
+									color: $white;
+									background: $black;
+								}
 
 								&:before {
-									content:'';
+									content: '';
 									background: url('../images/right-arrow.png') no-repeat;
 									position: absolute;
 									width: 6px;
 									height: 14px;
-									left: 20px;
-									top: 21px;
 									background-size: 100%;
 
 									@include media($mobile) {
 										background: url('../images/right-arrow-gray.png') no-repeat;
+										background-size: 100%;
 									}
 								}
 							}
@@ -410,15 +337,11 @@ header {
 
 						&.current_page_item {
 							a {
-								background: $blue;
+								background: $darkBlue;
 								color: $black;
 
 								&:hover {
 									color: $black;
-
-									@include media($mobile){
-										color: $blue;
-									}
 								}
 
 								&:before {
@@ -442,10 +365,10 @@ header {
 
 							a {
 								font-size: 16px;
-								padding-left: 62px;
+								padding-left: 80px;
 
 								&:before {
-									left: 38px;
+									left: 60px;
 								}
 
 								&:hover {
@@ -461,6 +384,7 @@ header {
 
 										@include media($mobile) {
 											background: url('../images/right-arrow-gray.png') no-repeat;
+											background-size: 100%;
 										}
 									}
 								}
@@ -689,6 +613,7 @@ header {
 		//padding-top: 4px;
 	}
 }
+/*
 
 .mobile_menu {
 	display: none;
@@ -747,21 +672,22 @@ header {
 		 	}
 		 	
 		 	&.current_page_item {
-				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b0b0b+11,151515+52,1e1f1f+88 */
-				background: #0b0b0b; /* Old browsers */
-				background: -moz-linear-gradient(top,  #0b0b0b 11%, #151515 52%, #1e1f1f 88%); /* FF3.6-15 */
-				background: -webkit-linear-gradient(top,  #0b0b0b 11%,#151515 52%,#1e1f1f 88%); /* Chrome10-25,Safari5.1-6 */
-				background: linear-gradient(to bottom,  #0b0b0b 11%,#151515 52%,#1e1f1f 88%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0b0b', endColorstr='#1e1f1f',GradientType=0 ); /* IE6-9 */
+				!* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b0b0b+11,151515+52,1e1f1f+88 *!
+				background: #0b0b0b; !* Old browsers *!
+				background: -moz-linear-gradient(top,  #0b0b0b 11%, #151515 52%, #1e1f1f 88%); !* FF3.6-15 *!
+				background: -webkit-linear-gradient(top,  #0b0b0b 11%,#151515 52%,#1e1f1f 88%); !* Chrome10-25,Safari5.1-6 *!
+				background: linear-gradient(to bottom,  #0b0b0b 11%,#151515 52%,#1e1f1f 88%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0b0b', endColorstr='#1e1f1f',GradientType=0 ); !* IE6-9 *!
 
                 a {
-                    color: $blue;
+                    color: $darkBlue;
                 }
 
 			}
 	 	}
 	}
 }
+*/
 
 .page_header {
 	color: $black;
