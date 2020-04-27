@@ -654,11 +654,4 @@ if( function_exists('acf_add_options_page') ) {
 
 }
 
-remove_all_filters( 'wp_title' );
-add_filter('wp_title', 'filter_pagetitle', 99,1);
-function filter_pagetitle($title) {
-	$title = get_bloginfo('name');
-	return $title;
-}
-
 ?>

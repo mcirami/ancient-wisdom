@@ -22,7 +22,7 @@
 	      if($product->pricing_title == "Monthly Membership") {
 		      $oldPrice = "$19.99/mo";
 	      } elseif ($product->pricing_title == "Annual Membership") {
-		      $oldPrice = "$249/yr";
+		      $oldPrice = "$349/yr";
 	      } else {
 		      $oldPrice = null;
 	      }

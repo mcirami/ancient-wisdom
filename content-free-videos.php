@@ -137,7 +137,7 @@ if($twoColumnSection) : ?>
 				} elseif(is_page('section-two')) {
 					$link = "/section-three";
 				} else {
-					$link = "/plans/membership-plans";
+					$link = "/plans/membership-options";
 				}
 				?>
 

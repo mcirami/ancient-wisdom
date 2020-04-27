@@ -50,6 +50,10 @@
 		right: 0;
 		width: 100%;
 
+		@include media($mobile) {
+			top: 20%;
+		}
+
 		h2 {
 			@include fefcsc2;
 			font-size: 60px;

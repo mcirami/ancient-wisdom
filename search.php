@@ -23,13 +23,17 @@ $wp_query = new WP_Query($args);*/
 
 					<div class="container">
 
-						<div class="video_list full_width">
+						<div class="video_list row">
 
-							<h1><?php echo sprintf( __( '%s Search Results for ', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
+							<div class="col-12">
 
-							<?php get_template_part('loop'); ?>
+								<h1><?php echo sprintf( __( '%s Search Results for ', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
 
-							<?php get_template_part('pagination'); ?>
+								<?php get_template_part('loop'); ?>
+
+								<?php get_template_part('pagination'); ?>
+
+							</div>
 						</div>
 					</div>
 				</div>

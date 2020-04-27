@@ -341,13 +341,9 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 	text-align: center;
 	z-index: 1;
 
-	@include media($tablet) {
-		margin-left: -65px;
-	}
 
 	@include media($mobile) {
 		bottom: -30px;
-		margin-left: -54px;
 	}
 
 	img {
@@ -376,6 +372,10 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 	&.video_sections {
 		top: -125px;
 		height: 100px;
+
+		@include media($mobile) {
+			top: -90px;
+		}
 
 		p {
 			color: $black;

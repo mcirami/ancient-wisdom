@@ -54,88 +54,70 @@ $videos = new WP_Query($args);
 
 			<div class="container">
 
-				<div class="video_list full_width">
+				<div class="video_list row">
 
-					<?php if ($title == "Member Lessons") : ?>
+					<div class="col-12">
 
-						<!--<div class="filter_controls full_width">
-							<div class="search_box">
-								<input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
-							</div>
+						<?php if ($title == "Member Lessons") : ?>
 
-							<div class="filters">
-								<h3>Filter Lessons By<span>:</span></h3>
-								<p>(select as many as you like)</p>
+							<form class="search" method="get" action="<?php echo home_url(); ?>" role="search">
+								<input class="search-input" type="search" name="s" placeholder="<?php _e( 'To search, type and hit enter.', 'html5blank' ); ?>">
+								<input type="hidden" name="post_type" value="lessons" />
+								<button class="search-submit" type="submit" role="button"><?php _e( 'Search', 'html5blank' ); ?></button>
+							</form>
 
-								<ul class="filter_list full_width">
-									<li data-multifilter="all" class="active all">All</li>
+						<?php elseif ($title == "Favorite Lessons") : ?>
 
-									<?php /*/*foreach ($levelTerms as $levelTerm) : */?>
+							<div class="top_content row">
+								<div class="col-12">
+									<?php if ($favorites != null) :
+										$favCount = get_user_favorites_count();
+										?>
+										<h3><?php echo $favCount; ?> <?php if( $favCount == 1) { echo "Favorite"; } else {echo "Favorites";}?></h3>
+									<?php endif; ?>
 
-										<li data-multifilter="<?php /*/*echo $levelTerm->term_id;*/?>"><?php //echo $levelTerm->name;*/*/?></li>
-
-									--><?php /*/*endforeach; */?>
-
-									<?php /*foreach ($catTerms as $catTerm) :
-
-										if($catTerm->slug !== "members-only" /*&& $catTerm->slug !== "free-lessons"*///) : ?>
-											<!--<li data-multifilter="<?php /*echo $catTerm->term_id;*/?>"><?php /*echo $catTerm->name;*/?></li>-->
-
-										<?php /*endif; */?>
-
-									<?php /*endforeach; */?>
-
-								<!--</ul>
-							</div>
-						</div>--><!-- filter_controls -->
-						<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
-					<?php elseif ($title == "Favorite Lessons") : ?>
-
-						<div class="top_content full_width">
-							<?php if ($favorites != null) :
-								$favCount = get_user_favorites_count();
-								?>
-								<h3><?php echo $favCount; ?> <?php if( $favCount == 1) { echo "Favorite"; } else {echo "Favorites";}?></h3>
-							<?php endif; ?>
-
-							<?php the_clear_favorites_button(); ?>
-						</div>
-
-					<?php endif; ?>
-
-					<div id="filter_images" class="filtr-container full_width">
-
-							<?php if ($favorites == null && $title == "Favorite Lessons") : ?>
-
-								<div class="text_wrap full_width">
-									<h2>You have no Favorite Lessons</h2>
-									<div class="button_wrap full_width">
-										<a class="button red" href="/lessons">Go To Lesson page Now!</a>
-									</div>
+									<?php the_clear_favorites_button(); ?>
 								</div>
+							</div>
 
-							<?php else : ?>
+						<?php endif; ?>
 
-								<?php if ( $videos->have_posts() ) : while( $videos->have_posts() ) : $videos->the_post(); ?>
+						<div class="row">
+							<div class="col-12">
 
-									<?php get_template_part('content', 'member-videos'); ?>
+								<?php if ($favorites == null && $title == "Favorite Lessons") : ?>
 
-								<?php endwhile; //query loop
+									<div class="text_wrap row">
+										<div class="col-12">
+											<h2>You have no Favorite Lessons</h2>
+											<div class="button_wrap full_width">
+												<a class="button red" href="<?php echo home_url()?>/member-lessons">Go To Lesson page Now!</a>
+											</div>
+										</div>
+									</div>
 
-								/*previous_posts_link();
-								next_posts_link('Next Page', $lessons->max_num_pages);*/
-								else :
+								<?php else : ?>
 
-									echo 'no posts found';
+									<?php if ( $videos->have_posts() ) : while( $videos->have_posts() ) : $videos->the_post(); ?>
 
-								endif; // if has posts
+										<?php get_template_part('content', 'member-videos'); ?>
 
-									wp_reset_query();
-								?>
+									<?php endwhile; //query loop
 
-							<?php endif; ?>
+									else :
 
-					</div><!-- filtr-container filter_images-->
+										echo 'no posts found';
+
+									endif; // if has posts
+
+										wp_reset_query();
+									?>
+
+								<?php endif; ?>
+							</div><!-- col-12 -->
+
+						</div><!-- row-->
+					</div><!-- col-12 -->
 				</div><!-- video_list -->
 
 				<div class="pagination full_width"></div>

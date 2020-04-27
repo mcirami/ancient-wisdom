@@ -93,7 +93,7 @@
 		<div class="row more_videos pb-4 pb-md-5 mb-4">
 			<div class="col-12 text-center">
 				<div class="container">
-					<a class="text-uppercase float-right button blue arrow" href="<?php echo home_url().'/plans/membership-plans' ?>">More Lessons</a>
+					<a class="text-uppercase float-right button blue arrow" href="<?php echo home_url().'/plans/membership-options' ?>">More Lessons</a>
 				</div>
 			</div>
 		</div>

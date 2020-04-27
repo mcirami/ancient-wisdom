@@ -37,7 +37,7 @@
 								<?php if (strpos($permalink, "login") == true) : ?>
 									<div class="login_text position-absolute">
 										<p class="mb-0">Don't Have An Account Yet?</p>
-										<a href="<?php echo home_url(); ?>/plans/membership-plans/">Click Here To Register!</a>
+										<a href="<?php echo home_url(); ?>/plans/membership-options/">Click Here To Register!</a>
 									</div>
 								<?php endif; ?>
 

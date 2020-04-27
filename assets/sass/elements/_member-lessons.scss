@@ -31,6 +31,7 @@
         h3 {
             font-size: 18px;
             float: left;
+            margin-bottom: 0;
         }
 
         .simplefavorites-clear {
@@ -40,12 +41,7 @@
             border: none;
             text-decoration: underline;
             float: right;
-            margin-top: 20px;
             background: none;
-
-            @include media($mobile) {
-                margin-top: 10px;
-            }
 
             &:hover {
                 color: #c30b21;
@@ -72,31 +68,6 @@
 
             &:hover {
                 background: rgba(0,0,0,.4);
-
-                /*.img_wrap {
-                    &:before {
-                        content: '';
-                        background: url('../images/icon-play-hover.png') no-repeat;
-                        background-size: 100% 100%;
-                        width: 60px;
-                        height: 60px;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        z-index: 10;
-
-                        @include media($tablet) {
-                            width: 40px;
-                            height: 40px;
-                        }
-
-                        @include media($mobile) {
-                            width: 30px;
-                            height: 30px;
-                        }
-
-                    }
-                }*/
             }
 
             .img_wrap {
@@ -118,24 +89,41 @@
         }
 
         .column {
-            width: 33.1%;
-            display: inline-block;
+            width: 33%;
             //float: left;
-            padding: 20px;
+            padding: 1%;
+            display: inline-flex;
+            flex-direction: column;
+            min-height: 365px;
+
+            @include media($desktop) {
+                min-height: 340px;
+            }
 
             @include media($tablet) {
-                padding: 15px;
+                width: 32.5%;
+                min-height: 275px;
+
             }
 
             @include media($mobile) {
                 width: 49.5%;
-                padding: 10px;
+                margin-bottom: 15px;
+                min-height: 275px;
             }
 
             .video_title {
                 @include latobold;
                 color: $blue;
                 font-size: 22px;
+
+                @include media($tablet) {
+                    font-size: 20px;
+                }
+
+                @include media($mobile) {
+                    font-size: 18px;
+                }
 
                 &:hover {
                     color: $darkBlue;
@@ -146,7 +134,7 @@
 
                 .simplefavorite-button {
                     position: absolute !important;
-                    right: 0;
+                    right: 8px;
                     bottom: 0;
                     z-index: 12;
 
@@ -177,7 +165,7 @@
             p {
                 line-height: 1.2;
                 font-size: 14px;
-                margin: 0;
+                margin: 0 0 10px 0;
                 color: $grayText;
 
                 @include media($smallMobile) {

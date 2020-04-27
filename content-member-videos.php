@@ -36,15 +36,7 @@
 	$hash = $post->post_name;
 ?>
 
-<div class="column filtr-item" data-sort="value" data-category="<?php
-foreach ($taxonomies as $taxonomy) {
-	echo $taxonomy;
-	$count++;
-	if ($count < $totalCount) {
-		echo ", ";
-	}
-
-} ?>" >
+<div class="column">
 
 	<div class="vid_image_wrap">
 
@@ -59,11 +51,11 @@ foreach ($taxonomies as $taxonomy) {
 
 		if (!empty($videoImage)) : ?>
 
-			<img src="<?php echo $videoImage[0]; ?>" alt="video image placeholder" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
+			<img src="<?php echo $videoImage[0]; ?>" alt="video image placeholder" id="<?php echo $hash; ?>"/>
 
 		<? elseif ($type == 'youtube')  : ?>
 
-				<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="youtube video thumbnail" id="<?php echo $hash; ?>" data-type="<?php /*echo "youtube";*/?>" data-title="<?php /*echo the_title();*/?>" data-postid="<?php /*echo $id; */?>"/>
+				<img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="youtube video thumbnail" id="<?php echo $hash; ?>"/>
 
 		<?php else : ?>
 
@@ -71,8 +63,10 @@ foreach ($taxonomies as $taxonomy) {
 
 		<?php endif; ?><!-- video thumbnail -->
 
-		<div class="button_wrap full_width">
-			<?php the_favorites_button();?>
+		<div class="button_wrap row">
+			<div class="col-12">
+				<?php the_favorites_button();?>
+			</div>
 		</div>
 		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; if ($type == "vimeo") echo '/?autoplay=1'; else echo '/?rel=0&showinfo=0&autoplay=1'; ?>">
 			<div class="img_wrap m-auto">
@@ -89,7 +83,7 @@ foreach ($taxonomies as $taxonomy) {
 
 	</div>
 
-	<div class="row mt-3">
+	<div class="row mt-auto">
 		<div class="col-12">
 			<a class="button green" href="<?php the_permalink(); ?>">Read More / Leave a Comment</a>
 		</div>

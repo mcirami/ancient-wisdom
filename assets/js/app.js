@@ -15,24 +15,6 @@ jQuery(document).ready(function($) {
 		headerClassesScroll();
 	}
 
-	/*(function(){
-
-		var parallax = document.querySelectorAll(".hero"),
-			speed = 0.5;
-
-		window.onscroll = function(){
-			[].slice.call(parallax).forEach(function(el,i){
-
-				let windowYOffset = window.pageYOffset,
-					elBackgrounPos = "0 " + (windowYOffset * speed) + "px";
-
-				el.style.backgroundPosition = elBackgrounPos;
-
-			});
-		};
-
-	})();*/
-
 	document.addEventListener('click', function(event){
 
 		if (event.target.classList.contains('video_open') || event.target.classList.contains('video_open_img')) {
@@ -115,7 +97,7 @@ jQuery(document).ready(function($) {
 
 		subMenuHover();
 
-	} else if ($(window).width() < 769) {
+	} else if ($(window).width() < 768) {
 
 		mobileSubMenu();
 	}
@@ -126,7 +108,7 @@ jQuery(document).ready(function($) {
 		let menu = $('.menu');
 		let headerBottom = $('.header_bottom');
 
-		if ($(window).width() > 768) {
+		if ($(window).width() > 767) {
 			let childSubmenu = $('.menu-item-has-children .sub-menu');
 			let childLink = $('.menu-item-has-children > a');
 
@@ -239,29 +221,4 @@ jQuery(document).ready(function($) {
 		})
 	}
 
-	let paragraph = document.querySelectorAll('.video_description');
-
-	console.log(paragraph);
-
 });
-/*
-
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import React from "react";
-import ReactDOM from "react-dom";
-import Header from "components/header";
-
-const App = () => (
-	<Router>
-		<div>
-			<Header />
-			<section className="section container content">
-				<Route exact path="/" component={PostList} />
-				<Route path="/:slug" component={PostView} />
-			</section>
-		</div>
-	</Router>
-);
-
-ReactDOM.render(<App />, document.getElementById("app"));*/
