@@ -41,9 +41,11 @@ get_header();
 							</div>
 							<div class="mepr-price-box-benefits">
 								<div class="mepr-price-box-benefits-list">
-									<div class="mepr-price-box-benefits-item">Benefit 1</div>
-									<div class="mepr-price-box-benefits-item">Benefit 2</div>
-									<div class="mepr-price-box-benefits-item">Benefit 3</div>
+									<?php if ( have_rows( 'monthly_membership_benefits', 'options' ) ) : ?>
+										<?php while ( have_rows( 'monthly_membership_benefits', 'options' ) ) : the_row(); ?>
+											<div class="mepr-price-box-benefits-item"><?php the_sub_field('benefit_text', 'options'); ?></div>
+										<?php endwhile; ?>
+									<?php endif; ?>
 								</div>
 							</div>
 							<div class="mepr-price-box-foot">
@@ -58,15 +60,17 @@ get_header();
 							<div class="mepr-price-box-head">
 								<div class="mepr-price-box-title">Annual Membership</div>
 								<div class="mepr-price-box-price">
-									<strike>$349/yr</strike>$199.99/yr
+									<strike>$249/yr</strike>$99.99/yr
 								</div>
 								<div class="mepr-price-box-heading">Try our Annual Now.</div>
 							</div>
 							<div class="mepr-price-box-benefits">
 								<div class="mepr-price-box-benefits-list">
-									<div class="mepr-price-box-benefits-item">Benefit 1</div>
-									<div class="mepr-price-box-benefits-item">Benefit 2</div>
-									<div class="mepr-price-box-benefits-item">Benefit 3</div>
+									<?php if ( have_rows( 'yearly_membership_benefits', 'options' ) ) : ?>
+										<?php while ( have_rows( 'yearly_membership_benefits', 'options' ) ) : the_row(); ?>
+											<div class="mepr-price-box-benefits-item"><?php the_sub_field('benefit_text', 'options'); ?></div>
+										<?php endwhile; ?>
+									<?php endif; ?>
 								</div>
 							</div>
 							<div class="mepr-price-box-foot">
@@ -81,15 +85,17 @@ get_header();
 							<div class="mepr-price-box-head">
 								<div class="mepr-price-box-title">Lifetime Membership</div>
 								<div class="mepr-price-box-price">
-									$349.99
+									$279.99
 								</div>
 								<div class="mepr-price-box-heading">Join for a lifetime!</div>
 							</div>
 							<div class="mepr-price-box-benefits">
 								<div class="mepr-price-box-benefits-list">
-									<div class="mepr-price-box-benefits-item">Benefit 1</div>
-									<div class="mepr-price-box-benefits-item">Benefit 2</div>
-									<div class="mepr-price-box-benefits-item">Benefit 3</div>
+									<?php if ( have_rows( 'lifetime_membership_benefits', 'options' ) ) : ?>
+										<?php while ( have_rows( 'lifetime_membership_benefits', 'options' ) ) : the_row(); ?>
+											<div class="mepr-price-box-benefits-item"><?php the_sub_field('benefit_text', 'options'); ?></div>
+										<?php endwhile; ?>
+									<?php endif; ?>
 								</div>
 							</div>
 							<div class="mepr-price-box-foot">
