@@ -30,7 +30,7 @@
 							<div class="<?php
 									if(strpos($permalink, 'account') == true || strpos($permalink, 'affiliate-area') == true || strpos($permalink, 'thank-you') == true) echo 'account_page col-12 form_wrapper';
 									elseif (strpos($permalink, 'plans') == true) echo 'col-12';
-									else echo 'col-12 col-md-6 mx-auto form_wrapper'; ?>" >
+									else echo 'col-12 col-md-8 col-lg-6 mx-auto form_wrapper'; ?>" >
 
 								<?php the_content(); ?>
 

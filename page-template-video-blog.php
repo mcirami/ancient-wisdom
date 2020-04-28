@@ -34,7 +34,7 @@ $posts = new WP_Query($args);
 
 				<div id="post_submit_form" class="row">
 
-					<div class="col-8 mx-auto">
+					<div class="col-12 col-md-10 col-lg-8 mx-auto">
 
 						<div class="form_wrapper mt-5">
 

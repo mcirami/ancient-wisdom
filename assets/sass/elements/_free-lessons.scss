@@ -54,6 +54,12 @@
 		@include media($mobile) {
 			padding: 40px 0;
 		}
+
+		&:last-child {
+			@include media($mobile) {
+				padding-bottom: 0;
+			}
+		}
 	}
 
 	.desc {

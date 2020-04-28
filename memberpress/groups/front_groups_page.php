@@ -1,5 +1,5 @@
 
-<div class="row text-center mb-5 pb-5">
+<div class="row text-center mb-0 mb-lg-5 pb-0 pb-lg-5">
 	<div class="col-12">
 		<div class="container">
 			<p><?php the_field('top_description', 'options'); ?></p>
@@ -34,7 +34,7 @@
 </div>
 
 
-<div class="row text-center my-5 py-5">
+<div class="row text-center my-3 my-lg-5 py-3 py-lg-5">
 	<div class="col-12">
 		<div class="container">
 			<p><?php the_field('bottom_description', 'options'); ?></p>

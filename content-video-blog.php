@@ -23,7 +23,7 @@ $videoLink = get_field('video_link');
 
 
 <div class="row">
-	<div class="column col-6">
+	<div class="column col-12 col-md-6">
 
 		<?php if ($embedCode !== null) : ?>
 			<a href="<?php the_permalink(); ?>">
@@ -36,7 +36,7 @@ $videoLink = get_field('video_link');
 		<?php endif; ?>
 
 	</div>
-	<div class="column col-6">
+	<div class="column col-12 col-md-6">
 		<h1><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 		<?php $author = get_the_author_meta('user_login'); ?>

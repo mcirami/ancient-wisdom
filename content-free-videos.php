@@ -21,7 +21,7 @@ if($twoColumnSection) : ?>
 										<div class="row link_wrap video_sections">
 											<div class="col-12 text-center">
 												<p>Next Section</p>
-												<a class="rounded-circle" href="#<?php echo $sectionTitle; ?>">
+												<a class="rounded-circle scroll_to_section" href="#<?php echo $sectionTitle; ?>">
 													<img src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-arrow-down.png"/>
 												</a>
 											</div>
@@ -127,8 +127,8 @@ if($twoColumnSection) : ?>
 
 <?php endif; ?>
 
-<?php if(is_page('section-two') || is_page('section-three')) : ?>
-	<div class="row more_videos pb-4 pb-md-5 mb-4">
+<?php if(is_page('section-two') || is_page('section-three') || is_page('home')) : ?>
+	<div class="row more_videos pb-0 pb-md-5 mb-0 mb-md-4">
 		<div class="col-12 text-center">
 			<div class="container">
 				<?php

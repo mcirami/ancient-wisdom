@@ -405,88 +405,6 @@ header {
 						}
 					}
 				}
-
-				/*&.member_menu > li, &.header_menu > li {
-					padding: 15px 0 35px 0;
-					position: relative;
-
-					@include media($mobile){
-						padding: 20px 0;
-					}
-
-					&:last-child {
-						padding: 0;
-						margin-top: 5px;
-
-						@include media($mobile) {
-							padding: 10px 20px 20px;
-						}
-
-						a {
-							background: $orange;
-							padding: 10px 22px;
-							border-radius: 20px;
-							-webkit-border-radius: 20px;
-							-moz-border-radius: 20px;
-
-							&:hover {
-								background: $green;
-							}
-						}
-					}
-
-					!*&:first-child {
-						a {
-							padding-left: 0;
-
-							@include media($mobile) {
-								padding-left: 10px;
-							}
-						}
-					}*!
-
-					&.open {
-						padding-bottom: 0;
-						background: $black;
-					}
-
-					&.current-menu-parent {
-
-						> a {
-							color: $blue;
-						}
-
-						ul li.current_page_item a:hover {
-							color: $white;
-						}
-
-					}
-
-					a {
-						padding: 0 18px;
-
-						@include media($desktop) {
-							padding: 0 10px;
-						}
-
-						@include media($tablet){
-							padding: 0 8px;
-						}
-					}
-
-
-				}// li
-
-				&.header_menu > li:last-child{
-					a {
-						background: $blue;
-
-						&:hover {
-							background: $darkBlue;
-						}
-
-					}
-				}*/
 			}
 		}
 	}
@@ -621,86 +539,8 @@ header {
 	
 	@include media($mobile){
 		display: block;
-		//width: 40px;
-		//float: left;
-		//padding-top: 4px;
 	}
 }
-/*
-
-.mobile_menu {
-	display: none;
-	height: 100%;
- 	width: 250px;
- 	z-index: 10;
- 	position: fixed;
- 	top: 0;
- 	right: 0;
- 	bottom: 0;
- 	text-align: left;
- 	background: #000;
- 	border-top: 2px solid #2d2d2d;
-	-webkit-backface-visibility: hidden;
-	-webkit-perspective: 1000;
-	overflow-y: scroll;
-	
-	@include media($mobile){
-		display: block;
-	}
-	
-	&:before {
-	 	background: none;
-	 	z-index: -999;
- 	}
-
-	.logo {
-        padding: 10px 20px 12px;
-        border-bottom: 1px outset $blue;
-    }
-
- 	nav {
-	 	@include span-columns(12);
- 	}
-	
-	ul {
-		@include span-columns(12);
-		padding: 0;
-	 	text-align: left;
-	 	
-	 	li {
-		 	@include span-columns(12);
-		 	display: block;
-		 	border-bottom: 1px outset $darkGray;
-		 	text-align: left;
-		 	box-sizing: border-box;
-		 	
-		 	a {
-				@include latoreg;
-			 	display: block;
-			 	padding: 18px 20px;
-			 	font-size:14px;
-				color:$white;
-				text-decoration:none;
-				text-transform:uppercase;
-		 	}
-		 	
-		 	&.current_page_item {
-				!* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b0b0b+11,151515+52,1e1f1f+88 *!
-				background: #0b0b0b; !* Old browsers *!
-				background: -moz-linear-gradient(top,  #0b0b0b 11%, #151515 52%, #1e1f1f 88%); !* FF3.6-15 *!
-				background: -webkit-linear-gradient(top,  #0b0b0b 11%,#151515 52%,#1e1f1f 88%); !* Chrome10-25,Safari5.1-6 *!
-				background: linear-gradient(to bottom,  #0b0b0b 11%,#151515 52%,#1e1f1f 88%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0b0b', endColorstr='#1e1f1f',GradientType=0 ); !* IE6-9 *!
-
-                a {
-                    color: $darkBlue;
-                }
-
-			}
-	 	}
-	}
-}
-*/
 
 .page_header {
 	color: $black;
@@ -715,8 +555,12 @@ header {
 		line-height: 1.4;
 		margin-bottom: 5px;
 
+		@include media($tablet) {
+			font-size: 40px;
+		}
+
 		@include media($mobile) {
-			font-size: 44px;
+			font-size: 32px;
 		}
 	}
 
@@ -726,12 +570,30 @@ header {
 		background: $blue;
 		display: block;
 		margin: 0 auto 40px;
+
+		@include media($tablet) {
+			margin: 0 auto 30px;
+		}
+
+		@include media($mobile) {
+			margin: 0 auto 20px;
+		}
 	}
 
 	.page_description {
 		font-size: 22px;
 		line-height: 1.6;
 		padding: 0 10%;
+
+		@include media($tablet) {
+			padding: 0 5%;
+			font-size: 18px;
+		}
+
+		@include media($mobile) {
+			padding: 0;
+			font-size: 16px;
+		}
 
 		span {
 			color: $blue;

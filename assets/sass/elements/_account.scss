@@ -19,6 +19,10 @@
 }
 .mp_wrapper table.mepr-account-table {
     min-width: 900px;
+
+    @media screen and (max-width: 600px) {
+        min-width: unset;
+    }
 }
 
 #mepr-account-nav {
@@ -36,6 +40,11 @@
         -moz-border-radius-topright: 10px;
         margin-right: 5px;
 
+        @include media($mobile) {
+            padding: 10px 15px;
+            margin-right: 3px;
+        }
+
         &:hover {
             background: $blue;
         }
@@ -43,6 +52,10 @@
         a {
             @include latoreg;
             color: $black;
+
+            @include media($mobile) {
+                font-size: 14px;
+            }
         }
 
         &.mepr-active-nav-tab {
@@ -56,6 +69,10 @@
 }
 
 .mepr-account-actions {
+
+    @media screen and (max-width: 600px) {
+        margin-top: 40px !important;
+    }
 
     a {
         @include latobold;
@@ -88,6 +105,10 @@
         -webkit-border-top-right-radius: 10px;
         -moz-border-radius-topright: 10px;
         margin-right: 5px;
+
+        @include media($mobile) {
+            margin-top: 10px !important;
+        }
 
         &:hover {
             background: $blue;

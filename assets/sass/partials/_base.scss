@@ -35,6 +35,7 @@ body {
 	height: 0;
 	position: relative;
 	cursor: pointer;
+	margin: auto;
 	
 	iframe {
 		position: absolute;
@@ -42,14 +43,6 @@ body {
 		left: 0;
 		width: 100%;
 		height: 100%;
-	}
-
-	&.video_notation {
-        padding-bottom: 124.25%;
-
-        @include media($mobile) {
-            padding-bottom: 175.25%;
-        }
 	}
 }
 
@@ -168,6 +161,10 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 			&.back_link {
 				padding: 15px 30px 15px 60px;
 
+				@include media($mobile) {
+					padding: 10px 30px 10px 40px;
+				}
+
 				&:after {
 					content: none;
 				}
@@ -181,6 +178,12 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 					position: absolute;
 					width: 28px;
 					height: 15px;
+
+					@include media($mobile) {
+						left: 12px;
+						top:18px;
+						width: 20px;
+					}
 				}
 
 			}
@@ -213,22 +216,6 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 			background: #000c07;
 		}
 	}
-}
-
-.page_wrapper {
-	//padding-top: 50px;
-	
-	/*@include media($tablet){
-		padding-top: 168px;
-	}
-	
-	@include media($mobile){
-		padding-top: 152px;
-	}
-	
-	@include media($smallMobile){
-		padding-top: 146px;
-	}*/
 }
 
 .video_overlay {
@@ -290,18 +277,6 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		@include media($mobile) {
 			width: 85%;
 		}
-	}
-}
-
-.video_wrapper {
-	padding-bottom: 56.25%;
-	height: 0;
-	position: relative;
-	cursor: pointer;
-	margin: auto;
-
-	iframe {
-		width: 100%;
 	}
 }
 

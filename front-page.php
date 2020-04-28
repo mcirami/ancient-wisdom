@@ -51,7 +51,7 @@ get_header(); ?>
 				<div class="row link_wrap">
 					<div class="col-12 text-center">
 						<p>Go To Free Lessons</p>
-						<a class="rounded-circle" href="#free_lessons_section">
+						<a class="rounded-circle scroll_to_section" href="#free_lessons_section">
 							<img src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-arrow-down.png"/>
 						</a>
 					</div>

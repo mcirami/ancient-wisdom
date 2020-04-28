@@ -52,6 +52,14 @@ jQuery(document).ready(function($) {
 					document.querySelector('.video_overlay').remove();
 				});
 			}, 1000);
+
+		}
+
+		if (event.target.classList.contains('scroll_to_section')) {
+			event.preventDefault();
+			let hash = event.target.getAttribute('href');
+			console.log(hash);
+			$('html,body').animate({scrollTop: $(hash).offset().top - 100}, 1000);
 		}
 
 	}, false);

@@ -234,10 +234,19 @@ form {
 	margin-bottom: 60px;
 	margin-top: 80px;
 
+	@include media($tablet) {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+
 	.mepr-price-box-title {
 		@include latobold;
 		font-size: 24px;
 		text-transform: uppercase;
+
+		@include media($desktop) {
+			font-size: 20px;
+		}
 	}
 
 	.mepr-price-box-head {
@@ -256,12 +265,20 @@ form {
 		.mepr-price-box-price {
 			@include latolight;
 			font-size: 22px;
+
+			@include media($desktop) {
+				font-size: 20px;
+			}
 		}
 	}
 
 	.mepr-price-box-heading {
 		@include latoreg;
 		font-size: 20px;
+
+		@include media($desktop) {
+			font-size: 18px;
+		}
 	}
 
 	&.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list {
@@ -272,7 +289,11 @@ form {
 			border-bottom: none;
 			padding: 30px 20px;
 			color: $darkGray;
-			font-size: 18px;
+			font-size: 16px;
+
+			@include media($desktop) {
+				font-size: 14px;
+			}
 
 			&:nth-child(2n - 1) {
 				background: $lightGray;
@@ -376,6 +397,14 @@ form {
 		border: 6px solid $red;
 		margin-top: -60px;
 
+		/*@media screen and  (max-width: 1023px) and (min-width: 768px) {
+			width: 32% !important;
+		}*/
+
+		@media screen and (max-width: 1023px) {
+			margin-top: 0;
+		}
+
 		.mepr-price-box-price {
 			font-size: 28px;
 			padding: 10px 0;
@@ -384,6 +413,10 @@ form {
 		.mepr-price-box-head {
 			background-color: $red;
 			padding: 30px 0 30px;
+
+			@include media($mobile) {
+				padding: 20px 0;
+			}
 		}
 
 		a {
