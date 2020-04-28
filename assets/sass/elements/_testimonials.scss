@@ -2,21 +2,38 @@
 	@include latobold;
 	background: url('../images/testimonials-video-bg.jpg') no-repeat;
 	background-size: cover;
-	padding: 60px 0;
+	padding: 30px 0;
 
 	p {
 		font-size: 22px;
 		line-height: 1.6;
+
+		@include media($tablet) {
+			font-size: 18px;
+		}
 	}
 
 	h4 {
 		color:$blue;
 		font-size: 18px;
 		font-style: italic;
+
+		@include media($tablet) {
+			font-size: 16px;
+		}
+	}
+
+	.carousel-inner {
+		padding: 30px 0;
 	}
 
 	.carousel-indicators {
 		right: -80px;
+		bottom: -10px;
+
+		@include media($mobile) {
+			right: 0;
+		}
 
 		li {
 			width: 10px;
@@ -64,10 +81,19 @@
 		font-style: italic;
 		font-size: 18px;
 		color:$blue;
+
+		@include media($tablet) {
+			font-size: 16px;
+		}
+
+		@include media($mobile) {
+			font-size: 14px;
+		}
 	}
 
 	.text_box {
-		padding: 50px 40px 100px 15px;
+		padding: 50px 40px;
+		min-height: 300px;
 		-webkit-box-shadow: 0 0 30px -8px rgba(173,173,173,1);
 		-moz-box-shadow: 0 0 30px -8px rgba(173,173,173,1);
 		box-shadow: 0 0 30px -8px rgba(173,173,173,1);
@@ -75,6 +101,14 @@
 		p {
 			font-size: 22px;
 			line-height: 1.6;
+
+			@include media($tablet) {
+				font-size: 20px;
+			}
+
+			@include media($mobile) {
+				font-size: 18px;
+			}
 
 			&:before {
 				content: '';

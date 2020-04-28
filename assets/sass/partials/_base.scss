@@ -371,3 +371,27 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		}
 	}
 }
+
+.play_button_wrap {
+	top: 0;
+	left:0;
+	cursor: pointer;
+	z-index: 10;
+
+	&:hover {
+		background: rgba(0,0,0,.4);
+	}
+
+	.img_wrap {
+		z-index: 1;
+		width: 70px;
+
+		@include media($tablet) {
+			width: 60px;
+		}
+
+		@include media($mobile) {
+			width: 50px;
+		}
+	}
+}

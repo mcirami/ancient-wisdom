@@ -2,30 +2,6 @@
 .free_videos {
 	padding-right: 0;
 
-	.play_button_wrap {
-		top: 0;
-		left:0;
-		cursor: pointer;
-		z-index: 2;
-
-		&:hover {
-			background: rgba(0,0,0,.4);
-		}
-
-		.img_wrap {
-			z-index: 1;
-			width: 70px;
-
-			@include media($tablet) {
-				width: 60px;
-			}
-
-			@include media($mobile) {
-				width: 50px;
-			}
-		}
-	}
-
 	.row.background {
 		background: url("../images/video-section-bg.jpg") no-repeat;
 		background-size: cover;
