@@ -1,5 +1,9 @@
 jQuery(document).ready(function($) {
 
+	/*
+		Function add and remove class from header to shrink logo when page scroll is > 40 from top
+	*/
+
 	function headerClassesScroll() {
 		if ($(window).scrollTop() > 40) {
 			$('.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').addClass('scroll');
@@ -7,13 +11,27 @@ jQuery(document).ready(function($) {
 			$('.header_top,.menu,header .logo,.mobile_menu_icon,ul.member_menu > li').removeClass('scroll');
 		}
 	}
+
+
+
+	/*
+		call function headerClassesScroll when page is scrolled
+	*/
+
 	$(window).on('scroll', function (event) {
 		headerClassesScroll()
 	});
 
+	/*
+		call function headerClassesScroll when page loaded if on home page
+	*/
 	if (my_script_vars.frontPage) {
 		headerClassesScroll();
 	}
+
+	/*
+		Add click event to open video overlay
+	*/
 
 	document.addEventListener('click', function(event){
 
@@ -55,51 +73,39 @@ jQuery(document).ready(function($) {
 
 		}
 
-		if (event.target.classList.contains('scroll_to_section')) {
-			event.preventDefault();
-			let hash = event.target.getAttribute('href');
-			console.log(hash);
-			$('html,body').animate({scrollTop: $(hash).offset().top - 100}, 1000);
-		}
-
 	}, false);
 
-	if (!my_script_vars.frontPage && !my_script_vars.member) {
+	/*
+		If not a member changes Section One href to link to home page with href and adds scroll class
+	*/
+
+	if (!my_script_vars.member) {
 		let links = document.querySelectorAll('.free_lesson_link');
-		links.forEach(link => {
-			link.firstChild.href = my_script_vars.home + "#free_lessons"
-		});
+
+		if (my_script_vars.frontPage) {
+			links.forEach(link => {
+				link.firstChild.classList.add("scroll_to_section");
+			});
+		} else {
+			links.forEach(link => {
+				link.firstChild.href = my_script_vars.home + "#free_lessons_section";
+			});
+		}
 	}
 
-	/*if (my_script_vars.pageTitle === 'Member Lessons') {
-		setTimeout(function() {
-			$('.filtr-container').filterizr();
-		},2000);
-	}*/
+	/*
+		Add animation to body scroll on free lessons template when button clicked with class scroll_to_section
+	*/
 
-	/*$('.filter_list li').click(function () {
-		if (!$(this).hasClass('all')) {
-			$(this).toggleClass('active');
-			$('.filter_list li.all').removeClass('active');
+	let scrollToDivs = document.querySelectorAll('.scroll_to_section');
 
-			var allFilters = document.querySelectorAll(".filter_list li");
-
-			var active = false;
-			for (var i = 0; i < allFilters.length; i++) {
-				if (allFilters[i].classList.contains('active')) {
-					active = true;
-				}
-			}
-
-			if (active === false) {
-				$('.filter_list li.all').addClass('active');
-			}
-
-		} else {
-			$('.filter_list li').removeClass('active');
-			$(this).addClass('active');
-		}
-	});*/
+	scrollToDivs.forEach(function(value, index){
+		value.addEventListener("click", function(event){
+			event.preventDefault();
+			let hash = this.getAttribute('href');
+			$('html,body').animate({scrollTop: $(hash).offset().top - 100}, 1000);
+		}, false);
+	});
 
 	if ($(window).width() > 768) {
 
@@ -138,12 +144,6 @@ jQuery(document).ready(function($) {
 			if (childLink.hasClass('open')) {
 				childLink.removeClass('open');
 			}
-
-/*			$('.user_mobile_nav').removeClass('open');
-			$('.user_mobile_nav p span').removeClass('open');
-			$('.nav_wrap ul').css('display', 'block');*/
-			//navIcon.html("+");
-
 
 		} else {
 			let submenu = $('.menu-item-has-children');

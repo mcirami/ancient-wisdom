@@ -13830,7 +13830,7 @@ footer .copy a {
 }
 .button_group a.button {
   padding: 16px 20px;
-  color: #000000;
+  border-bottom: none;
 }
 
 .video_text_slider {

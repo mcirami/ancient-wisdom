@@ -1,36 +1,34 @@
 <?php
 
 	$videoLink = get_field('video_link');
-	$id = $post->ID;
 
-	if(strpos($videoLink,"v=")) {
+	if(strpos($videoLink,"v=") !== false) {
 		$str = explode("v=", $videoLink);
 		$embedCode = preg_replace('/\s+/', '',$str[1]);
 		$type = "youtube";
-	} else if (strpos($videoLink, "embed/")) {
+	} else if (strpos($videoLink, "embed/") !== false) {
 		$str = explode("embed/", $videoLink);
 		$embedCode = preg_replace('/\s+/', '',$str[1]);
 		$type = "youtube";
-	} else if (strpos($videoLink, "youtu.be")) {
+	} else if (strpos($videoLink, "youtu.be") !== false) {
 		$str = explode(".be/", $videoLink);
 		$embedCode = preg_replace('/\s+/', '',$str[1]);
 		$type = "youtube";
-	} else if (strpos($videoLink, "vimeo") !== false) {
+	}else if (strpos($videoLink, "vimeo") !== false) {
 		$str       = explode( "vimeo.com/", $videoLink );
-		$embedCode = preg_replace( '/\s+/', '', $str[1]);
+		$embedCode = preg_replace( '/\s+/', '', $str[1] );
 		$type      = "vimeo";
+	}
+
+	if($type == "youtube") {
+		$embedLink = "https://www.youtube.com/embed/" . $embedCode . "/?rel=0&showinfo=0&autoplay=1";
+	} else {
+		$embedLink = "https://player.vimeo.com/video/" . $embedCode . "/?autoplay=1";
 	}
 
 	$count = 0;
 	$taxonomies = [];
 	$index = 0;
-
-	$categories = get_the_category();
-
-	foreach ($categories as $category) {
-		$taxonomies[$index] = intval($category->term_id);
-		$index++;
-	}
 
 	$totalCount = count($taxonomies);
 	$hash = $post->post_name;
@@ -68,7 +66,7 @@
 				<?php the_favorites_button();?>
 			</div>
 		</div>
-		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; if ($type == "vimeo") echo '/?autoplay=1'; else echo '/?rel=0&showinfo=0&autoplay=1'; ?>">
+		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $embedLink; ?>">
 			<div class="img_wrap m-auto">
 				<img class="play_button video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" />
 			</div>

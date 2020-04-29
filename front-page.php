@@ -66,7 +66,7 @@ get_header(); ?>
 
 			if($videosHeader) : ?>
 
-				<section class="intro_text row" id="free_lessons">
+				<section class="intro_text row">
 					<article class="col-12">
 						<div class="container">
 							<div class="content_wrap">

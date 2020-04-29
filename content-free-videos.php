@@ -11,17 +11,19 @@ if($twoColumnSection) : ?>
 					<?php if ( have_rows( 'video_section' ) ) : ?>
 						<?php while ( have_rows( 'video_section' ) ) : the_row();
 							++$count;
-							?>
-							<div class="row video_section <?php if($count % 2 !== 0) { echo 'background'; }?>" id="<?php
 
-								echo $sectionTitle = strtolower(preg_replace("/\s+/", "_", get_sub_field('section_title')));
-							?>">
+							$sectionTitle = get_sub_field('section_title');
+							$sectionTitleHash = strtolower(preg_replace("/[^a-z0-9]+/i", "", $sectionTitle));
+							?>
+
+
+							<div class="row video_section <?php if($count % 2 !== 0) { echo 'background'; }?>" id="<?php echo $sectionTitleHash; ?>">
 								<div class="col-12">
 									<?php if ($count > 1) : ?>
 										<div class="row link_wrap video_sections">
 											<div class="col-12 text-center">
 												<p>Next Section</p>
-												<a class="rounded-circle scroll_to_section" href="#<?php echo $sectionTitle; ?>">
+												<a class="rounded-circle scroll_to_section" href="#<?php echo $sectionTitleHash; ?>">
 													<img src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-arrow-down.png"/>
 												</a>
 											</div>
@@ -30,7 +32,7 @@ if($twoColumnSection) : ?>
 									<div class="container">
 										<article class="content row">
 
-											<h2 class="animated fadeIn duration4 eds-on-scroll text-center mb-4 mb-md-5 mt-0 <?php if ($count % 2 == 0) echo 'black'; ?>"><?php the_sub_field('section_title'); ?></h2>
+											<h2 class="animated fadeIn duration4 eds-on-scroll text-center mb-4 mb-md-5 mt-0 <?php if ($count % 2 == 0) echo 'black'; ?>"><?php echo $sectionTitle; ?></h2>
 
 											<?php if ( have_rows( 'video_column' ) ) :
 													$columnCount = 0;
@@ -48,15 +50,15 @@ if($twoColumnSection) : ?>
 														setup_postdata( $post );
 														$videoLink = get_field('video_link');
 
-														if(strpos($videoLink,"v=")) {
+														if(strpos($videoLink,"v=") !== false) {
 															$str = explode("v=", $videoLink);
 															$embedCode = preg_replace('/\s+/', '',$str[1]);
 															$type = "youtube";
-														} else if (strpos($videoLink, "embed/")) {
+														} else if (strpos($videoLink, "embed/") !== false) {
 															$str = explode("embed/", $videoLink);
 															$embedCode = preg_replace('/\s+/', '',$str[1]);
 															$type = "youtube";
-														} else if (strpos($videoLink, "youtu.be")) {
+														} else if (strpos($videoLink, "youtu.be") !== false) {
 															$str = explode(".be/", $videoLink);
 															$embedCode = preg_replace('/\s+/', '',$str[1]);
 															$type = "youtube";
@@ -65,6 +67,13 @@ if($twoColumnSection) : ?>
 															 $embedCode = preg_replace( '/\s+/', '', $str[1] );
 															 $type      = "vimeo";
 														 }
+
+														if($type == "youtube") {
+															$embedLink = "https://www.youtube.com/embed/" . $embedCode . "/?rel=0&showinfo=0&autoplay=1";
+														} else {
+															$embedLink = "https://player.vimeo.com/video/" . $embedCode . "/?autoplay=1";
+														}
+
 														?>
 
 														<div class="animated fadeIn duration4 eds-on-scroll video_box mb-5 mb-sm-0 col-12 col-sm-6 <?php if ($columnCount == 1) { echo 'pr-0 pr-sm-4'; } else { echo 'pl-0 pl-sm-4'; }?>">
@@ -90,7 +99,7 @@ if($twoColumnSection) : ?>
 																		<img src="<?php echo bloginfo('template_url'); ?>/images/video-placeholder.jpg" alt="video image placeholder"/>
 
 																	<?php endif; ?>
-																	<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $videoLink; if ($type == "vimeo") echo '/?autoplay=1'; else echo '/?rel=0&showinfo=0&autoplay=1'; ?>">
+																	<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $embedLink; ?>">
 																		<div class="img_wrap m-auto">
 																			<img class="play_button m-auto video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
 																		</div>
@@ -145,28 +154,29 @@ if($twoColumnSection) : ?>
 			</div>
 		</div>
 	</div>
-
-	<div class="row mb-5">
-		<div class="col-12">
-			<div class="container">
-				<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
-					<div class="row">
-						<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
-							<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-							<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
-							<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+	<?php if(!is_front_page()) :?>
+		<div class="row mb-5">
+			<div class="col-12">
+				<div class="container">
+					<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
+						<div class="row">
+							<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
+								<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+								<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
+								<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
+							</div>
 						</div>
-					</div>
-					<?php
-					if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
-						echo do_shortcode('[mc4wp_form id="266"]');
-					else:
-						echo do_shortcode('[mc4wp_form id="302"]');
-					endif; ?>
+						<?php
+						if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
+							echo do_shortcode('[mc4wp_form id="266"]');
+						else:
+							echo do_shortcode('[mc4wp_form id="302"]');
+						endif; ?>
 
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	<?php endif; ?>
 
 <?php endif; ?>
