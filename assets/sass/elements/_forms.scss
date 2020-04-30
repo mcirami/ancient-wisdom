@@ -238,6 +238,7 @@ form {
 
 .membership-options p {
 	font-size: 20px;
+	padding: 0 8%;
 
 	@include media($tablet) {
 		font-size: 18px;
@@ -245,6 +246,7 @@ form {
 
 	@include media($mobile) {
 		font-size: 16px;
+		padding: 0 2%;
 	}
 }
 
@@ -303,14 +305,44 @@ form {
 		margin: 0;
 
 		.mepr-price-box-benefits-item {
-			@include latoreg;
 			border-bottom: none;
 			padding: 30px 20px;
-			color: $darkGray;
-			font-size: 16px;
 
-			@include media($desktop) {
-				font-size: 14px;
+			@include media($mobile) {
+				padding: 20px 10%;
+			}
+
+			.text_wrap {
+				max-width: 370px;
+				margin: 0 auto;
+			}
+
+
+			p {
+				@include latoreg;
+				color: $darkGray;
+				font-size: 18px;
+				text-align: left;
+				padding: 0 4% 0 60px;
+
+				@include media($desktop) {
+					font-size: 16px;
+				}
+
+				@include media($mobile) {
+					font-size: 14px;
+				}
+
+				&:before {
+					content: '';
+					background: url('../images/check.png') no-repeat;
+					position: absolute;
+					left: 26px;
+					top: 6px;
+					width: 18px;
+					height: 15px;
+					background-size: 100%;
+				}
 			}
 
 			&:nth-child(2n - 1) {

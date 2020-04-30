@@ -96,14 +96,16 @@
 		</article>
 	</section><!-- videos -->
 
-	<div class="row more_videos pb-4 pb-md-5 mb-4">
-		<div class="col-12 text-center">
-			<div class="container">
-				<a class="text-uppercase float-right button blue arrow" href="<?php echo home_url().'/plans/membership-options' ?>">More Lessons</a>
+	<?php if (!is_user_logged_in()) : ?>
+
+		<div class="row more_videos pb-4 pb-md-5 mb-4">
+			<div class="col-12 text-center">
+				<div class="container">
+					<a class="text-uppercase float-right button blue arrow" href="<?php echo home_url().'/plans/membership-options' ?>">More Lessons</a>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<?php get_template_part( 'content', 'mailchimp-form' ); ?>
+		<?php get_template_part( 'content', 'mailchimp-form' ); ?>
 
-
+	<?php endif; ?>

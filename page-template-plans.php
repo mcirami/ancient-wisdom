@@ -43,7 +43,13 @@ get_header();
 								<div class="mepr-price-box-benefits-list">
 									<?php if ( have_rows( 'monthly_membership_benefits', 'options' ) ) : ?>
 										<?php while ( have_rows( 'monthly_membership_benefits', 'options' ) ) : the_row(); ?>
-											<div class="mepr-price-box-benefits-item"><?php the_sub_field('benefit_text', 'options'); ?></div>
+											<div class="mepr-price-box-benefits-item">
+												<div class="text_wrap">
+													<p>
+														<?php the_sub_field('benefit_text', 'options'); ?>
+													</p>
+												</div>
+											</div>
 										<?php endwhile; ?>
 									<?php endif; ?>
 								</div>
@@ -51,7 +57,7 @@ get_header();
 							<div class="mepr-price-box-foot">
 								<div class="mepr-price-box-footer"></div>
 								<div class="mepr-price-box-button">
-									<a href="<?php echo home_url(); ?>/register/monthly-membership/" class="">Sign Up</a>
+									<a href="<?php echo home_url(); ?>/register/monthly-membership/" class="">Go!</a>
 								</div>
 							</div>
 						</div>
@@ -62,13 +68,19 @@ get_header();
 								<div class="mepr-price-box-price">
 									<strike>$240/yr</strike>$99/yr
 								</div>
-								<div class="mepr-price-box-heading">Try our Annual Now.</div>
+								<div class="mepr-price-box-heading">Annual Membership</div>
 							</div>
 							<div class="mepr-price-box-benefits">
 								<div class="mepr-price-box-benefits-list">
 									<?php if ( have_rows( 'yearly_membership_benefits', 'options' ) ) : ?>
 										<?php while ( have_rows( 'yearly_membership_benefits', 'options' ) ) : the_row(); ?>
-											<div class="mepr-price-box-benefits-item"><?php the_sub_field('benefit_text', 'options'); ?></div>
+											<div class="mepr-price-box-benefits-item">
+												<div class="text_wrap">
+													<p>
+														<?php the_sub_field('benefit_text', 'options'); ?>
+													</p>
+												</div>
+											</div>
 										<?php endwhile; ?>
 									<?php endif; ?>
 								</div>
@@ -76,7 +88,7 @@ get_header();
 							<div class="mepr-price-box-foot">
 								<div class="mepr-price-box-footer"></div>
 								<div class="mepr-price-box-button">
-									<a href="<?php echo home_url(); ?>/register/annual-membership/" class="">Sign Up</a>
+									<a href="<?php echo home_url(); ?>/register/annual-membership/" class="">Go!</a>
 								</div>
 							</div>
 						</div>
@@ -87,13 +99,19 @@ get_header();
 								<div class="mepr-price-box-price">
 									<strike>$379</strike>$249
 								</div>
-								<div class="mepr-price-box-heading">Join for a lifetime!</div>
+								<div class="mepr-price-box-heading">Become A Lifetime Student Of Ancient Wisdom</div>
 							</div>
 							<div class="mepr-price-box-benefits">
 								<div class="mepr-price-box-benefits-list">
 									<?php if ( have_rows( 'lifetime_membership_benefits', 'options' ) ) : ?>
 										<?php while ( have_rows( 'lifetime_membership_benefits', 'options' ) ) : the_row(); ?>
-											<div class="mepr-price-box-benefits-item"><?php the_sub_field('benefit_text', 'options'); ?></div>
+											<div class="mepr-price-box-benefits-item">
+												<div class="text_wrap">
+													<p>
+														<?php the_sub_field('benefit_text', 'options'); ?>
+													</p>
+												</div>
+											</div>
 										<?php endwhile; ?>
 									<?php endif; ?>
 								</div>
@@ -101,7 +119,7 @@ get_header();
 							<div class="mepr-price-box-foot">
 								<div class="mepr-price-box-footer"></div>
 								<div class="mepr-price-box-button">
-									<a href="<?php echo home_url(); ?>/register/lifetime-membership/" class="">Sign Up</a>
+									<a href="<?php echo home_url(); ?>/register/lifetime-membership/" class="">Go!</a>
 								</div>
 							</div>
 						</div>

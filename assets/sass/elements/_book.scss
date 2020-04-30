@@ -25,6 +25,16 @@
 	background: transparent;
 
 	p {
+		font-size: 20px;
+
+		@include media($tablet) {
+			font-size: 18px;
+		}
+
+		@include media($mobile) {
+			font-size: 16px;
+		}
+
 		span {
 			@include latobold;
 		}
@@ -35,10 +45,21 @@
 
 	a {
 		display: block;
+		font-size: 20px;
+
+		@include media($tablet) {
+			font-size: 18px;
+		}
+
+		@include media($mobile) {
+			font-size: 16px;
+		}
 
 		&.button {
 			padding: 16px 20px;
 			border-bottom: none;
 		}
+
+
 	}
 }

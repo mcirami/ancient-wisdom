@@ -13451,6 +13451,19 @@ footer .copy a {
   color: #000000;
   background: transparent;
 }
+.two_column_section p {
+  font-size: 20px;
+}
+@media screen and (max-width: 991px) {
+  .two_column_section p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .two_column_section p {
+    font-size: 16px;
+  }
+}
 .two_column_section p span {
   font-family: "lato-bold", sans-serif;
   font-weight: 600;
@@ -13458,6 +13471,17 @@ footer .copy a {
 
 .button_group a {
   display: block;
+  font-size: 20px;
+}
+@media screen and (max-width: 991px) {
+  .button_group a {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .button_group a {
+    font-size: 16px;
+  }
 }
 .button_group a.button {
   padding: 16px 20px;
@@ -14019,6 +14043,7 @@ form input[type=submit]:hover {
 
 .membership-options p {
   font-size: 20px;
+  padding: 0 8%;
 }
 @media screen and (max-width: 991px) {
   .membership-options p {
@@ -14028,6 +14053,7 @@ form input[type=submit]:hover {
 @media screen and (max-width: 767px) {
   .membership-options p {
     font-size: 16px;
+    padding: 0 2%;
   }
 }
 
@@ -14086,17 +14112,45 @@ form input[type=submit]:hover {
   margin: 0;
 }
 .mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item {
-  font-family: "lato-reg", sans-serif;
-  font-weight: 400;
   border-bottom: none;
   padding: 30px 20px;
+}
+@media screen and (max-width: 767px) {
+  .mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item {
+    padding: 20px 10%;
+  }
+}
+.mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item .text_wrap {
+  max-width: 370px;
+  margin: 0 auto;
+}
+.mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item p {
+  font-family: "lato-reg", sans-serif;
+  font-weight: 400;
   color: #737373;
-  font-size: 16px;
+  font-size: 18px;
+  text-align: left;
+  padding: 0 4% 0 60px;
 }
 @media screen and (max-width: 1199px) {
-  .mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item {
+  .mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item p {
     font-size: 14px;
   }
+}
+.mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item p:before {
+  content: "";
+  background: url("../images/check.png") no-repeat;
+  position: absolute;
+  left: 26px;
+  top: 6px;
+  width: 18px;
+  height: 15px;
+  background-size: 100%;
 }
 .mepr-price-menu.classic.classic_dark .mepr-price-box-benefits .mepr-price-box-benefits-list .mepr-price-box-benefits-item:nth-child(2n-1) {
   background: #f5f5f5;

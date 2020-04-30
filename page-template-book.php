@@ -72,7 +72,7 @@ get_header(); ?>
 											<div class="row buttons extra_padding mb-1 mb-md-5">
 										<?php endif; ?>
 										<div class="col-12 col-md-6 mb-3 mb-md-0">
-												<a class="button square orange" href="<?php esc_url(the_sub_field('button_link'));?>"><?php the_sub_field('button_text');?>
+												<a target="_blank" class="button square orange" href="<?php esc_url(the_sub_field('button_link'));?>"><?php the_sub_field('button_text');?>
 													<?php
 														$price = get_sub_field('book_price');
 														if($price) :
