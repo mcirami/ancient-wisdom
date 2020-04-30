@@ -27,6 +27,8 @@ $wp_query = new WP_Query($args);*/
 
 							<div class="col-12">
 
+								<a class="back_link button blue arrow mb-5 d-inline-block text-uppercase" href="<?php echo home_url(); ?>/member-lessons">back to lessons</a>
+
 								<h1><?php echo sprintf( __( '%s Search Results for ', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
 
 								<?php get_template_part('loop'); ?>

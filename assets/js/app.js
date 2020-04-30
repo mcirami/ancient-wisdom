@@ -1,5 +1,22 @@
 jQuery(document).ready(function($) {
 
+	if (!Element.prototype.matches) {
+		Element.prototype.matches = Element.prototype.msMatchesSelector ||
+			Element.prototype.webkitMatchesSelector;
+	}
+
+	if (!Element.prototype.closest) {
+		Element.prototype.closest = function(s) {
+			var el = this;
+
+			do {
+				if (Element.prototype.matches.call(el, s)) return el;
+				el = el.parentElement || el.parentNode;
+			} while (el !== null && el.nodeType === 1);
+			return null;
+		};
+	}
+
 	/*
 		Function add and remove class from header to shrink logo when page scroll is > 40 from top
 	*/
@@ -46,28 +63,17 @@ jQuery(document).ready(function($) {
 				videoLink = event.target.getAttribute('data-video');
 			}
 
-			if (videoLink.includes("embed") || videoLink.includes("vimeo")) {
-				embedLink = videoLink;
-			} else if (videoLink.includes("v=")) {
-				str = videoLink.split("v=");
-				embedLink = "https://www.youtube.com/embed/" + str[1];
-			} else if (videoLink.includes("youtu.be")) {
-				str = videoLink.split(".be/");
-				embedLink = "https://www.youtube.com/embed/" + str[1];
-			}
-
 			let overlay = document.createElement("div");
 			overlay.classList.add('video_overlay');
 			overlay.innerHTML = "<div class='video_embed'><div class='video_wrapper'><iframe frameborder='0' allowfullscreen src='" +
-				embedLink +
-				"/?rel=0&showinfo=0'></iframe></div><span class='close_button'>CLOSE</span></div>";
+				videoLink + "'></iframe></div><span class='close_button'>CLOSE</span></div>";
 
 			document.body.appendChild(overlay);
 
 			setTimeout(function() {
 				const element = document.querySelector('.close_button');
 				element.addEventListener('click', function() {
-					document.querySelector('.video_overlay').remove();
+					$('.video_overlay').remove();
 				});
 			}, 1000);
 
@@ -82,14 +88,19 @@ jQuery(document).ready(function($) {
 	if (!my_script_vars.member) {
 		let links = document.querySelectorAll('.free_lesson_link');
 
-		if (my_script_vars.frontPage) {
-			links.forEach(link => {
-				link.firstChild.classList.add("scroll_to_section");
-			});
-		} else {
-			links.forEach(link => {
-				link.firstChild.href = my_script_vars.home + "#free_lessons_section";
-			});
+		for(let x = 0; x < links.length; x++) {
+
+			if (my_script_vars.frontPage) {
+				links[x].firstChild.classList.add("scroll_to_section");
+				/*links.forEach(link => {
+					link.firstChild.classList.add("scroll_to_section");
+				});*/
+			} else {
+				links[x].firstChild.href = my_script_vars.home + "#free_lessons_section";
+				/*links.forEach(link => {
+					link.firstChild.href = my_script_vars.home + "#free_lessons_section";
+				});*/
+			}
 		}
 	}
 
@@ -99,13 +110,21 @@ jQuery(document).ready(function($) {
 
 	let scrollToDivs = document.querySelectorAll('.scroll_to_section');
 
-	scrollToDivs.forEach(function(value, index){
+	for(let x = 0; x < scrollToDivs.length; x++) {
+		scrollToDivs[x].addEventListener("click", function(event){
+			event.preventDefault();
+			let hash = this.getAttribute('href');
+			$('html,body').animate({scrollTop: $(hash).offset().top - 100}, 1000);
+		}, false);
+	}
+
+	/*scrollToDivs.forEach(function(value, index){
 		value.addEventListener("click", function(event){
 			event.preventDefault();
 			let hash = this.getAttribute('href');
 			$('html,body').animate({scrollTop: $(hash).offset().top - 100}, 1000);
 		}, false);
-	});
+	});*/
 
 	if ($(window).width() > 768) {
 

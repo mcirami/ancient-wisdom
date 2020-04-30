@@ -12,17 +12,18 @@
 		padding: 18% 0 16%;
 		height: 100%;
 		width: 100%;
-		animation: zoom 75s ease-in-out infinite;
-		-webkit-animation: zoom 75s ease-in-out infinite;
-		/*animation-fill-mode: forwards;
-		-moz-animation-fill-mode: forwards;
-		-o-animation-fill-mode: forwards;
-		-webkit-animation-fill-mode: forwards;*/
+		animation: zoom 50s ease-in-out infinite;
+		-webkit-animation: zoom 50s ease-in-out infinite;
+		-o-animation: zoom 50s ease-in-out infinite;
+		-moz-animation: zoom 50s ease-in-out infinite;
 		transition: all .5s ease-in-out;
 		-moz-transition: all .5s ease-in-out;
 		-o-transition: all .5s ease-in-out;
 		-webkit-transition: all .5s ease-in-out;
 		overflow:hidden;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
 
 		@include media($desktop) {
 			padding: 18% 0 22%;
@@ -46,9 +47,13 @@
 	}
 
 	.hero {
-		top: 35%;
+		top: 24%;
 		right: 0;
 		width: 100%;
+
+		@include media($desktop) {
+			top: 22%;
+		}
 
 		@include media($mobile) {
 			top: 20%;

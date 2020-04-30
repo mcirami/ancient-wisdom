@@ -76,8 +76,8 @@ if($twoColumnSection) : ?>
 
 														?>
 
-														<div class="animated fadeIn duration4 eds-on-scroll video_box mb-5 mb-sm-0 col-12 col-sm-6 <?php if ($columnCount == 1) { echo 'pr-0 pr-sm-4'; } else { echo 'pl-0 pl-sm-4'; }?>">
-															<div class="row <?php if ($columnCount == 1) { echo 'pr-2'; } else { echo 'pl-2'; } ?>">
+														<div class="animated fadeIn duration4 eds-on-scroll video_box mb-5 mb-sm-0 col-12 col-sm-6 <?php if ($columnCount == 1) { echo 'pr-0 pr-sm-5'; } else { echo 'pr-1 pl-3 pl-sm-5'; }?>">
+															<div class="row">
 																<div class="col-12 p-0">
 
 																<?php
@@ -99,12 +99,14 @@ if($twoColumnSection) : ?>
 																		<img src="<?php echo bloginfo('template_url'); ?>/images/video-placeholder.jpg" alt="video image placeholder"/>
 
 																	<?php endif; ?>
-																	<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $embedLink; ?>">
+																	<div class="play_button_wrap video_open position-absolute " data-video="<?php echo $embedLink; ?>">
 																		<div class="img_wrap m-auto">
 																			<img class="play_button m-auto video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png"/>
 																		</div>
 																	</div>
 																</div>
+															</div>
+															<div class="row">
 																<div class="desc p-4 col-12 <?php if ($count % 2 == 0) echo 'gray'; ?>">
 																	<div class="video_description">
 																		<p><?php the_field('video_description', false); ?></p>
@@ -155,28 +157,9 @@ if($twoColumnSection) : ?>
 		</div>
 	</div>
 	<?php if(!is_front_page()) :?>
-		<div class="row mb-5">
-			<div class="col-12">
-				<div class="container">
-					<div class="form_wrapper mailchimp mt-5 animated fadeIn duration4 eds-on-scroll">
-						<div class="row">
-							<div class="col-12 col-xl-10 mx-auto d-flex align-content-center justify-content-center mb-4">
-								<img class="mr-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-								<h4>Enter Your Information Below To Get Free Lessons Delivered To Your Inbox</h4>
-								<img class="ml-4 d-none d-md-block" src="<?php echo bloginfo( 'template_url' ); ?>/images/double-arrows.png"/>
-							</div>
-						</div>
-						<?php
-						if($_SERVER['HTTP_HOST'] === 'wisdom.test' ) :
-							echo do_shortcode('[mc4wp_form id="266"]');
-						else:
-							echo do_shortcode('[mc4wp_form id="302"]');
-						endif; ?>
 
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php get_template_part( 'content', 'mailchimp-form' ); ?>
+
 	<?php endif; ?>
 
 <?php endif; ?>

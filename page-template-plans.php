@@ -35,7 +35,7 @@ get_header();
 							<div class="mepr-price-box-head">
 								<div class="mepr-price-box-title">Monthly Membership</div>
 								<div class="mepr-price-box-price">
-									<strike>$19.99/mo</strike>$9.99/mo
+									<strike>$19/mo</strike>$9.99/mo
 								</div>
 								<div class="mepr-price-box-heading">Monthly Membership</div>
 							</div>
@@ -60,7 +60,7 @@ get_header();
 							<div class="mepr-price-box-head">
 								<div class="mepr-price-box-title">Annual Membership</div>
 								<div class="mepr-price-box-price">
-									<strike>$249/yr</strike>$99.99/yr
+									<strike>$240/yr</strike>$99/yr
 								</div>
 								<div class="mepr-price-box-heading">Try our Annual Now.</div>
 							</div>
@@ -85,7 +85,7 @@ get_header();
 							<div class="mepr-price-box-head">
 								<div class="mepr-price-box-title">Lifetime Membership</div>
 								<div class="mepr-price-box-price">
-									$279.99
+									<strike>$379</strike>$249
 								</div>
 								<div class="mepr-price-box-heading">Join for a lifetime!</div>
 							</div>

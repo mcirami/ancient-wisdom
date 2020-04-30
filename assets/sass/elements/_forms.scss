@@ -4,7 +4,7 @@
 	padding: 40px;
 	-webkit-box-shadow: 0 0 40px -20px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 0 40px -20px rgba(0,0,0,0.5);
-	box-shadow: 0 0 40px -20px rgba(0,0,0,0.5);
+	box-shadow: 0 0 55px -15px rgba(0,0,0,0.5);
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -111,6 +111,12 @@
 form {
 	@include latoreg;
 	color: $black;
+
+	button, input {
+		-webkit-appearance: none;
+		appearance: none;
+		-moz-appearance: none;
+	}
 
 	label {
 		width: 100%;
@@ -227,6 +233,18 @@ form {
 
 	&:hover {
 		color: $blue;
+	}
+}
+
+.membership-options p {
+	font-size: 20px;
+
+	@include media($tablet) {
+		font-size: 18px;
+	}
+
+	@include media($mobile) {
+		font-size: 16px;
 	}
 }
 
@@ -503,6 +521,7 @@ form {
 
 		@include media($mobile) {
 			width: 20%;
+			font-size: 4.5vw;
 		}
 
 		&:hover {

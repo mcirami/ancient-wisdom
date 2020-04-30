@@ -66,7 +66,7 @@
 				<?php the_favorites_button();?>
 			</div>
 		</div>
-		<div class="play_button_wrap video_open position-absolute w-100 h-100 d-flex justify-content-center align-content-center" data-video="<?php echo $embedLink; ?>">
+		<div class="play_button_wrap video_open position-absolute" data-video="<?php echo $embedLink; ?>">
 			<div class="img_wrap m-auto">
 				<img class="play_button video_open_img" src="<?php echo bloginfo( 'template_url' ); ?>/images/icon-play.png" />
 			</div>

@@ -27,12 +27,12 @@ get_header(); ?>
 								/* Start the Loop */
 								while ( have_posts() ) : the_post(); ?>
 
-									<a class="back_link button blue arrow mb-5 d-inline-block" href="<?php echo home_url(); ?>/member-content">back to submissions</a>
+									<a class="back_link button blue arrow mb-5 d-inline-block text-uppercase" href="<?php echo home_url(); ?>/video-q-and-a">back to submissions</a>
 									<?php
-									the_post_navigation( array(
+									/*the_post_navigation( array(
 										'prev_text' => '<span class="screen-reader-text button black">' . __( 'Previous Submission', 'boiler' ) . '</span>',
 										'next_text' => '<span class="screen-reader-text button black">' . __( 'Next Submission', 'boiler' ) . '</span>'
-									) );
+									) );*/
 
 									get_template_part( 'content', 'single-member-video' );
 

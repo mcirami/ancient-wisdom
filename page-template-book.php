@@ -21,8 +21,8 @@ get_header(); ?>
 						<?php $image = get_field('book_image'); ?>
 						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"/>
 						<div class="row book_bottom">
-							<div class="col-12">
-								<img class="w-auto m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/book-bottom-bg.jpg" alt=""/>
+							<div class="col-12 p-0">
+								<img class="m-auto" src="<?php echo bloginfo( 'template_url' ); ?>/images/book-bottom-bg.jpg" alt=""/>
 							</div>
 						</div>
 

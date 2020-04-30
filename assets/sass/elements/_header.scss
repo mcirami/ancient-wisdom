@@ -197,10 +197,6 @@ header {
 						
 						&:hover {
 							color: $darkBlue;
-
-							@include media($mobile) {
-								color: $white;
-							}
 						}
 					}
 
@@ -231,10 +227,6 @@ header {
 
 							&:hover {
 								background: $darkBlue;
-
-								@include media($mobile) {
-									background: $blue;
-								}
 							}
 						}
 					}
@@ -246,10 +238,6 @@ header {
 
 					&:hover {
 						background-color: $green;
-
-						@include media($mobile) {
-							background: $orange;
-						}
 					}
 				}
 
@@ -326,11 +314,6 @@ header {
 								color: $black;
 								background: $darkBlue;
 
-								@include media($mobile) {
-									color: $white;
-									background: $black;
-								}
-
 								&:before {
 									content: '';
 									background: url('../images/right-arrow.png') no-repeat;
@@ -386,10 +369,6 @@ header {
 
 								&:hover {
 									color: $black;
-
-									@include media($mobile) {
-										color: $white;
-									}
 
 									&:before {
 										background: url('../images/right-arrow.png') no-repeat;
@@ -562,6 +541,10 @@ header {
 		@include media($mobile) {
 			font-size: 32px;
 		}
+
+		@include media($smallMobile) {
+			font-size: 5.5vw;
+		}
 	}
 
 	.blue_line {
@@ -593,6 +576,10 @@ header {
 		@include media($mobile) {
 			padding: 0;
 			font-size: 16px;
+		}
+
+		@include media($smallMobile) {
+			font-size: 3vw;
 		}
 
 		span {

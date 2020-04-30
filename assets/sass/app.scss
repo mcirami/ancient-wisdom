@@ -24,7 +24,6 @@
 //@import "partials/construction";
 
 // site elements add more as site grows in complexity
-@import "elements/standard";
 @import "elements/header";
 @import "elements/home";
 @import "elements/free-lessons";
@@ -37,15 +36,6 @@
 @import "elements/single-lesson";
 @import "elements/video-submit";
 
-//@import "elements/sidebar";
-/*@import "elements/premember";
-@import "elements/contact-us";
-@import "elements/forum";
-@import "elements/member-home";
-@import "elements/tml";
-@import "elements/member";
-@import "elements/mailbox";
-@import "elements/live-stream";*/
 
 // Import shame last. For quick fixes that will be worked into proper elements later.
 @import "elements/shame";

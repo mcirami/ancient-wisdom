@@ -1,6 +1,6 @@
 <div class="video row">
 
-	<div class="col-6 column">
+	<div class="col-12 col-md-6 column">
 
 		<?php $videoLink = get_field('video_link');
 
@@ -28,15 +28,15 @@
 
 		<?php else : ?>
 
-			<img src="<?php echo bloginfo('template_url'); ?>/images/no-video-placeholder.jpg"/>
+			<img src="<?php echo bloginfo('template_url'); ?>/images/video-placeholder.jpg"/>
 
 		<?php endif; ?>
 
 	</div>
-	<div class="col-6 column">
+	<div class="col-12 col-md-6 column">
 		<h3><?php the_title(); ?></h3>
 		<?php $author = get_the_author_meta('user_login'); ?>
-		<h4>Submitted by <a href="/membership-account/member-profile/?pu=<?php echo $author; ?>"><?php echo $author; ?></a></h4>
+		<h4>Submitted by <?php echo $author; ?></h4>
 		<p><?php the_field('description'); ?></p>
 	</div>
 </div>
