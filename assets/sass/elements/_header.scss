@@ -214,6 +214,7 @@ header {
 							-moz-border-radius: 30px;
 							color: $black;
 							background: $blue;
+							font-size: 14px;
 
 							@include media($tablet) {
 								padding: 8px 16px;

@@ -1,4 +1,6 @@
-<?php $twoColumnSection = get_field('two_column_section');
+<?php $id = get_the_ID();
+
+$twoColumnSection = get_field('two_column_section');
 
 if($twoColumnSection) : ?>
 	<section class="row free_videos" id="free_lessons_section">
@@ -91,14 +93,14 @@ if($twoColumnSection) : ?>
 
 <?php endif; ?>
 
-<?php if(is_page('section-two') || is_page('section-three') || is_page('home')) : ?>
+<?php if($id == 86 || $id == 89 || is_front_page()) : ?>
 	<div class="row more_videos pb-0 pb-md-5 mb-0 mb-md-4">
 		<div class="col-12 text-center">
 			<div class="container">
 				<?php
-				if(is_page('home')) {
+				if(is_front_page()) {
 					$link = "/section-two";
-				} elseif(is_page('section-two')) {
+				} elseif($id == 86) {
 					$link = "/section-three";
 				} else {
 					$link = "/plans/membership-options";

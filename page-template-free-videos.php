@@ -14,7 +14,7 @@ get_header(); ?>
 
 	<?php get_template_part( 'content', 'page-header' ); ?>
 
-	<?php if (get_the_title() == "Happiness") : ?>
+	<?php if (get_the_ID() == 77) : ?>
 
 		<?php get_template_part( 'content', 'free-videos-full' ); ?>
 

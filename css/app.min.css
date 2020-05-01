@@ -12437,6 +12437,7 @@ header .header_bottom .menu ul li.button_link a {
   -moz-border-radius: 30px;
   color: #000000;
   background: #5db9e2;
+  font-size: 14px;
 }
 @media screen and (max-width: 991px) {
   header .header_bottom .menu ul li.button_link a {
