@@ -1,8 +1,12 @@
+<?php
+$pageID = get_the_ID();
+?>
+
 <div class="column">
 
 	<div class="vid_image_wrap">
 
-		<?php get_template_part('content', 'video-link'); ?>
+		<?php include( locate_template( 'content-video-link.php', false, false ) ); ?>
 
 	</div><!-- vid_image_wrap -->
 

@@ -1,3 +1,6 @@
+<?php
+$pageID = get_the_ID();
+?>
 
 	<section class="row free_videos">
 		<article class="col-12">
@@ -28,7 +31,7 @@
 									<div class="row <?php if ($count % 2 !== 0) { echo 'pr-2'; } else { echo 'pl-2'; } ?>">
 										<div class="col-12 p-0">
 
-											<?php get_template_part('content', 'video-link'); ?>
+											<?php include( locate_template( 'content-video-link.php', false, false ) ); ?>
 
 										</div>
 										<div class="desc p-4 col-12 gray">

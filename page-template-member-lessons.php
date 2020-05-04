@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Member Videos
+ * Template Name: Member Lessons
  *
  * The template for displaying Member videos.
  *
@@ -17,7 +17,7 @@ $favorites = get_user_favorites();
 
 global $post;
 
-if ($id == 159) {
+if ($id == 159 || $id == 187) {
 
 	$args = array(
 		'post_type' => 'lessons',
@@ -58,7 +58,7 @@ $videos = new WP_Query($args);
 
 					<div class="col-12">
 
-						<?php if ($id == 159) : ?>
+						<?php if ($id == 159 || $id == 187) : ?>
 
 							<form class="search" method="get" action="<?php echo home_url(); ?>" role="search">
 								<input class="search-input" type="search" name="s" placeholder="<?php _e( 'To search, type and hit enter.', 'html5blank' ); ?>">
@@ -66,7 +66,7 @@ $videos = new WP_Query($args);
 								<button class="search-submit" type="submit" role="button"><?php _e( 'Search', 'html5blank' ); ?></button>
 							</form>
 
-						<?php elseif ($id == 225) : ?>
+						<?php elseif ($id == 225 || $id == 208) : ?>
 
 							<div class="top_content row">
 								<div class="col-12">
@@ -85,7 +85,7 @@ $videos = new WP_Query($args);
 						<div class="row">
 							<div class="col-12">
 
-								<?php if ($favorites == null && $id == 225) : ?>
+								<?php if ($favorites == null && ($id == 225 || $id == 208)) : ?>
 
 									<div class="text_wrap row">
 										<div class="col-12">
@@ -100,7 +100,7 @@ $videos = new WP_Query($args);
 
 									<?php if ( $videos->have_posts() ) : while( $videos->have_posts() ) : $videos->the_post(); ?>
 
-										<?php get_template_part('content', 'member-videos'); ?>
+										<?php get_template_part('content', 'member-lessons'); ?>
 
 									<?php endwhile; //query loop
 

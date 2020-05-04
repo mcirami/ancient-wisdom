@@ -407,3 +407,17 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 		}
 	}
 }
+
+.simplefavorite-button {
+	position: absolute !important;
+	right: 8px;
+	bottom: 0;
+	z-index: 12;
+
+	@include media($mobile) {
+		position: relative !important;
+		right: auto;
+		bottom: auto;
+		width: 100%;
+	}
+}

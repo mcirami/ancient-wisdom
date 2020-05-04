@@ -1,4 +1,4 @@
-<?php $id = get_the_ID();
+<?php $pageID = get_the_ID();
 
 $twoColumnSection = get_field('two_column_section');
 
@@ -57,7 +57,9 @@ if($twoColumnSection) : ?>
 															<div class="row">
 																<div class="col-12 p-0">
 
-																	<?php get_template_part('content', 'video-link'); ?>
+																	<?php
+																	include( locate_template( 'content-video-link.php', false, false ) );
+																	//get_template_part('content', 'video-link'); ?>
 
 																</div>
 															</div>
@@ -93,14 +95,14 @@ if($twoColumnSection) : ?>
 
 <?php endif; ?>
 
-<?php if($id == 86 || $id == 89 || is_front_page()) : ?>
+<?php if($pageID == 86 || $pageID == 89 || is_front_page()) : ?>
 	<div class="row more_videos pb-0 pb-md-5 mb-0 mb-md-4">
 		<div class="col-12 text-center">
 			<div class="container">
 				<?php
 				if(is_front_page()) {
 					$link = "/section-two";
-				} elseif($id == 86) {
+				} elseif($pageID == 86) {
 					$link = "/section-three";
 				} else {
 					$link = "/plans/membership-options";

@@ -79,7 +79,7 @@ get_header(); ?>
 
 			<?php endif; ?>
 
-		<?php get_template_part( 'content', 'free-videos' ); ?>
+		<?php get_template_part( 'content', 'free-lessons' ); ?>
 
 		<?php $aboutSection = get_field('about_section');
 

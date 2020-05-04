@@ -25,13 +25,11 @@
 		$embedLink = "https://player.vimeo.com/video/" . $embedCode . "/?autoplay=1";
 	}
 
-	$attachment_id =  get_field('video_image');
+	$attachment_id = get_field('video_image');
+	$size = "video-thumb";
+	$videoImage = wp_get_attachment_image_src( $attachment_id, $size );
 
-	if (!empty($attachment_id)) :
-
-		$size = "video-thumb";
-		$videoImage = wp_get_attachment_image_src( $attachment_id, $size );
-		?>
+	if (!empty($videoImage)) : ?>
 
 		<img src="<?php echo $videoImage[0]; ?>" alt="video image placeholder">
 
@@ -45,7 +43,7 @@
 
 	<?php endif;
 
-	if(is_user_logged_in() && !is_front_page()) : ?>
+	if(is_user_logged_in() && !is_front_page() && $pageID !== 86 && $pageID !== 89) : ?>
 
 		<div class="button_wrap row">
 			<div class="col-12">

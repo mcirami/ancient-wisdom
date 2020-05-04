@@ -4,7 +4,7 @@
 	<!--<article id="post-<?php /*the_ID(); */?>" --><?php /*post_class(); */?>
 
 
-		<?php get_template_part( 'content', 'member-videos' ); ?>
+		<?php get_template_part( 'content', 'member-lessons' ); ?>
 
 		<!-- post title -->
 		<!--<h2>

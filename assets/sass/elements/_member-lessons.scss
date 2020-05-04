@@ -141,23 +141,6 @@
                 }
             }
 
-            .vid_image_wrap {
-
-                .simplefavorite-button {
-                    position: absolute !important;
-                    right: 8px;
-                    bottom: 0;
-                    z-index: 12;
-
-                    @include media($mobile) {
-                        position: relative !important;
-                        right: auto;
-                        bottom: auto;
-                        width: 100%;
-                    }
-                }
-            }
-
             a {
                 display: block;
             }

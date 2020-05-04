@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Free Videos
+ * Template Name: Free Lessons
  *
  * The template for displaying Free videos.
  *
@@ -16,11 +16,11 @@ get_header(); ?>
 
 	<?php if (get_the_ID() == 77) : ?>
 
-		<?php get_template_part( 'content', 'free-videos-full' ); ?>
+		<?php get_template_part( 'content', 'free-lessons-full' ); ?>
 
 	<?php else :?>
 
-		<?php get_template_part( 'content', 'free-videos' ); ?>
+		<?php get_template_part( 'content', 'free-lessons' ); ?>
 
 	<?php endif; ?>
 
