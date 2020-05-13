@@ -96,7 +96,7 @@ if($twoColumnSection) : ?>
 <?php endif; ?>
 
 <?php if($pageID == 86 || $pageID == 89 || is_front_page()) : ?>
-	<div class="row more_videos pb-0 pb-md-5 mb-0 mb-md-4">
+	<div class="row more_videos pb-0 pb-md-5 mt-5 mb-0 mb-md-4">
 		<div class="col-12 text-center">
 			<div class="container">
 				<?php
