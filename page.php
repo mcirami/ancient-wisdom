@@ -15,6 +15,14 @@
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<div class="container">
+					<?php if ($id == 8 || $id == 33) : ?>
+						<div class="login_text row text-center mb-5 pb-5">
+							<div class="col-12">
+								<p class="mb-3 mb-sm-5">Not A Member?</p>
+								<a class="button blue arrow" href="<?php echo home_url(); ?>/plans/membership-options/">Check Out Our Membership Options</a>
+							</div>
+						</div>
+					<?php endif; ?>
 					<div class="row">
 						<?php
 
@@ -32,13 +40,6 @@
 									else echo 'col-12 col-md-8 col-lg-6 mx-auto form_wrapper'; ?>" >
 
 								<?php the_content(); ?>
-
-								<?php if ($id == 8 || $id == 33) : ?>
-									<div class="login_text position-absolute">
-										<p class="mb-0">Don't Have An Account Yet?</p>
-										<a href="<?php echo home_url(); ?>/plans/membership-options/">Click Here To Register!</a>
-									</div>
-								<?php endif; ?>
 
 							</div>
 

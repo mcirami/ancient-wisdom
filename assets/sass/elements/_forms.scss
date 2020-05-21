@@ -485,26 +485,31 @@ form {
 }
 
 .login_text {
-	right: 40px;
-	bottom: 30px;
-	font-size: 14px;
+	font-size: 22px;
 	line-height: 1.2;
 
-	@include media($tablet) {
-		right: 22px;
-		bottom: 22px;
-	}
-
 	@include media($mobile) {
-		right: 22px;
-		bottom: 12px;
+		font-size: 18px;
 	}
 
-	a {
-		color: $blue;
+	.button.blue.arrow {
+		font-size: 20px;
 
-		&:hover {
-			color: $darkBlue;
+		@include media($mobile) {
+			font-size: 14px;
+		}
+
+		@include media($smallMobile) {
+			display:block;
+			width: 100%;
+			padding: 15px;
+		}
+
+		&:after {
+
+			@include media($smallMobile) {
+				background: none;
+			}
 		}
 	}
 }
