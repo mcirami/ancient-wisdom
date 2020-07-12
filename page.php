@@ -18,7 +18,7 @@
 					<?php if ($id == 8 || $id == 33) : ?>
 						<div class="login_text row text-center mb-5 pb-5">
 							<div class="col-12">
-								<p class="mb-3 mb-sm-5">Not A Member?</p>
+								<p class="mb-3 mb-sm-5">Not a member yet?</p>
 								<a class="button blue arrow" href="<?php echo home_url(); ?>/plans/membership-options/">Check Out Our Membership Options</a>
 							</div>
 						</div>

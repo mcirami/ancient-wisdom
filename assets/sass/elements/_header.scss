@@ -129,7 +129,7 @@ header {
 						}
 					}
 
-					&.menu-item-has-children > a {
+					&.menu-item-has-children.top_submenu > a {
 
 						&:after {
 							content: '';
@@ -380,6 +380,18 @@ header {
 											background-size: 100%;
 										}
 									}
+								}
+							}
+						}
+
+						&.cat_sub_menu .sub-menu .sub-menu {
+							display: block !important;
+
+							a {
+								padding-left: 100px;
+
+								&:before {
+									left: 83px;
 								}
 							}
 						}

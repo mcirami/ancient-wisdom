@@ -29,19 +29,6 @@ get_header(); ?>
 									<div class="col-9 col-lg-7 ml-auto">
 										<h2 class="animated fadeIn duration4"><?php echo $headerSection['hero_title']; ?></h2>
 										<h3 class="animated fadeIn duration4"><?php echo $headerSection['hero_sub_title']; ?></h3>
-										<!--<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>
-										<div class="firefly"></div>-->
 									</div>
 								</div>
 							</div>
@@ -84,7 +71,7 @@ get_header(); ?>
 		<?php $aboutSection = get_field('about_section');
 
 		if($aboutSection) : ?>
-			<section class="about_section row mt-5 mt-md-0">
+			<section class="about_section row mt-5 mt-md-0" id="freelessons">
 				<div class="col-12">
 					<div class="container">
 						<div class="row">
@@ -93,8 +80,9 @@ get_header(); ?>
 								<p class="animated fadeIn duration4 eds-on-scroll"><?php echo $aboutSection['description']; ?></p>
 							</article>
 							<article class="col-12 col-md-6 column animated fadeIn duration4 eds-on-scroll">
-								<?php $image = $aboutSection['image']; ?>
-								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+								<div class="embed-container">
+									<?php echo $aboutSection['video']; ?>
+								</div>
 							</article>
 						</div>
 

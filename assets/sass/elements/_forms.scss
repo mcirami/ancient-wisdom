@@ -226,6 +226,16 @@ form {
 			background: $black;
 		}
 	}
+
+	&.mepr-signup-form input[type="submit"]{
+		background: $orange;
+		color: $white;
+		border-bottom: 6px solid $hoverOrange;
+
+		&:hover {
+			background: $hoverOrange;
+		}
+	}
 }
 
 .mepr-login-actions a {

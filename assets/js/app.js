@@ -118,14 +118,6 @@ jQuery(document).ready(function($) {
 		}, false);
 	}
 
-	/*scrollToDivs.forEach(function(value, index){
-		value.addEventListener("click", function(event){
-			event.preventDefault();
-			let hash = this.getAttribute('href');
-			$('html,body').animate({scrollTop: $(hash).offset().top - 100}, 1000);
-		}, false);
-	});*/
-
 	if ($(window).width() > 768) {
 
 		subMenuHover();
@@ -178,7 +170,7 @@ jQuery(document).ready(function($) {
 		let topHasChildren = $('.menu-item-has-children.top_submenu');
 		let bottomHasChildren = $('.menu-item-has-children');
 		bottomHasChildren.mouseenter(function () {
-				$(this).children('.sub-menu').slideDown(100);
+				$(this).children('.sub-menu').not('.cat_sub_menu .sub-menu .sub-menu').slideDown(100);
 			}
 		);
 

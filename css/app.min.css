@@ -12372,7 +12372,7 @@ header .header_bottom .menu ul li:last-child {
 header .header_bottom .menu ul li.current_page_item a {
   color: #2598cc;
 }
-header .header_bottom .menu ul li.menu-item-has-children > a:after {
+header .header_bottom .menu ul li.menu-item-has-children.top_submenu > a:after {
   content: "";
   background: url("../images/right-arrow-gray.png") no-repeat;
   background-size: 100%;
@@ -12388,7 +12388,7 @@ header .header_bottom .menu ul li.menu-item-has-children > a:after {
   -o-transform: rotate(90deg);
 }
 @media screen and (max-width: 767px) {
-  header .header_bottom .menu ul li.menu-item-has-children > a:after {
+  header .header_bottom .menu ul li.menu-item-has-children.top_submenu > a:after {
     content: "+";
     position: absolute;
     right: 20px;
@@ -12404,7 +12404,7 @@ header .header_bottom .menu ul li.menu-item-has-children > a:after {
     -o-transform: none;
   }
 }
-header .header_bottom .menu ul li.menu-item-has-children > a.open:after {
+header .header_bottom .menu ul li.menu-item-has-children.top_submenu > a.open:after {
   content: "-";
   font-size: 42px;
 }
@@ -12605,6 +12605,15 @@ header .header_bottom .menu ul ul.sub-menu li .sub-menu a:hover:before {
     background: url("../images/right-arrow-gray.png") no-repeat;
     background-size: 100%;
   }
+}
+header .header_bottom .menu ul ul.sub-menu li.cat_sub_menu .sub-menu .sub-menu {
+  display: block !important;
+}
+header .header_bottom .menu ul ul.sub-menu li.cat_sub_menu .sub-menu .sub-menu a {
+  padding-left: 100px;
+}
+header .header_bottom .menu ul ul.sub-menu li.cat_sub_menu .sub-menu .sub-menu a:before {
+  left: 83px;
 }
 
 .sub_header {
@@ -13488,6 +13497,9 @@ footer .copy a {
 .button_group a {
   display: block;
   font-size: 20px;
+  border-radius: px;
+  -webkit-border-radius: px;
+  -moz-border-radius: px;
 }
 @media screen and (max-width: 991px) {
   .button_group a {
@@ -14034,6 +14046,14 @@ form input[type=submit] {
 }
 form input[type=submit]:hover {
   background: #000000;
+}
+form.mepr-signup-form input[type=submit] {
+  background: #f78d02;
+  color: #fff;
+  border-bottom: 6px solid #d18828;
+}
+form.mepr-signup-form input[type=submit]:hover {
+  background: #d18828;
 }
 
 .mepr-login-actions a {
