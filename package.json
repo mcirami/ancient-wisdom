@@ -4,7 +4,7 @@
   "description": "Powerful shell for rapidly deploying your WordPress projects.",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "file:bootstrap",
     "bulma": "^0.7.2",
     "filterizr": "^2.2.3",
